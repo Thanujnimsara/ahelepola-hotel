@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ehelepola Hotel | Ultra-Luxury Heritage Hotel & Spa - Kandy, Sri Lanka</title>
+  <meta name="description"
+    content="Experience royal Sri Lankan hospitality at The Ehelepola Hotel & Heritage Retreat. Royal luxury suites, Ayurvedic wellness sanctuary, and world-class fine dining in Kandy, Sri Lanka.">
+  <meta name="keywords"
+    content="The Ehelepola Hotel, Ehelepola Hotel, luxury hotel Sri Lanka, Kandy luxury resort, boutique hotel Kandy, Ayurveda spa Kandy">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="The Ehelepola Hotel | Ultra-Luxury Heritage Hotel & Spa">
+  <meta property="og:description"
+    content="Where Royal Heritage Meets Timeless Elegance. Book your private sanctuary in the misty hills of Kandy, Sri Lanka.">
+  <meta property="og:image" content="assets/images/hero_resort.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚜️</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Structured Data JSON-LD for Luxury Hotel -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "The Ehelepola Hotel",
+    "description": "An ultra-luxury boutique heritage hotel and Ayurvedic sanctuary in Kandy, Sri Lanka.",
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "5"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ehelepola Heritage Estate, Royal Valley",
+      "addressLocality": "Kandy",
+      "addressRegion": "Central Province",
+      "addressCountry": "Sri Lanka"
+    },
+    "priceRange": "$$$$",
+    "telephone": "0637245245",
+    "url": "https://ehelepolahotel.lk"
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- 1. Top Announcement & Concierge Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-announcement">
+        <i class="fas fa-crown"></i>
+        <span>Complimentary Mercedes-Benz Chauffeur Transfer for Stays of 3 Nights or More</span>
+      </div>
+      <div class="top-right-tools">
+        <a href="tel:0637245245" class="top-contact-link">
+          <i class="fas fa-phone-alt"></i>
+          <span>0637245245</span>
+        </a>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-coins" style="font-size: 0.75rem; color: var(--primary-gold);"></i>
+          <select id="currencySelector" class="currency-select" aria-label="Select Currency">
+            <option value="USD">USD ($)</option>
+            <option value="LKR">LKR (Rs.)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="AUD">AUD (A$)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Site Header & Luxury Navigation -->
+  <header class="site-header">
+    <div class="container-wide nav-container">
+      <a href="#" class="site-logo">
+        <span class="logo-main">THE EHELEPOLA HOTEL</span>
+        <span class="logo-sub">Kandy • Sri Lanka</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">Heritage</a></li>
+        <li><a href="#suites" class="nav-link">Suites & Villas</a></li>
+        <li><a href="#video-tour" class="nav-link">Video Tour</a></li>
+        <li><a href="#dining" class="nav-link">Gastronomy</a></li>
+        <li><a href="#wellness" class="nav-link">Ayurveda Spa</a></li>
+        <li><a href="#experiences" class="nav-link">Experiences</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Ambient Sound Toggle -->
+        <button id="soundToggleBtn" class="sound-toggle-btn" title="Play Soothing Resort Nature Ambience">
+          <i class="fas fa-volume-mute"></i>
+        </button>
+        <!-- Reserve CTA Button -->
+        <button class="btn btn-gold btn-sm open-booking-modal" data-suite="royal-heritage">
+          <i class="fas fa-calendar-check"></i>
+          <span>Reserve</span>
+        </button>
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. Hero Section with Cinematic Visuals & Ambience -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-media">
+      <img src="assets/images/ahelepola_mansion_hero.jpg" alt="The Ehelepola Hotel Luxury Residence & Estate"
+        class="hero-bg-image">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-award text-gold"></i>
+        <span>Nobility • Heritage • Serenity • Est. 1823</span>
+      </div>
+
+      <h1 class="hero-title">
+        Where Royal Heritage<br>Meets <span class="gold-accent">Timeless Luxury</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Nestled amidst the misty emerald hills of Kandy, Sri Lanka. An exclusive sanctuary of 28 private suites, bespoke
+        Ayurvedic wellness, and Michelin-caliber Ceylon gastronomy.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-gold open-booking-modal" data-suite="royal-heritage">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Check Availability</span>
+        </button>
+        <button class="btn btn-glass" id="watchFilmBtn">
+          <i class="fas fa-play-circle" style="color: var(--primary-gold);"></i>
+          <span>Watch Film & Tour (4K)</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Interactive Quick Booking Engine Bar -->
+  <div class="booking-engine-wrap">
+    <div class="container">
+      <div class="booking-bar">
+        <div class="booking-grid">
+          <!-- Check In -->
+          <div class="booking-field">
+            <label class="booking-label" for="barCheckin">
+              <i class="fas fa-calendar-day"></i> Check-in
+            </label>
+            <input type="date" id="barCheckin" class="booking-input">
+          </div>
+
+          <!-- Check Out -->
+          <div class="booking-field">
+            <label class="booking-label" for="barCheckout">
+              <i class="fas fa-calendar-check"></i> Check-out
+            </label>
+            <input type="date" id="barCheckout" class="booking-input">
+          </div>
+
+          <!-- Suite Type -->
+          <div class="booking-field">
+            <label class="booking-label" for="barSuiteSelect">
+              <i class="fas fa-bed"></i> Suite / Residence
+            </label>
+            <select id="barSuiteSelect" class="booking-select">
+              <option value="royal-heritage">The Royal Ehelepola Suite</option>
+              <option value="grand-verandah">Governor's Heritage Verandah</option>
+            </select>
+          </div>
+
+          <!-- Guests -->
+          <div class="booking-field">
+            <label class="booking-label" for="barGuestsSelect">
+              <i class="fas fa-user-friends"></i> Guests
+            </label>
+            <select id="barGuestsSelect" class="booking-select">
+              <option value="2">2 Adults (1 Room)</option>
+              <option value="1">1 Adult (Solo Retreat)</option>
+              <option value="3">3 Adults (Deluxe)</option>
+              <option value="4">2 Adults, 2 Children (Family)</option>
+            </select>
+          </div>
+
+          <!-- Action Button -->
+          <button class="btn btn-gold booking-cta-btn" id="barCheckAvailabilityBtn">
+            <span>Find Best Rate</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Heritage & Noble Legacy Story Section -->
+  <section class="story-section" id="about">
+    <div class="container">
+      <div class="story-grid">
+        <!-- Visual Column -->
+        <div class="story-image-composition">
+          <img src="assets/images/grand_lobby.jpg" alt="The Ehelepola Hotel Grand Heritage Lobby" class="story-main-img">
+          <div class="story-floating-card">
+            <div class="floating-number">200+</div>
+            <div class="floating-text">Years of noble Kandyan heritage & royal architectural preservation.</div>
+          </div>
+        </div>
+
+        <!-- Text Column -->
+        <div class="story-content">
+          <div class="sub-tag">The Noble Heritage</div>
+          <h2 class="section-title">An Aristocratic Legacy in the Kingdom of Kandy</h2>
+          <p>
+            Named in honor of the storied Maha Nilame (Prime Minister) of the historic Kandyan court, <strong>The
+              Ehelepola Hotel</strong> stands as a restored masterpiece where 19th-century royal grandeur seamlessly converges
+            with contemporary five-star indulgence.
+          </p>
+          <p style="margin-top: 16px;">
+            Set within an 18-acre private estate bordered by virgin tea plantations and ancient spice groves, our
+            retreat offers discerning travelers an unparalleled haven of privacy, bespoke butler service, and unhurried
+            luxury.
+          </p>
+
+          <div class="story-features">
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-crown"></i></div>
+              <h3 class="feature-title">Royal Butler Service</h3>
+              <p class="feature-desc">Dedicated 24/7 personal butler to curate every detail of your stay.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-spa"></i></div>
+              <h3 class="feature-title">Ayurvedic Doctor</h3>
+              <p class="feature-desc">On-site resident Ayurvedic physicians and personalized herbal therapy.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+              <h3 class="feature-title">Farm-to-Table Dining</h3>
+              <p class="feature-desc">Organic ingredients harvested daily from our private estate gardens.</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-helicopter"></i></div>
+              <h3 class="feature-title">Private Helipad</h3>
+              <p class="feature-desc">Direct 30-minute aerial VIP transfers from Colombo International Airport.</p>
+            </div>
+          </div>
+
+          <a href="#suites" class="btn btn-outline-gold">
+            <span>Explore The Estate</span>
+            <i class="fas fa-compass"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Accommodations Showcase (Suites & Private Pool Villas) -->
+  <section class="suites-section" id="suites">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-tag">Sanctuaries of Serenity</div>
+        <h2 class="section-title">Ultra-Luxury Suites & Private Villas</h2>
+        <p class="section-desc">Each residence combines authentic Kandyan teak carvings, antique furnishings, expansive
+          private terraces, and contemporary state-of-the-art comforts.</p>
+      </div>
+
+      <div class="suites-grid">
+        <!-- Suite 1: Royal Ehelepola Suite -->
+        <div class="suite-card">
+          <div class="suite-thumb-wrap">
+            <img src="assets/images/royal_suite.jpg" alt="The Royal Ehelepola Suite" class="suite-img">
+            <span class="suite-badge">Signature Masterpiece</span>
+            <div class="suite-price-tag">
+              <span class="price-currency">From</span>
+              <span class="price-value" data-base-price="520">$520</span>
+              <span class="price-period">/ night</span>
+            </div>
+          </div>
+          <div class="suite-content">
+            <h3 class="suite-title">The Royal Ehelepola Suite</h3>
+            <div class="suite-meta-bar">
+              <span><i class="fas fa-vector-square"></i> 140 m²</span>
+              <span><i class="fas fa-user-friends"></i> 2 Guests</span>
+              <span><i class="fas fa-mountain"></i> Mountain View</span>
+            </div>
+            <p style="font-size: 0.92rem; margin-bottom: 16px;">
+              Four-poster canopy king bed with Egyptian cotton linens, polished teak floors, private balcony with
+              mountain mist view, and a freestanding marble bath.
+            </p>
+            <div class="suite-amenities-list">
+              <span class="amenity-chip"><i class="fas fa-user-tie"></i> 24h Butler</span>
+              <span class="amenity-chip"><i class="fas fa-bath"></i> Marble Tub</span>
+              <span class="amenity-chip"><i class="fas fa-coffee"></i> Ceylon Tea Bar</span>
+              <span class="amenity-chip"><i class="fas fa-wifi"></i> High-Speed Wi-Fi</span>
+            </div>
+            <div class="suite-card-footer">
+              <button class="btn btn-outline-gold btn-sm view-suite-details" data-suite="royal-heritage">
+                <span>View Details</span>
+              </button>
+              <button class="btn btn-gold btn-sm open-booking-modal" data-suite="royal-heritage">
+                <span>Book Suite</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suite 2: Governor's Heritage Verandah -->
+        <div class="suite-card">
+          <div class="suite-thumb-wrap">
+            <img src="assets/images/grand_lobby.jpg" alt="Governor's Heritage Verandah" class="suite-img">
+            <span class="suite-badge">Historic Charm</span>
+            <div class="suite-price-tag">
+              <span class="price-currency">From</span>
+              <span class="price-value" data-base-price="420">$420</span>
+              <span class="price-period">/ night</span>
+            </div>
+          </div>
+          <div class="suite-content">
+            <h3 class="suite-title">Governor's Heritage Verandah</h3>
+            <div class="suite-meta-bar">
+              <span><i class="fas fa-vector-square"></i> 95 m²</span>
+              <span><i class="fas fa-user-friends"></i> 2 Guests</span>
+              <span><i class="fas fa-tree"></i> Courtyard Garden</span>
+            </div>
+            <p style="font-size: 0.92rem; margin-bottom: 16px;">
+              Exquisite Kandyan noble architecture with soaring timber ceilings, handcrafted brass lamps, private stone
+              verandah opening to fragrant frangipani courtyards.
+            </p>
+            <div class="suite-amenities-list">
+              <span class="amenity-chip"><i class="fas fa-wind"></i> Private Verandah</span>
+              <span class="amenity-chip"><i class="fas fa-leaf"></i> Herbal Bath Salts</span>
+              <span class="amenity-chip"><i class="fas fa-mug-hot"></i> Organic Tea</span>
+              <span class="amenity-chip"><i class="fas fa-couch"></i> Antique Lounge</span>
+            </div>
+            <div class="suite-card-footer">
+              <button class="btn btn-outline-gold btn-sm view-suite-details" data-suite="grand-verandah">
+                <span>View Details</span>
+              </button>
+              <button class="btn btn-gold btn-sm open-booking-modal" data-suite="grand-verandah">
+                <span>Book Suite</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Cinematic Video Tour & Virtual Experience Showcase -->
+  <section class="video-showcase-section" id="video-tour">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-tag">Cinematic Experience</div>
+        <h2 class="section-title">Immerse in The Ehelepola Hotel Sanctuary</h2>
+        <p class="section-desc">Experience the magic before your arrival. Explore our sunset infinity pool, aristocratic
+          architecture, misty tea estates, and sacred rituals in 4K resolution.</p>
+      </div>
+
+      <div class="video-player-frame">
+        <img src="assets/images/hero_resort.jpg" alt="Video Tour Preview" class="showcase-video-element">
+
+        <div class="video-player-overlay">
+          <div class="video-top-info">
+            <span class="video-tour-badge"><i class="fas fa-film"></i> Official 4K Resort Film</span>
+            <span class="video-tour-badge"><i class="fas fa-clock"></i> 3:45 Full Tour</span>
+          </div>
+
+          <div class="video-play-center">
+            <button class="big-play-btn" id="showcasePlayBtn" aria-label="Play 4K Cinematic Video Tour">
+              <i class="fas fa-play"></i>
+            </button>
+            <div
+              style="color: #ffffff; font-family: var(--font-brand); letter-spacing: 0.15em; font-size: 0.95rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">
+              CLICK TO WATCH FILM
+            </div>
+          </div>
+
+          <!-- Video Chapters -->
+          <div class="video-chapters-bar">
+            <button class="chapter-btn active"><i class="fas fa-play-circle"></i> 1. The Grounds & Pool</button>
+            <button class="chapter-btn"><i class="fas fa-bed"></i> 2. Suites & Residences</button>
+            <button class="chapter-btn"><i class="fas fa-spa"></i> 3. Ayurvedic Spa</button>
+            <button class="chapter-btn"><i class="fas fa-utensils"></i> 4. Royal Gastronomy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Fine Dining & Gastronomy -->
+  <section class="dining-section" id="dining">
+    <div class="container">
+      <div class="dining-grid">
+        <!-- Visuals -->
+        <div class="dining-img-wrap">
+          <img src="assets/images/fine_dining.jpg" alt="The Ehelepola Hotel Fine Dining Experience">
+        </div>
+
+        <!-- Content & Menu -->
+        <div class="dining-content">
+          <div class="sub-tag">Royal Gastronomy</div>
+          <h2 class="section-title">The Governor's Dining Room & Ceylon Degustation</h2>
+          <p>
+            Honoring culinary traditions once prepared for ancient Kandyan kings. Our Michelin-trained executive chef
+            fuses indigenous Ceylon spices, heirloom organic ingredients, and modern gastronomy.
+          </p>
+
+          <!-- Interactive Menu Tabs -->
+          <div class="dining-tab-buttons">
+            <button class="dining-tab-btn active" data-target="dinner-menu">Royal Dinner</button>
+            <button class="dining-tab-btn" data-target="teatime-menu">High Tea</button>
+            <button class="dining-tab-btn" data-target="cocktails-menu">Artisan Spirits</button>
+          </div>
+
+          <!-- Menu 1: Royal Dinner -->
+          <div class="dining-menu-content" id="dinner-menu">
+            <div class="menu-list">
+              <div class="menu-item">
+                <div class="menu-item-head">
+                  <span class="menu-dish-name">Slow-Braised Ceylon Cinnamon Lamb Shank</span>
+                  <div class="menu-dots"></div>
+                  <span class="menu-dish-price" data-base-price="55">$55</span>
+                </div>
+                <div class="menu-dish-desc">Infused with 48-hour spiced tamarind glaze, roasted sweet yam, and toasted
+                  curry leaf oil.</div>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-head">
+                  <span class="menu-dish-name">Jaffna Lagoon Jumbo Prawn Thermidor</span>
+                  <div class="menu-dots"></div>
+                  <span class="menu-dish-price" data-base-price="68">$68</span>
+                </div>
+                <div class="menu-dish-desc">Wild-caught king prawns, coconut arrack bisque, gratinated Ceylon aged
+                  cheese, and red rice pilaf.</div>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-head">
+                  <span class="menu-dish-name">Royal Kandyan Heirloom Degustation (7-Courses)</span>
+                  <div class="menu-dots"></div>
+                  <span class="menu-dish-price" data-base-price="120">$120</span>
+                </div>
+                <div class="menu-dish-desc">A curated sensory journey through historic royal banquet recipes paired with
+                  premier boutique wines.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menu 2: High Tea -->
+          <div class="dining-menu-content" id="teatime-menu" style="display: none;">
+            <div class="menu-list">
+              <div class="menu-item">
+                <div class="menu-item-head">
+                  <span class="menu-dish-name">Ehelepola Grand High Tea on the Verandah</span>
+                  <div class="menu-dots"></div>
+                  <span class="menu-dish-price" data-base-price="38">$38</span>
+                </div>
+                <div class="menu-dish-desc">Three-tiered silver stand with warm clotted cream scones, passionfruit curd,
+                  smoked salmon, and single-estate silver tips tea.</div>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-head">
+                  <span class="menu-dish-name">Artisan Ceylon Tea Tasting Flights</span>
+                  <div class="menu-dots"></div>
+                  <span class="menu-dish-price" data-base-price="25">$25</span>
+                </div>
+                <div class="menu-dish-desc">Guided degustation of rare Nuwara Eliya Golden Tips, Kandy Orange Pekoe, and
+                  Ruhuna Flowery Broken Pekoe.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Menu 3: Cocktails -->
+          <div class="dining-menu-content" id="cocktails-menu" style="display: none;">
+            <div class="menu-list">
+              <div class="menu-item">
+                <div class="menu-item-head">
+                  <span class="menu-dish-name">The Kandyan King's Old Fashioned</span>
+                  <div class="menu-dots"></div>
+                  <span class="menu-dish-price" data-base-price="22">$22</span>
+                </div>
+                <div class="menu-dish-desc">Aged Halmilla Ceylon Arrack, smoked wild cinnamon bark, kitul treacle,
+                  aromatic bitters.</div>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-head">
+                  <span class="menu-dish-name">Lotus Mist Botanic Spritz</span>
+                  <div class="menu-dots"></div>
+                  <span class="menu-dish-price" data-base-price="19">$19</span>
+                </div>
+                <div class="menu-dish-desc">Infused butterfly pea blossom gin, pink lotus water, elderflower cordial,
+                  Veuve Clicquot champagne.</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-gold open-booking-modal" data-suite="royal-heritage">
+            <i class="fas fa-utensils"></i>
+            <span>Reserve Private Dining Table</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Ayurveda & Holistic Wellness Sanctuary -->
+  <section class="spa-section" id="wellness">
+    <div class="container">
+      <div class="spa-banner-grid">
+        <div class="spa-info">
+          <div class="sub-tag">Ancient Healing & Rejuvenation</div>
+          <h2 class="section-title">The Maha Nilame Ayurvedic Sanctuary</h2>
+          <p>
+            Immerse yourself in authentic Vedic healing practices passed down for over three millennia. Set within
+            open-air lotus pavilions overlooking the misty jungle canopy, our therapies balance mind, body, and spirit.
+          </p>
+
+          <div class="spa-services-grid">
+            <div class="spa-service-card">
+              <h4><i class="fas fa-hand-holding-heart text-gold"></i> Shirodhara Flow</h4>
+              <p>Continuous stream of warm medicated herbal oil gently poured over the forehead chakra to melt stress
+                and restore deep mental clarity.</p>
+            </div>
+            <div class="spa-service-card">
+              <h4><i class="fas fa-hot-tub text-gold"></i> Swedana Herbal Steam</h4>
+              <p>Detoxifying wooden herbal steam chambers steeped in indigenous medicinal leaves, lemon grass, and holy
+                basil.</p>
+            </div>
+            <div class="spa-service-card">
+              <h4><i class="fas fa-yin-yang text-gold"></i> Dawn Mountain Yoga</h4>
+              <p>Private sunrise sessions on our open teak pavilion guided by Vedic masters facing the sacred Knuckles
+                peaks.</p>
+            </div>
+            <div class="spa-service-card">
+              <h4><i class="fas fa-leaf text-gold"></i> Custom Dosha Elixirs</h4>
+              <p>Personalized herbal tonics formulated by our resident Ayurvedic physician according to your unique
+                constitutional type.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="spa-visuals">
+          <img src="assets/images/ayurveda_spa.jpg" alt="The Ehelepola Hotel Ayurvedic Sanctuary" class="spa-main-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Exclusive Curated Experiences & Excursions -->
+  <section class="experiences-section" id="experiences">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-tag">Bespoke Ceylon Excursions</div>
+        <h2 class="section-title">Unforgettable Mountain & Cultural Journeys</h2>
+        <p class="section-desc">Tailored exclusively for our esteemed guests with private naturalist guides and royal
+          VIP access.</p>
+      </div>
+
+      <div class="experiences-grid">
+        <!-- Exp 1 -->
+        <div class="experience-card">
+          <img src="assets/images/high_tea.jpg" alt="Ceylon Tea Estate & High Tea">
+          <div class="experience-overlay">
+            <span class="experience-tag">Gastronomic Journey</span>
+            <h3 class="experience-title">Private Tea Plucking & Masterclass</h3>
+            <p class="experience-desc">Walk hand-in-hand with our master tea planters across emerald slopes followed by
+              high tea at sunrise.</p>
+            <a href="#contact" class="btn btn-outline-gold btn-sm">Inquire Experience</a>
+          </div>
+        </div>
+
+        <!-- Exp 2 -->
+        <div class="experience-card">
+          <img src="assets/images/grand_lobby.jpg" alt="Sacred Temple VIP Access">
+          <div class="experience-overlay">
+            <span class="experience-tag">Sacred Heritage</span>
+            <h3 class="experience-title">Temple of the Sacred Tooth Private Tour</h3>
+            <p class="experience-desc">Exclusive after-hours viewing and private blessings with high Buddhist monks at
+              the World Heritage shrine.</p>
+            <a href="#contact" class="btn btn-outline-gold btn-sm">Inquire Experience</a>
+          </div>
+        </div>
+
+        <!-- Exp 3 -->
+        <div class="experience-card">
+          <img src="assets/images/pool_villa.jpg" alt="Helicopter Mountain Safari">
+          <div class="experience-overlay">
+            <span class="experience-tag">Aerial Adventure</span>
+            <h3 class="experience-title">Knuckles Range Scenic Helicopter Tour</h3>
+            <p class="experience-desc">Soar above UNESCO cloud forests, cascading waterfalls, and tea peaks directly
+              from our resort helipad.</p>
+            <a href="#contact" class="btn btn-outline-gold btn-sm">Inquire Experience</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Photo & Video Gallery -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-tag">Visual Treasures</div>
+        <h2 class="section-title">The Ehelepola Hotel Gallery</h2>
+        <p class="section-desc">A visual celebration of architecture, tranquility, and extraordinary hospitality.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item span-2" data-caption="The Ehelepola Hotel Private Luxury Residence & Estate">
+          <img src="assets/images/ahelepola_mansion_hero.jpg" alt="The Ehelepola Hotel Private Luxury Residence">
+          <div class="gallery-overlay-hover">
+            <i class="fas fa-search-plus" style="font-size: 2rem;"></i>
+            <span>The Ehelepola Hotel Residence</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-caption="The Grand Resort & Sunset Infinity Pool">
+          <img src="assets/images/hero_resort.jpg" alt="Resort Sunset Pool">
+          <div class="gallery-overlay-hover">
+            <i class="fas fa-search-plus" style="font-size: 2rem;"></i>
+            <span>Sunset Infinity Pool</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-caption="The Royal Ehelepola Suite Master Bedroom">
+          <img src="assets/images/royal_suite.jpg" alt="Master Bedroom">
+          <div class="gallery-overlay-hover">
+            <i class="fas fa-search-plus" style="font-size: 2rem;"></i>
+            <span>The Royal Suite</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-caption="Governor's Candlelit Fine Dining">
+          <img src="assets/images/fine_dining.jpg" alt="Fine Dining">
+          <div class="gallery-overlay-hover">
+            <i class="fas fa-search-plus" style="font-size: 2rem;"></i>
+            <span>Fine Dining Room</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-caption="Ayurvedic Lotus Pavilion & Herbal Baths">
+          <img src="assets/images/ayurveda_spa.jpg" alt="Ayurvedic Pavilion">
+          <div class="gallery-overlay-hover">
+            <i class="fas fa-search-plus" style="font-size: 2rem;"></i>
+            <span>Ayurvedic Spa</span>
+          </div>
+        </div>
+
+        <div class="gallery-item span-2" data-caption="Authentic Ceylon High Tea on the Verandah">
+          <img src="assets/images/high_tea.jpg" alt="Verandah High Tea">
+          <div class="gallery-overlay-hover">
+            <i class="fas fa-search-plus" style="font-size: 2rem;"></i>
+            <span>Ceylon High Tea</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Accolades & Guest Testimonials -->
+  <section class="reviews-section">
+    <div class="container">
+      <!-- Awards Banner -->
+      <div class="awards-banner">
+        <div class="award-item">
+          <i class="fas fa-trophy award-icon"></i>
+          <div class="award-info">
+            <h5>Condé Nast Traveler</h5>
+            <span>Gold List 2025 - Best Boutique Hotel</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <i class="fas fa-certificate award-icon"></i>
+          <div class="award-info">
+            <h5>World Luxury Hotel Awards</h5>
+            <span>Global Winner - Heritage Resort</span>
+          </div>
+        </div>
+        <div class="award-item">
+          <i class="fas fa-star award-icon"></i>
+          <div class="award-info">
+            <h5>TripAdvisor Traveler's Choice</h5>
+            <span>Top 1% Luxury Properties Worldwide</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="sub-tag">Guest Experiences</div>
+        <h2 class="section-title">Words of Distinction</h2>
+        <p class="section-desc">Read impressions from our distinguished international guests.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="review-quote">
+            "The Ehelepola Hotel is beyond five-star; it is a transcendent spiritual and aristocratic journey. Watching the
+            morning mist lift over our private verandah was unforgettable."
+          </p>
+          <div class="reviewer-profile">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+              alt="Lady Eleanor Vance" class="reviewer-avatar">
+            <div>
+              <div class="reviewer-name">Lady Eleanor Vance</div>
+              <div class="reviewer-origin">London, United Kingdom</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="review-quote">
+            "The Ayurvedic treatments under Dr. Jayasundara cured my chronic insomnia. Combined with the Michelin-worthy
+            Ceylon degustation, it was perfection."
+          </p>
+          <div class="reviewer-profile">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
+              alt="Dr. Maximilian von Berg" class="reviewer-avatar">
+            <div>
+              <div class="reviewer-name">Dr. Maximilian von Berg</div>
+              <div class="reviewer-origin">Zurich, Switzerland</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="review-quote">
+            "The architectural restoration of this historical walauwa is sensational. The butler team anticipated every
+            wish before we could even ask."
+          </p>
+          <div class="reviewer-profile">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80"
+              alt="Claire Fontaine" class="reviewer-avatar">
+            <div>
+              <div class="reviewer-name">Claire & Julian Fontaine</div>
+              <div class="reviewer-origin">Paris, France</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. Location, Weather & Interactive Map -->
+  <section class="location-section">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-details">
+          <div class="sub-tag">The Royal Sanctuary</div>
+          <h2 class="section-title">Kandy, Sri Lanka</h2>
+          <p>
+            Perched gracefully on a tranquil mountain plateau, just 15 minutes from the Sacred Temple of the Tooth
+            Relic, yet completely insulated in pristine serenity.
+          </p>
+
+          <!-- Live Weather Widget -->
+          <div class="weather-widget">
+            <div>
+              <div
+                style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.1em;">
+                Current Kandy Climate</div>
+              <div style="font-size: 1.2rem; font-weight: 600; margin-top: 4px;"><i
+                  class="fas fa-cloud-sun text-gold"></i> Misty Mountain Breeze</div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">Humidity: 68% • Elevation:
+                650m</div>
+            </div>
+            <div class="weather-temp">24°C</div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <i class="fas fa-plane-arrival text-gold"></i>
+              <span><strong>Colombo Airport (CMB):</strong> 2.5 hrs by Chauffeur / 30 mins by Helicopter</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <i class="fas fa-train text-gold"></i>
+              <span><strong>Kandy Railway Station:</strong> 15 mins by Private Resort Limousine</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <i class="fas fa-map-marker-alt text-gold"></i>
+              <span><strong>Address:</strong> Ehelepola Heritage Estate, Royal Valley, Kandy, Sri Lanka</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <i class="fas fa-phone-alt text-gold"></i>
+              <span><strong>Direct Concierge:</strong> <a href="tel:0637245245" style="color: var(--primary-gold); font-weight: 600; text-decoration: none;">0637245245</a></span>
+            </div>
+          </div>
+
+          <button class="btn btn-outline-gold open-booking-modal" data-suite="royal-heritage">
+            <i class="fas fa-route"></i>
+            <span>Arrange VIP Chauffeur Transfer</span>
+          </button>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container">
+          <iframe class="map-iframe" title="The Ehelepola Hotel Kandy Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63321.36531980838!2d80.59076182167967!3d7.290571700000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3662d5d898517%3A0xb3082b26c71c4c34!2sKandy%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1710000000000!5m2!1sen!2slk"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. Concierge, Contact & FAQ Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-tag">At Your Royal Service</div>
+        <h2 class="section-title">Inquiries & Concierge Assistance</h2>
+        <p class="section-desc">Our dedicated private concierge is available 24 hours a day to assist with custom
+          itineraries, private celebrations, or suite reservations.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Direct Contact Form -->
+        <div class="contact-form-wrap">
+          <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Direct Concierge Message</h3>
+          <form id="contactForm"
+            onsubmit="event.preventDefault(); alert('Thank you for contacting The Ehelepola Hotel Concierge. Your personal Butler will contact you shortly via WhatsApp & Email.'); this.reset();">
+            <div class="form-group">
+              <label class="form-label" for="contactName">Your Name</label>
+              <input type="text" id="contactName" class="form-input" placeholder="e.g. Lord James Montgomery" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactEmail">Email Address</label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="james@montgomery.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactPhone">WhatsApp / Phone Number</label>
+              <input type="tel" id="contactPhone" class="form-input" placeholder="+44 7911 123456" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactMessage">Special Inquiries / Requests</label>
+              <textarea id="contactMessage" class="form-textarea"
+                placeholder="Please let us know your planned travel dates, dietary preferences, or helicopter transfer requests..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i>
+              <span>Send To Royal Concierge</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="faq-wrap">
+          <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Frequently Answered Inquiries</h3>
+          <div class="faq-accordion">
+            <div class="faq-item active">
+              <div class="faq-header">
+                <span>What are the check-in and check-out times?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </div>
+              <div class="faq-body">
+                Official check-in is at 2:00 PM and check-out is at 12:00 PM. Early check-in and guaranteed late
+                check-out can be arranged complimentary for guests staying in our Royal Suite or Governor's Verandah upon
+                availability.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-header">
+                <span>How do we reach the resort from Colombo Airport?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </div>
+              <div class="faq-body">
+                We provide private chauffeur service in luxury Mercedes-Benz and BMW vehicles (approx. 2.5 hours via the
+                Central Expressway). Alternatively, our concierge can charter a direct 30-minute helicopter flight
+                landing on our private estate helipad.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-header">
+                <span>Are children permitted at The Ehelepola Hotel?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </div>
+              <div class="faq-body">
+                To preserve an atmosphere of profound serenity and meditative peace, we warmly welcome children aged 10
+                and above in our suites. Custom family stays can be arranged with prior concierge notice.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-header">
+                <span>Can special dietary or vegan meals be accommodated?</span>
+                <i class="fas fa-chevron-down faq-icon"></i>
+              </div>
+              <div class="faq-body">
+                Absolutely. Our executive culinary team specializes in bespoke vegan, gluten-free, halal, and
+                individualized Ayurvedic dosha diets formulated with fresh organic produce from our estate gardens.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. Luxury Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand & Philosophy -->
+        <div class="footer-col">
+          <a href="#" class="site-logo" style="margin-bottom: 16px;">
+            <span class="logo-main">THE EHELEPOLA HOTEL</span>
+            <span class="logo-sub">Kandy • Sri Lanka</span>
+          </a>
+          <p style="font-size: 0.95rem; margin-bottom: 16px;">
+            An aristocratic haven where royal Sri Lankan heritage, timeless architectural elegance, and five-star luxury
+            converge amidst the mist-shrouded peaks of Kandy.
+          </p>
+          <div style="margin-bottom: 20px;">
+            <a href="tel:0637245245" style="color: var(--primary-gold); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              <i class="fas fa-phone-alt"></i> 0637245245
+            </a>
+          </div>
+          <div style="display: flex; gap: 14px; font-size: 1.2rem; color: var(--primary-gold);">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" title="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div class="footer-col">
+          <h4>Sanctuary</h4>
+          <ul class="footer-links">
+            <li><a href="#about">Heritage Story</a></li>
+            <li><a href="#suites">Suites & Residences</a></li>
+            <li><a href="#dining">Fine Gastronomy</a></li>
+            <li><a href="#wellness">Ayurvedic Sanctuary</a></li>
+            <li><a href="#experiences">Tea Experiences</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal & Guest Care -->
+        <div class="footer-col">
+          <h4>Guest Concierge</h4>
+          <ul class="footer-links">
+            <li><a href="#">Helicopter Transfers</a></li>
+            <li><a href="#">Private Weddings & Events</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="#">Privacy & Discretion</a></li>
+            <li><a href="#">Sustainability Charter</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div class="footer-col">
+          <h4>The Royal Gazette</h4>
+          <p style="font-size: 0.88rem;">Subscribe to receive private invitations, seasonal retreat packages, and
+            bespoke culinary degustation menus.</p>
+          <form class="newsletter-form"
+            onsubmit="event.preventDefault(); alert('You have been subscribed to The Royal Gazette. Welcome.'); this.reset();">
+            <input type="email" placeholder="Your email address" class="newsletter-input" required>
+            <button type="submit" class="btn btn-gold newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 The Ehelepola Hotel & Luxury Heritage Retreat. All Royal Rights Reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Luxury Hotel Certifications</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 16. Floating WhatsApp 24/7 Concierge -->
+  <div class="floating-concierge">
+    <div class="concierge-bubble">
+      <span>Chat with Royal Butler</span>
+    </div>
+    <a href="https://wa.me/94637245245?text=Hello%20The%20Ehelepola%20Hotel%20Concierge,%20I%20would%20like%20to%20inquire%20about%20staying%20at%20your%20luxury%20hotel."
+      target="_blank" rel="noopener noreferrer" class="concierge-btn" aria-label="Contact Royal Butler via WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 1: INTERACTIVE BOOKING ENGINE & RESERVATION VOUCHER
+       ========================================================================== -->
+  <div class="modal-overlay" id="bookingEngineModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fas fa-crown text-gold"></i> Reserve Your Royal Sanctuary</h3>
+        <button class="modal-close-btn" id="closeBookingModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="finalBookingForm">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+            <div>
+              <label class="form-label" for="bookCheckin">Check-in Date</label>
+              <input type="date" id="bookCheckin" class="form-input" required>
+            </div>
+            <div>
+              <label class="form-label" for="bookCheckout">Check-out Date</label>
+              <input type="date" id="bookCheckout" class="form-input" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; margin-bottom: 20px;">
+            <div>
+              <label class="form-label" for="bookingSuiteSelect">Choose Residence</label>
+              <select id="bookingSuiteSelect" class="form-input">
+                <option value="royal-heritage">The Royal Ehelepola Suite ($520/nt)</option>
+                <option value="grand-verandah">Governor's Heritage Verandah ($420/nt)</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="bookGuests">Guests</label>
+              <select id="bookGuests" class="form-input">
+                <option value="2">2 Adults</option>
+                <option value="1">1 Adult (Solo)</option>
+                <option value="3">3 Adults</option>
+                <option value="4">2 Adults + 2 Kids</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Luxury Add-ons -->
+          <div style="margin-bottom: 24px;">
+            <label class="form-label">Complimentary & Curated Add-ons</label>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
+              <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" class="addon-checkbox" value="95">
+                <span><strong>Candlelit Lakeside Degustation Dinner</strong> (+$95 / person)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" class="addon-checkbox" value="140">
+                <span><strong>90-Min Royal Ayurvedic Shirodhara & Massage Package</strong> (+$140)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" class="addon-checkbox" value="120">
+                <span><strong>VIP Mercedes Airport Chauffeur Transfer</strong> (+$120 one-way)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer;">
+                <input type="checkbox" class="addon-checkbox" value="75">
+                <span><strong>Chilled Veuve Clicquot Champagne & Strawberries on Arrival</strong> (+$75)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Guest Personal Details -->
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 20px; margin-bottom: 20px;">
+            <h4 style="font-size: 1.15rem; margin-bottom: 14px; color: var(--text-gold);">Guest Information</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px;">
+              <div>
+                <label class="form-label" for="bookGuestName">Full Name</label>
+                <input type="text" id="bookGuestName" class="form-input" placeholder="e.g. Sir Robert Clive" required>
+              </div>
+              <div>
+                <label class="form-label" for="bookGuestEmail">Email Address</label>
+                <input type="email" id="bookGuestEmail" class="form-input" placeholder="robert@clive.com" required>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" for="bookGuestPhone">WhatsApp / Mobile Number</label>
+              <input type="tel" id="bookGuestPhone" class="form-input" placeholder="+94 77 123 4567" required>
+            </div>
+          </div>
+
+          <!-- Dynamic Price Summary Box -->
+          <div
+            style="background: var(--bg-card); border: 1px solid var(--border-gold); padding: 20px; border-radius: var(--radius-sm); margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span id="summarySuiteName">The Royal Ehelepola Suite</span>
+              <span id="summaryNightsCount">3 Nights</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span>Suite Accommodation</span>
+              <span id="summaryRoomPrice" style="font-weight: 600;">$1,560</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem;">
+              <span>Curated Add-ons</span>
+              <span id="summaryAddonsPrice" style="font-weight: 600;">$0</span>
+            </div>
+            <div
+              style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted);">
+              <span>Government Taxes & Service (12%)</span>
+              <span id="summaryTaxesPrice">$187</span>
+            </div>
+            <div
+              style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-subtle); padding-top: 10px; font-size: 1.25rem; font-weight: 700; color: var(--text-gold);">
+              <span>Total Guaranteed Rate</span>
+              <span id="summaryGrandTotal">$1,747</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width: 100%; height: 54px; font-size: 1.05rem;">
+            <i class="fas fa-lock"></i>
+            <span>Confirm & Generate Royal Reservation Voucher</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: INSTANT RESERVATION VOUCHER / CONFIRMATION
+       ========================================================================== -->
+  <div class="modal-overlay" id="voucherSuccessModal">
+    <div class="modal-card" style="max-width: 620px; text-align: center;">
+      <div class="modal-body" style="padding: 40px 30px;">
+        <div
+          style="width: 80px; height: 80px; border-radius: 50%; background: rgba(197, 160, 89, 0.2); border: 2px solid var(--primary-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary-gold); font-size: 2.5rem;">
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="sub-tag">Royal Reservation Confirmed</div>
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">Ayubowan & Welcome</h2>
+        <p style="font-size: 0.95rem; margin-bottom: 24px;">Your sanctuary at The Ehelepola Hotel has been successfully
+          secured. A formal parchment confirmation has been dispatched to your email and WhatsApp.</p>
+
+        <!-- Voucher Box -->
+        <div
+          style="background: var(--bg-card); border: 1px dashed var(--border-gold); padding: 24px; border-radius: var(--radius-sm); margin-bottom: 24px; text-align: left;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">Reservation
+              Reference</span>
+            <span id="voucherRefCode"
+              style="font-family: var(--font-brand); font-weight: 700; color: var(--primary-gold); font-size: 1.1rem;">EH-892174</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+            <span style="color: var(--text-muted);">Guest Name:</span>
+            <span id="voucherGuestName" style="font-weight: 600;">-</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+            <span style="color: var(--text-muted);">Email:</span>
+            <span id="voucherGuestEmail" style="font-weight: 600;">-</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+            <span style="color: var(--text-muted);">Suite:</span>
+            <span id="voucherSuiteName" style="font-weight: 600; color: var(--text-gold);">-</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+            <span style="color: var(--text-muted);">Dates:</span>
+            <span id="voucherDates" style="font-weight: 600;">-</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; justify-content: center;">
+          <button class="btn btn-gold" onclick="window.print();">
+            <i class="fas fa-print"></i>
+            <span>Print Voucher</span>
+          </button>
+          <button class="btn btn-outline-gold"
+            onclick="document.getElementById('voucherSuccessModal').classList.remove('active');">
+            <span>Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 3: 4K VIDEO TOUR MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="videoTourModal">
+    <div class="modal-card video-modal-card">
+      <div class="modal-header">
+        <button class="modal-close-btn" id="closeVideoModal">&times;</button>
+      </div>
+      <div class="video-modal-frame">
+        <iframe id="videoModalIframe" width="100%" height="100%" src="" title="The Ehelepola Hotel Cinematic 4K Video Tour"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 4: SUITE DETAIL MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="suiteDetailModal">
+    <div class="modal-card" style="max-width: 840px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalSuiteTitle">Suite Details</h3>
+        <button class="modal-close-btn" id="closeSuiteModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalSuiteImg" src="" alt="Suite Interior"
+          style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 20px; border: 1px solid var(--border-gold);">
+
+        <p id="modalSuiteDesc" style="font-size: 1.05rem; margin-bottom: 20px;"></p>
+
+        <div
+          style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; background: var(--bg-card); padding: 18px; border-radius: var(--radius-sm); margin-bottom: 24px; text-align: center;">
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Area</div>
+            <div id="modalSuiteSize" style="font-weight: 600; margin-top: 4px;">-</div>
+          </div>
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Occupancy</div>
+            <div id="modalSuiteGuests" style="font-weight: 600; margin-top: 4px;">-</div>
+          </div>
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Bed</div>
+            <div id="modalSuiteBed" style="font-weight: 600; margin-top: 4px;">-</div>
+          </div>
+          <div>
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">View</div>
+            <div id="modalSuiteView" style="font-weight: 600; margin-top: 4px;">-</div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 1.15rem; margin-bottom: 12px; color: var(--text-gold);">Included Luxury Amenities</h4>
+        <div id="modalSuiteAmenities" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;"></div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 14px;">
+          <button class="btn btn-gold" id="modalReserveSuiteBtn">
+            <i class="fas fa-calendar-check"></i>
+            <span>Proceed to Reservation</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 5: PHOTO GALLERY LIGHTBOX
+       ========================================================================== -->
+  <div class="modal-overlay" id="galleryLightboxModal">
+    <div class="modal-card"
+      style="max-width: 980px; background: transparent; border: none; box-shadow: none; text-align: center;">
+      <button class="modal-close-btn" id="closeLightboxBtn"
+        style="position: absolute; top: -40px; right: 0; color: #ffffff; font-size: 2.2rem;">&times;</button>
+      <img id="lightboxImage" src="" alt="The Ehelepola Hotel Gallery Full View"
+        style="max-width: 100%; max-height: 80vh; margin: 0 auto; border-radius: var(--radius-sm); border: 2px solid var(--border-gold); box-shadow: var(--shadow-lg);">
+      <div id="lightboxCaption"
+        style="color: var(--primary-gold); font-family: var(--font-brand); letter-spacing: 0.15em; margin-top: 14px; font-size: 1.1rem;">
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
