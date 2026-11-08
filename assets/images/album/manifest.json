@@ -1,0 +1,416 @@
+[
+  {
+    "id": 1,
+    "file": "album-01.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.09.jpeg",
+    "title": "Heritage Ehelepola Hotel Glowing Gate",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Illuminated golden entrance gate welcoming guests into the tranquil estate at night."
+  },
+  {
+    "id": 2,
+    "file": "album-02.jpg",
+    "originalName": "WhatsApp Image 2026-10-02 at 12.17.45.jpeg",
+    "title": "Royal Residence Night Splendor & Bentley",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Night facade of the luxury residence featuring ambient lighting and private garage."
+  },
+  {
+    "id": 3,
+    "file": "album-03.jpg",
+    "originalName": "1.png.jpeg",
+    "title": "Estate Garden & Tree Fairy Lights",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Enchanting evening view of the hotel courtyard framed by fairy lights and lush foliage."
+  },
+  {
+    "id": 4,
+    "file": "album-04.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.00.jpeg",
+    "title": "Estate Main Gates Under Evening Glow",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Wrought-iron gates and stone pillars illuminated against the night sky."
+  },
+  {
+    "id": 5,
+    "file": "album-05.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.10.jpeg",
+    "title": "Paved Courtyard & Tropical Palms",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Spacious paved courtyard with exotic potted palms reflecting warm architectural lights."
+  },
+  {
+    "id": 6,
+    "file": "album-06.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.08.jpeg",
+    "title": "Garden Gazebo & Thatched Pavilion",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Charming outdoor round dining gazebo enveloped by ambient canopy string lights."
+  },
+  {
+    "id": 7,
+    "file": "album-07.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.12.jpeg",
+    "title": "Chauffeured Luxury Fleet at The Estate",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Lexus SUV and BYD electric vehicles positioned in the private front courtyard."
+  },
+  {
+    "id": 8,
+    "file": "album-08.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 113.50.53.jpeg",
+    "title": "Heritage Ehelepola Hotel Plaque Monument",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Handcrafted stone monument emblazoned with the royal crest and golden typography."
+  },
+  {
+    "id": 9,
+    "file": "album-09.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.11.jpeg",
+    "title": "Kandyan Timber Pavilion Entrance",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Carved wooden eaves and open French doors leading into the serene interior courtyard."
+  },
+  {
+    "id": 10,
+    "file": "album-10.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.512.jpeg",
+    "title": "Grand Reception & Traditional Brass Oil Lamp",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Warm welcoming foyer decorated with a traditional tiered brass oil lamp and slatted timber wall."
+  },
+  {
+    "id": 11,
+    "file": "album-11.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.5132.jpeg",
+    "title": "Antique Guest Lounge & Brass Gramophone",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Stately living parlor with vintage brass gramophone, teak furnishings, and timber ceiling."
+  },
+  {
+    "id": 12,
+    "file": "album-12.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.52.jpeg",
+    "title": "Indoor Pebble Rock Garden & Waterfall",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Tranquil indoor natural rock wall and pebble garden bringing nature into the sanctuary."
+  },
+  {
+    "id": 13,
+    "file": "album-13.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.53.jpeg",
+    "title": "Verandah Covered Dining Lounge",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Intimate dining tables set on vibrant green turf overlooking the estate gardens."
+  },
+  {
+    "id": 14,
+    "file": "album-14.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.50.jpeg",
+    "title": "Royal Twin King Suite",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Spacious air-conditioned suite featuring hand-carved teak headboards and plush bedding."
+  },
+  {
+    "id": 15,
+    "file": "album-15.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.150.49.jpeg",
+    "title": "Heritage Teak King Bedroom",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Master bedroom suite showcasing traditional Sri Lankan timber craftsmanship and luxury amenities."
+  },
+  {
+    "id": 16,
+    "file": "album-16.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.48.jpeg",
+    "title": "Polished Timber Ceiling Suite Bedroom",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Warm wooden ceilings, premium drapery, and contemporary lighting creating an inviting haven."
+  },
+  {
+    "id": 17,
+    "file": "album-17.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.419.jpeg",
+    "title": "Suite Entertainment & Refreshment Station",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "LED television, minibar refrigerator, and hot beverage station for private guest comfort."
+  },
+  {
+    "id": 18,
+    "file": "album-18.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.46.jpeg",
+    "title": "Auspicious Plaque Unveiling Ceremony",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Hotel directors and guests celebrating the official ribbon unveiling of the estate monument."
+  },
+  {
+    "id": 19,
+    "file": "album-19.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.17.jpeg",
+    "title": "Revered Buddhist Monk Pirith Blessing",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Traditional Sri Lankan spiritual blessing for peace, prosperity, and protection."
+  },
+  {
+    "id": 20,
+    "file": "album-20.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.47.jpeg",
+    "title": "Hospitality Team Courtyard Gathering",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "The dedicated staff team of The Ehelepola Hotel gathered in the reception courtyard."
+  },
+  {
+    "id": 21,
+    "file": "album-21.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.13.jpeg",
+    "title": "Executive Team Planning at The Gazebo",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Hotel management convening in the open-air garden gazebo to prepare royal hospitality services."
+  },
+  {
+    "id": 22,
+    "file": "album-22.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.14.jpeg",
+    "title": "Warm Greetings from Hotel Management",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Executive leadership welcoming guests with heartfelt Sri Lankan warmth and hospitality."
+  },
+  {
+    "id": 23,
+    "file": "album-23.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.21.jpeg",
+    "title": "Opening Day Celebrations in The Great Hall",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Dignitaries and guests gathered under timber-vaulted ceilings on opening day."
+  },
+  {
+    "id": 24,
+    "file": "album-24.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.213.jpeg",
+    "title": "Leadership Team at The Stone Entrance",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Management executives standing proudly before the estate’s signature stone masonry."
+  },
+  {
+    "id": 25,
+    "file": "album-25.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.108.jpeg",
+    "title": "Heritage Celebration Moment 1",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Memorable moment from the official opening and traditional blessing ceremonies."
+  },
+  {
+    "id": 26,
+    "file": "album-26.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.119.jpeg",
+    "title": "Heritage Celebration Moment 2",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Memorable moment from the official opening and traditional blessing ceremonies."
+  },
+  {
+    "id": 27,
+    "file": "album-27.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.122.jpeg",
+    "title": "Heritage Celebration Moment 3",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Memorable moment from the official opening and traditional blessing ceremonies."
+  },
+  {
+    "id": 28,
+    "file": "album-28.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.147.jpeg",
+    "title": "Heritage Celebration Moment 4",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Memorable moment from the official opening and traditional blessing ceremonies."
+  },
+  {
+    "id": 29,
+    "file": "album-29.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.15.jpeg",
+    "title": "Heritage Celebration Moment 5",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Memorable moment from the official opening and traditional blessing ceremonies."
+  },
+  {
+    "id": 30,
+    "file": "album-30.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.16.jpeg",
+    "title": "Heritage Celebration Moment 6",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Memorable moment from the official opening and traditional blessing ceremonies."
+  },
+  {
+    "id": 31,
+    "file": "album-31.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.160.jpeg",
+    "title": "Heritage Celebration Moment 7",
+    "category": "ceremony",
+    "categoryLabel": "Heritage & Events",
+    "desc": "Memorable moment from the official opening and traditional blessing ceremonies."
+  },
+  {
+    "id": 32,
+    "file": "album-32.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.176.jpeg",
+    "title": "Luxury Suite Interior 1",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Thoughtfully appointed bedroom details and comforts crafted for restful sleep."
+  },
+  {
+    "id": 33,
+    "file": "album-33.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.18.jpeg",
+    "title": "Luxury Suite Interior 2",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Thoughtfully appointed bedroom details and comforts crafted for restful sleep."
+  },
+  {
+    "id": 34,
+    "file": "album-34.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.189.jpeg",
+    "title": "Luxury Suite Interior 3",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Thoughtfully appointed bedroom details and comforts crafted for restful sleep."
+  },
+  {
+    "id": 35,
+    "file": "album-35.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.19.jpeg",
+    "title": "Luxury Suite Interior 4",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Thoughtfully appointed bedroom details and comforts crafted for restful sleep."
+  },
+  {
+    "id": 36,
+    "file": "album-36.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.198.jpeg",
+    "title": "Luxury Suite Interior 5",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Thoughtfully appointed bedroom details and comforts crafted for restful sleep."
+  },
+  {
+    "id": 37,
+    "file": "album-37.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.20.jpeg",
+    "title": "Luxury Suite Interior 6",
+    "category": "suites",
+    "categoryLabel": "Suites & Rooms",
+    "desc": "Thoughtfully appointed bedroom details and comforts crafted for restful sleep."
+  },
+  {
+    "id": 38,
+    "file": "album-38.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.211.jpeg",
+    "title": "Estate Living & Architectural Detail 1",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Elegantly proportioned spaces combining timber, stone, and natural illumination."
+  },
+  {
+    "id": 39,
+    "file": "album-39.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.212.jpeg",
+    "title": "Estate Living & Architectural Detail 2",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Elegantly proportioned spaces combining timber, stone, and natural illumination."
+  },
+  {
+    "id": 40,
+    "file": "album-40.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.22.jpeg",
+    "title": "Estate Living & Architectural Detail 3",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Elegantly proportioned spaces combining timber, stone, and natural illumination."
+  },
+  {
+    "id": 41,
+    "file": "album-41.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.23.jpeg",
+    "title": "Estate Living & Architectural Detail 4",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Elegantly proportioned spaces combining timber, stone, and natural illumination."
+  },
+  {
+    "id": 42,
+    "file": "album-42.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.45.jpeg",
+    "title": "Estate Living & Architectural Detail 5",
+    "category": "interior",
+    "categoryLabel": "Lobby & Lounges",
+    "desc": "Elegantly proportioned spaces combining timber, stone, and natural illumination."
+  },
+  {
+    "id": 43,
+    "file": "album-43.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.49.jpeg",
+    "title": "Estate Gardens & Architecture 1",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Lush tropical surroundings and architectural features of The Ehelepola Hotel."
+  },
+  {
+    "id": 44,
+    "file": "album-44.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.501.jpeg",
+    "title": "Estate Gardens & Architecture 2",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Lush tropical surroundings and architectural features of The Ehelepola Hotel."
+  },
+  {
+    "id": 45,
+    "file": "album-45.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.50.51.jpeg",
+    "title": "Estate Gardens & Architecture 3",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Lush tropical surroundings and architectural features of The Ehelepola Hotel."
+  },
+  {
+    "id": 46,
+    "file": "album-46.jpg",
+    "originalName": "WhatsApp Image 2026-11-03 at 13.501.51.jpeg",
+    "title": "Estate Gardens & Architecture 4",
+    "category": "exterior",
+    "categoryLabel": "Architecture & Grounds",
+    "desc": "Lush tropical surroundings and architectural features of The Ehelepola Hotel."
+  }
+]
