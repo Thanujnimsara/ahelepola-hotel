@@ -20,23 +20,45 @@ const suitesData = {
     name: "The Royal Ehelepola Suite",
     basePrice: 520,
     size: "140 m² / 1,500 sq.ft",
-    guests: "2 Adults + 1 Child",
-    bed: "King Four-Poster Canopy",
-    view: "Misty Mountain & Tea Estate",
-    description: "The crown jewel of our heritage mansion. Featuring handcrafted teak furniture, antique Ceylon tapestry, private colonial balcony, freestanding marble soaking tub, and dedicated 24-hour royal butler service.",
-    image: "assets/images/royal_suite.jpg",
-    amenities: ["Private Butler", "Deep Soaking Marble Tub", "Sunset Balcony", "Complimentary High Tea", "Bang & Olufsen Sound", "Pillow Menu"]
+    guests: "2 - 4 Guests",
+    bed: "Dual Antique Carved Teak Beds",
+    view: "Tranquil Courtyard & Hillside Breeze",
+    description: "The crown jewel of our heritage mansion. Featuring handcrafted antique carved teak beds, polished timber ceilings, fine Ceylon linens, and dedicated 24-hour royal butler service.",
+    image: "assets/images/royal_suite_real.jpg",
+    amenities: ["Private Butler", "Handcrafted Teak Furniture", "Timber Paneled Ceiling", "Complimentary High Tea", "Bang & Olufsen Sound", "Pillow Menu"]
+  },
+  "terrace-lounge": {
+    name: "Courtyard Terrace Dining Lounge",
+    basePrice: 320,
+    size: "65 m² Verandah Space",
+    guests: "2 - 8 Guests",
+    bed: "Modern Dining & Terrace Lounge",
+    view: "Green Lawn & Internal Courtyard",
+    description: "An elegant, airy terrace lounge featuring vibrant emerald green lawn turf, contemporary quilted dining chairs, and sleek marble-top tables. Ideal for enjoying freshly brewed Ceylon breakfast tea, private family dinners, and relaxed evening conversations in complete tranquility.",
+    image: "assets/images/terrace_dining_lounge.jpg",
+    amenities: ["Green Lawn Turf Floor", "Modern Quilted Designer Chairs", "Private Dining Setup", "Breakfast & High Tea Service", "Quiet Courtyard Setting", "Dedicated Waitstaff"]
   },
   "grand-verandah": {
-    name: "Governor's Heritage Verandah Suite",
-    basePrice: 420,
-    size: "95 m² / 1,020 sq.ft",
-    guests: "2 Adults",
-    bed: "Colonial King Bed",
-    view: "Courtyard Lotus Fountain",
-    description: "Immerse yourself in authentic Kandyan noble architecture. Features soaring exposed timber ceilings, handcrafted brass fixtures, private garden patio, and direct access to our herbal tranquility gardens.",
-    image: "assets/images/grand_lobby.jpg",
-    amenities: ["Private Garden Patio", "Walk-in Rain Shower", "Herbal Bath Salts", "Organic Ceylon Teas", "Twice-daily Maid Service"]
+    name: "Courtyard Terrace Dining Lounge",
+    basePrice: 320,
+    size: "65 m² Verandah Space",
+    guests: "2 - 8 Guests",
+    bed: "Modern Dining & Terrace Lounge",
+    view: "Green Lawn & Internal Courtyard",
+    description: "An elegant, airy terrace lounge featuring vibrant emerald green lawn turf, contemporary quilted dining chairs, and sleek marble-top tables. Ideal for enjoying freshly brewed Ceylon breakfast tea, private family dinners, and relaxed evening conversations in complete tranquility.",
+    image: "assets/images/terrace_dining_lounge.jpg",
+    amenities: ["Green Lawn Turf Floor", "Modern Quilted Designer Chairs", "Private Dining Setup", "Breakfast & High Tea Service", "Quiet Courtyard Setting", "Dedicated Waitstaff"]
+  },
+  "garden-pavilion": {
+    name: "Heritage Garden Pavilion & Cabana",
+    basePrice: 380,
+    size: "80 m² Garden Sanctuary",
+    guests: "2 - 6 Guests",
+    bed: "Open-Air Lounge & Garden Retreat",
+    view: "Tropical Mango Garden & Green Courtyard",
+    description: "An authentic Sri Lankan garden sanctuary featuring a hand-thatched circular cabana, polished round timber dining table, ambient evening lighting, and white pebble stone pathways amidst swaying mango trees. Perfect for private high-tea, candlelit dining, and tranquil afternoon relaxation.",
+    image: "assets/images/garden_gazebo_pavilion.jpg",
+    amenities: ["Private Thatched Cabana", "Round Timber Dining Table", "Pebble Garden Pathways", "High Tea Service", "Evening Garden Lanterns", "Direct Courtyard Access"]
   }
 };
 
@@ -60,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSuiteModals();
   initGalleryLightbox();
   initDatesDefaults();
+  initGuestFeedbackSystem();
 });
 
 /* -------------------------------------------------------------
@@ -265,21 +288,189 @@ function initVideoPlayer() {
 }
 
 /* -------------------------------------------------------------
- * 6. Interactive Booking Engine & Instant Voucher Generator
+ * 6. Interactive 6-Room Booking Engine & Double-Booking Prevention Calendar
  * ------------------------------------------------------------- */
+const hotelRooms = [
+  { id: "Room 01", name: "Room 01", suiteKey: "royal-heritage", suiteName: "The Royal Ehelepola Suite (Deluxe)", floor: "1st Floor" },
+  { id: "Room 02", name: "Room 02", suiteKey: "royal-heritage", suiteName: "The Royal Ehelepola Suite (Master)", floor: "1st Floor" },
+  { id: "Room 03", name: "Room 03", suiteKey: "terrace-lounge", suiteName: "Courtyard Terrace Suite", floor: "Ground Floor" },
+  { id: "Room 04", name: "Room 04", suiteKey: "terrace-lounge", suiteName: "Courtyard Terrace Suite", floor: "Ground Floor" },
+  { id: "Room 05", name: "Room 05", suiteKey: "garden-pavilion", suiteName: "Heritage Garden Pavilion", floor: "Ground Floor" },
+  { id: "Room 06", name: "Room 06", suiteKey: "garden-pavilion", suiteName: "Heritage Garden Pavilion", floor: "Ground Floor" }
+];
+
+const BOOKINGS_STORAGE_KEY = "ehelepola_hotel_bookings_v2";
+
+let calendarMonth = new Date();
+let calendarActiveRoom = "all";
+
+function getStoredBookings() {
+  try {
+    const raw = localStorage.getItem(BOOKINGS_STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch (e) {
+    console.error("Failed to parse bookings", e);
+  }
+  return generateDefaultSeedBookings();
+}
+
+function saveBookings(bookings) {
+  try {
+    localStorage.setItem(BOOKINGS_STORAGE_KEY, JSON.stringify(bookings));
+  } catch (e) {
+    console.error("Failed to save bookings", e);
+  }
+}
+
+function generateDefaultSeedBookings() {
+  const today = new Date();
+  const formatD = (d) => d.toISOString().split("T")[0];
+
+  const addDays = (num) => {
+    const d = new Date(today);
+    d.setDate(d.getDate() + num);
+    return formatD(d);
+  };
+
+  const seed = [
+    {
+      id: "EH-941820",
+      refCode: "EH-941820",
+      roomNumber: "Room 01",
+      suiteKey: "royal-heritage",
+      suiteName: "The Royal Ehelepola Suite",
+      checkin: addDays(2),
+      checkout: addDays(5),
+      guestName: "Lord Henry Campbell",
+      guestEmail: "henry@campbell-holdings.co.uk",
+      guestPhone: "+44 7911 123456"
+    },
+    {
+      id: "EH-732915",
+      refCode: "EH-732915",
+      roomNumber: "Room 03",
+      suiteKey: "terrace-lounge",
+      suiteName: "Courtyard Terrace Dining Lounge",
+      checkin: addDays(6),
+      checkout: addDays(9),
+      guestName: "Lady Victoria Mills",
+      guestEmail: "victoria@mills-design.com",
+      guestPhone: "+61 412 345 678"
+    },
+    {
+      id: "EH-619482",
+      refCode: "EH-619482",
+      roomNumber: "Room 06",
+      suiteKey: "garden-pavilion",
+      suiteName: "Heritage Garden Pavilion & Cabana",
+      checkin: addDays(3),
+      checkout: addDays(6),
+      guestName: "Dr. Rohan Fernando",
+      guestEmail: "rohan.fernando@ceylonheritage.lk",
+      guestPhone: "+94 77 987 6543"
+    }
+  ];
+  saveBookings(seed);
+  return seed;
+}
+
+// Conflict checking: two intervals overlap if start1 < end2 && end1 > start2
+function checkRoomConflict(roomNumber, checkinStr, checkoutStr) {
+  if (!roomNumber || !checkinStr || !checkoutStr) return null;
+  const newStart = new Date(checkinStr);
+  const newEnd = new Date(checkoutStr);
+  if (isNaN(newStart.getTime()) || isNaN(newEnd.getTime()) || newStart >= newEnd) return null;
+
+  const bookings = getStoredBookings();
+  const conflict = bookings.find(b => {
+    if (b.roomNumber !== roomNumber) return false;
+    const bStart = new Date(b.checkin);
+    const bEnd = new Date(b.checkout);
+    return newStart < bEnd && newEnd > bStart;
+  });
+  return conflict || null;
+}
+
+function getAvailableRoomsForDates(checkinStr, checkoutStr) {
+  if (!checkinStr || !checkoutStr) return hotelRooms.map(r => r.id);
+  return hotelRooms.map(r => r.id).filter(roomNum => {
+    return !checkRoomConflict(roomNum, checkinStr, checkoutStr);
+  });
+}
+
+// Window helper for conflict resolution click
+window.selectRoomFromConflict = function(roomNumber) {
+  const roomSelect = document.getElementById("bookingRoomNumber");
+  if (roomSelect) {
+    roomSelect.value = roomNumber;
+    syncSuiteFromRoom(roomNumber);
+    calendarActiveRoom = roomNumber;
+    updateCalendarTabs();
+    calculateBookingSummary();
+  }
+};
+
+function syncSuiteFromRoom(roomNumber) {
+  const roomObj = hotelRooms.find(r => r.id === roomNumber);
+  if (roomObj) {
+    const suiteSelect = document.getElementById("bookingSuiteSelect");
+    if (suiteSelect && suiteSelect.value !== roomObj.suiteKey) {
+      suiteSelect.value = roomObj.suiteKey;
+    }
+  }
+}
+
+function syncRoomFromSuite(suiteKey) {
+  const roomSelect = document.getElementById("bookingRoomNumber");
+  if (!roomSelect) return;
+  const currentRoom = roomSelect.value;
+  const currentObj = hotelRooms.find(r => r.id === currentRoom);
+  if (currentObj && currentObj.suiteKey === suiteKey) return; // already matching
+
+  // Pick first room for this suite
+  const match = hotelRooms.find(r => r.suiteKey === suiteKey);
+  if (match) {
+    roomSelect.value = match.id;
+    calendarActiveRoom = match.id;
+    updateCalendarTabs();
+  }
+}
+
+function updateCalendarTabs() {
+  const tabs = document.querySelectorAll(".cal-room-tab");
+  tabs.forEach(tab => {
+    if (tab.getAttribute("data-room") === calendarActiveRoom) {
+      tab.classList.add("active");
+    } else {
+      tab.classList.remove("active");
+    }
+  });
+  const badge = document.getElementById("calendarRoomBadge");
+  if (badge) {
+    badge.textContent = calendarActiveRoom === "all" ? "All 6 Rooms" : calendarActiveRoom;
+  }
+}
+
 function initBookingEngine() {
   const bookingModal = document.getElementById("bookingEngineModal");
   const openModalBtns = document.querySelectorAll(".open-booking-modal");
   const closeModalBtn = document.getElementById("closeBookingModal");
-
   const checkAvailabilityBtn = document.getElementById("barCheckAvailabilityBtn");
 
   const openBooking = (preselectedSuite = null) => {
     if (preselectedSuite) {
       const suiteSelect = document.getElementById("bookingSuiteSelect");
-      if (suiteSelect) suiteSelect.value = preselectedSuite;
+      if (suiteSelect) {
+        suiteSelect.value = preselectedSuite;
+        syncRoomFromSuite(preselectedSuite);
+      }
     }
+    initBookingFormDates();
     calculateBookingSummary();
+    renderRoomCalendar();
     if (bookingModal) bookingModal.classList.add("active");
   };
 
@@ -298,6 +489,14 @@ function initBookingEngine() {
     checkAvailabilityBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const suite = document.getElementById("barSuiteSelect")?.value;
+      const barIn = document.getElementById("barCheckin")?.value;
+      const barOut = document.getElementById("barCheckout")?.value;
+      const barGuests = document.getElementById("barGuests")?.value;
+
+      if (barIn) document.getElementById("bookCheckin").value = barIn;
+      if (barOut) document.getElementById("bookCheckout").value = barOut;
+      if (barGuests) document.getElementById("bookGuests").value = barGuests;
+
       openBooking(suite);
     });
   }
@@ -309,17 +508,87 @@ function initBookingEngine() {
     });
   }
 
+  // Room & Suite Sync Listeners
+  const roomSelect = document.getElementById("bookingRoomNumber");
+  if (roomSelect) {
+    roomSelect.addEventListener("change", (e) => {
+      const chosenRoom = e.target.value;
+      syncSuiteFromRoom(chosenRoom);
+      calendarActiveRoom = chosenRoom;
+      updateCalendarTabs();
+      calculateBookingSummary();
+      renderRoomCalendar();
+    });
+  }
+
+  const suiteSelect = document.getElementById("bookingSuiteSelect");
+  if (suiteSelect) {
+    suiteSelect.addEventListener("change", (e) => {
+      const chosenSuite = e.target.value;
+      syncRoomFromSuite(chosenSuite);
+      calculateBookingSummary();
+      renderRoomCalendar();
+    });
+  }
+
   // Live recalculate on input changes
-  const inputsToWatch = ["bookCheckin", "bookCheckout", "bookingSuiteSelect", "bookGuests"];
+  const inputsToWatch = ["bookCheckin", "bookCheckout", "bookGuests"];
   inputsToWatch.forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener("change", calculateBookingSummary);
+    if (el) el.addEventListener("change", () => {
+      calculateBookingSummary();
+      renderRoomCalendar();
+    });
   });
 
   const addonCheckboxes = document.querySelectorAll(".addon-checkbox");
   addonCheckboxes.forEach(cb => {
     cb.addEventListener("change", calculateBookingSummary);
   });
+
+  // Calendar Controls
+  const calPrevBtn = document.getElementById("calPrevBtn");
+  const calNextBtn = document.getElementById("calNextBtn");
+  if (calPrevBtn) {
+    calPrevBtn.addEventListener("click", () => {
+      calendarMonth.setMonth(calendarMonth.getMonth() - 1);
+      renderRoomCalendar();
+    });
+  }
+  if (calNextBtn) {
+    calNextBtn.addEventListener("click", () => {
+      calendarMonth.setMonth(calendarMonth.getMonth() + 1);
+      renderRoomCalendar();
+    });
+  }
+
+  const roomTabs = document.querySelectorAll(".cal-room-tab");
+  roomTabs.forEach(tab => {
+    tab.addEventListener("click", (e) => {
+      const r = e.currentTarget.getAttribute("data-room");
+      calendarActiveRoom = r;
+      if (r !== "all" && roomSelect) {
+        roomSelect.value = r;
+        syncSuiteFromRoom(r);
+        calculateBookingSummary();
+      }
+      updateCalendarTabs();
+      renderRoomCalendar();
+    });
+  });
+
+  const resetBtn = document.getElementById("resetDemoBookingsBtn");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      if (confirm("Reset bookings to factory demo state?")) {
+        localStorage.removeItem(BOOKINGS_STORAGE_KEY);
+        generateDefaultSeedBookings();
+        calculateBookingSummary();
+        renderRoomCalendar();
+        alert("Demo reservations have been refreshed.");
+      }
+    });
+  }
 
   // Handle Complete Reservation
   const bookingForm = document.getElementById("finalBookingForm");
@@ -329,12 +598,255 @@ function initBookingEngine() {
       showBookingConfirmation();
     });
   }
+
+  // Initial Calendar Render
+  renderRoomCalendar();
+}
+
+function initBookingFormDates() {
+  const checkinInput = document.getElementById("bookCheckin");
+  const checkoutInput = document.getElementById("bookCheckout");
+  if (checkinInput && !checkinInput.value) {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    checkinInput.value = tomorrow.toISOString().split("T")[0];
+  }
+  if (checkoutInput && !checkoutInput.value) {
+    const today = new Date();
+    const future = new Date(today);
+    future.setDate(future.getDate() + 4);
+    checkoutInput.value = future.toISOString().split("T")[0];
+  }
+}
+
+function renderRoomCalendar() {
+  const grid = document.getElementById("calendarDaysGrid");
+  const monthLabel = document.getElementById("calCurrentMonthLabel");
+  if (!grid || !monthLabel) return;
+
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const year = calendarMonth.getFullYear();
+  const month = calendarMonth.getMonth();
+
+  monthLabel.textContent = `${monthNames[month]} ${year}`;
+
+  grid.innerHTML = "";
+
+  const firstDayIndex = new Date(year, month, 1).getDay();
+  const totalDays = new Date(year, month + 1, 0).getDate();
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const checkinVal = document.getElementById("bookCheckin")?.value;
+  const checkoutVal = document.getElementById("bookCheckout")?.value;
+  const userStart = checkinVal ? new Date(checkinVal) : null;
+  const userEnd = checkoutVal ? new Date(checkoutVal) : null;
+
+  const bookings = getStoredBookings();
+
+  // Empty leading days
+  for (let i = 0; i < firstDayIndex; i++) {
+    const emptyCell = document.createElement("div");
+    emptyCell.className = "cal-day-cell empty-day";
+    grid.appendChild(emptyCell);
+  }
+
+  // Populate days of month
+  for (let day = 1; day <= totalDays; day++) {
+    const cellDate = new Date(year, month, day);
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+    const cell = document.createElement("div");
+    cell.className = "cal-day-cell";
+
+    const numSpan = document.createElement("span");
+    numSpan.className = "cal-day-num";
+    numSpan.textContent = day;
+    cell.appendChild(numSpan);
+
+    const isPast = cellDate < today;
+    if (isPast) {
+      cell.classList.add("past-day");
+      const statusSpan = document.createElement("span");
+      statusSpan.className = "cal-day-status";
+      statusSpan.textContent = "—";
+      cell.appendChild(statusSpan);
+      grid.appendChild(cell);
+      continue;
+    }
+
+    // Check bookings for this day
+    // Day is considered booked if b.checkin <= dateStr < b.checkout
+    const activeBookingsOnDay = bookings.filter(b => {
+      return dateStr >= b.checkin && dateStr < b.checkout;
+    });
+
+    let isCellBooked = false;
+    let statusText = "Free";
+    let statusClass = "status-free";
+
+    if (calendarActiveRoom === "all") {
+      const bookedCount = activeBookingsOnDay.length;
+      if (bookedCount === 0) {
+        statusText = "🟢 6 Free";
+        statusClass = "status-free";
+      } else if (bookedCount < 6) {
+        statusText = `🟠 ${6 - bookedCount} Free`;
+        statusClass = "status-free";
+      } else {
+        statusText = "🔴 Full";
+        statusClass = "status-booked";
+        isCellBooked = true;
+      }
+    } else {
+      const isRoomBooked = activeBookingsOnDay.some(b => b.roomNumber === calendarActiveRoom);
+      if (isRoomBooked) {
+        isCellBooked = true;
+        statusText = "🔒 Booked";
+        statusClass = "status-booked";
+      } else {
+        statusText = "Free";
+        statusClass = "status-free";
+      }
+    }
+
+    if (isCellBooked) {
+      cell.classList.add("booked-day");
+    } else {
+      cell.classList.add("available-day");
+    }
+
+    // Highlight user selection
+    if (userStart && userEnd && !isNaN(userStart) && !isNaN(userEnd)) {
+      if (dateStr >= checkinVal && dateStr <= checkoutVal) {
+        cell.classList.add("selected-range");
+        if (dateStr === checkinVal || dateStr === checkoutVal) {
+          cell.classList.add("selected-endpoint");
+        }
+      }
+    }
+
+    const statusSpan = document.createElement("span");
+    statusSpan.className = `cal-day-status ${statusClass}`;
+    statusSpan.textContent = statusText;
+    cell.appendChild(statusSpan);
+
+    // Interactive date click to set checkin / checkout
+    if (!isPast && !isCellBooked) {
+      cell.addEventListener("click", () => {
+        const inInput = document.getElementById("bookCheckin");
+        const outInput = document.getElementById("bookCheckout");
+        if (!inInput.value || (inInput.value && outInput.value)) {
+          inInput.value = dateStr;
+          outInput.value = "";
+        } else if (inInput.value && !outInput.value) {
+          if (dateStr > inInput.value) {
+            outInput.value = dateStr;
+          } else {
+            inInput.value = dateStr;
+          }
+        }
+        calculateBookingSummary();
+        renderRoomCalendar();
+      });
+    }
+
+    grid.appendChild(cell);
+  }
+}
+
+function validateRoomAvailabilityAndAlerts(selectedRoom, checkinVal, checkoutVal, nights) {
+  const statusContainer = document.getElementById("bookingAvailabilityStatus");
+  const confirmBtn = document.getElementById("confirmBookingBtn");
+  if (!statusContainer) return true;
+
+  if (!checkinVal || !checkoutVal) {
+    statusContainer.innerHTML = `
+      <div class="booking-status-box" style="background: #f8fafc; border: 1px dashed var(--border-light); color: var(--text-muted); font-size: 0.85rem;">
+        <i class="fas fa-info-circle text-gold"></i> Please select your Check-in and Check-out dates to verify live room availability.
+      </div>
+    `;
+    if (confirmBtn) {
+      confirmBtn.disabled = false;
+      confirmBtn.classList.remove("btn-disabled");
+    }
+    return true;
+  }
+
+  const conflict = checkRoomConflict(selectedRoom, checkinVal, checkoutVal);
+
+  if (conflict) {
+    // Conflict detected: double-booking prevented!
+    const availableRooms = getAvailableRoomsForDates(checkinVal, checkoutVal);
+
+    statusContainer.innerHTML = `
+      <div class="booking-status-box conflict">
+        <div style="font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+          <i class="fas fa-exclamation-triangle" style="color: #dc2626; font-size: 1.15rem;"></i>
+          <span>Double-Booking Conflict: ${selectedRoom} is ALREADY BOOKED!</span>
+        </div>
+        <div style="font-size: 0.86rem; color: #7f1d1d;">
+          This room is already reserved from <strong>${conflict.checkin}</strong> to <strong>${conflict.checkout}</strong>. Another reservation cannot be placed on overlapping dates.
+        </div>
+        ${availableRooms.length > 0 ? `
+          <div style="margin-top: 6px; padding-top: 8px; border-top: 1px dashed rgba(220, 38, 38, 0.3);">
+            <span style="font-size: 0.8rem; font-weight: 700; color: #166534;">
+              <i class="fas fa-check-circle" style="color: #16a34a;"></i> Switch to an Available Room for these dates:
+            </span>
+            <div class="alt-rooms-row" style="margin-top: 6px;">
+              ${availableRooms.map(rm => `
+                <button type="button" class="alt-room-btn" onclick="window.selectRoomFromConflict('${rm}')">
+                  <i class="fas fa-door-open"></i> Select ${rm}
+                </button>
+              `).join("")}
+            </div>
+          </div>
+        ` : `
+          <div style="font-size: 0.82rem; color: #b91c1c; font-weight: 600; margin-top: 4px;">
+            ⚠️ All 6 rooms of The Ehelepola Hotel are reserved for these dates. Please choose different stay dates.
+          </div>
+        `}
+      </div>
+    `;
+
+    if (confirmBtn) {
+      confirmBtn.disabled = true;
+      confirmBtn.classList.add("btn-disabled");
+      confirmBtn.innerHTML = `<i class="fas fa-ban"></i> <span>${selectedRoom} Unavailable — Choose Another Room or Dates</span>`;
+    }
+    return false;
+  } else {
+    // Available!
+    statusContainer.innerHTML = `
+      <div class="booking-status-box available">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-check-circle" style="color: #16a34a; font-size: 1.1rem;"></i>
+            <span><strong>${selectedRoom}</strong> is <strong>Available</strong> for your ${nights} Night${nights > 1 ? 's' : ''} stay!</span>
+          </div>
+          <span style="font-size: 0.76rem; font-weight: 700; color: #15803d; background: #dcfce7; padding: 3px 10px; border-radius: 12px; border: 1px solid #86efac;">
+            <i class="fas fa-shield-alt"></i> Guaranteed Open
+          </span>
+        </div>
+      </div>
+    `;
+
+    if (confirmBtn) {
+      confirmBtn.disabled = false;
+      confirmBtn.classList.remove("btn-disabled");
+      confirmBtn.innerHTML = `<i class="fas fa-lock"></i> <span>Confirm & Generate Royal Reservation Voucher</span>`;
+    }
+    return true;
+  }
 }
 
 function calculateBookingSummary() {
   const checkinVal = document.getElementById("bookCheckin")?.value;
   const checkoutVal = document.getElementById("bookCheckout")?.value;
   const suiteVal = document.getElementById("bookingSuiteSelect")?.value || "royal-heritage";
+  const selectedRoom = document.getElementById("bookingRoomNumber")?.value || "Room 01";
 
   const suite = suitesData[suiteVal] || suitesData["royal-heritage"];
   
@@ -361,6 +873,7 @@ function calculateBookingSummary() {
   // Update Summary UI
   const nightsCountEl = document.getElementById("summaryNightsCount");
   const suiteNameEl = document.getElementById("summarySuiteName");
+  const assignedRoomEl = document.getElementById("summaryAssignedRoom");
   const roomPriceEl = document.getElementById("summaryRoomPrice");
   const addonsPriceEl = document.getElementById("summaryAddonsPrice");
   const taxesPriceEl = document.getElementById("summaryTaxesPrice");
@@ -368,30 +881,73 @@ function calculateBookingSummary() {
 
   if (nightsCountEl) nightsCountEl.textContent = `${nights} Night${nights > 1 ? 's' : ''}`;
   if (suiteNameEl) suiteNameEl.textContent = suite.name;
+  if (assignedRoomEl) assignedRoomEl.textContent = `${selectedRoom} (${suite.name})`;
   if (roomPriceEl) roomPriceEl.textContent = config.format(roomTotal);
   if (addonsPriceEl) addonsPriceEl.textContent = config.format(addonTotal);
   if (taxesPriceEl) taxesPriceEl.textContent = config.format(taxes);
   if (grandTotalEl) grandTotalEl.textContent = config.format(grandTotal);
+
+  // Validate conflict
+  validateRoomAvailabilityAndAlerts(selectedRoom, checkinVal, checkoutVal, nights);
 }
 
 function showBookingConfirmation() {
-  const guestName = document.getElementById("bookGuestName")?.value || "Distinguished Guest";
-  const guestEmail = document.getElementById("bookGuestEmail")?.value || "guest@ehelepola.com";
+  const checkinVal = document.getElementById("bookCheckin")?.value;
+  const checkoutVal = document.getElementById("bookCheckout")?.value;
+  const selectedRoom = document.getElementById("bookingRoomNumber")?.value || "Room 01";
   const suiteVal = document.getElementById("bookingSuiteSelect")?.value || "royal-heritage";
   const suite = suitesData[suiteVal] || suitesData["royal-heritage"];
+
+  // Double-check conflict before committing
+  const conflict = checkRoomConflict(selectedRoom, checkinVal, checkoutVal);
+  if (conflict) {
+    alert(`Conflict Error: ${selectedRoom} is already booked from ${conflict.checkin} to ${conflict.checkout}. Please select an available room or change your dates.`);
+    return;
+  }
+
+  const guestName = document.getElementById("bookGuestName")?.value || "Distinguished Guest";
+  const guestEmail = document.getElementById("bookGuestEmail")?.value || "guest@ehelepola.com";
+  const guestPhone = document.getElementById("bookGuestPhone")?.value || "+94 77 123 4567";
+  const guestsVal = document.getElementById("bookGuests")?.value || "2";
   const refCode = "EH-" + Math.floor(100000 + Math.random() * 900000);
 
+  // Save new booking to persistent storage
+  const newBooking = {
+    id: refCode,
+    refCode: refCode,
+    roomNumber: selectedRoom,
+    suiteKey: suiteVal,
+    suiteName: suite.name,
+    checkin: checkinVal,
+    checkout: checkoutVal,
+    guestName: guestName,
+    guestEmail: guestEmail,
+    guestPhone: guestPhone,
+    guests: guestsVal,
+    createdAt: new Date().toISOString()
+  };
+
+  const currentBookings = getStoredBookings();
+  currentBookings.push(newBooking);
+  saveBookings(currentBookings);
+
+  // Update Voucher Modal
   const voucherModal = document.getElementById("voucherSuccessModal");
   if (voucherModal) {
     document.getElementById("voucherRefCode").textContent = refCode;
     document.getElementById("voucherGuestName").textContent = guestName;
     document.getElementById("voucherGuestEmail").textContent = guestEmail;
     document.getElementById("voucherSuiteName").textContent = suite.name;
-    document.getElementById("voucherDates").textContent = `${document.getElementById("bookCheckin").value} to ${document.getElementById("bookCheckout").value}`;
+    const vRoom = document.getElementById("voucherRoomNumber");
+    if (vRoom) vRoom.textContent = `${selectedRoom} — ${suite.name}`;
+    document.getElementById("voucherDates").textContent = `${checkinVal} to ${checkoutVal}`;
 
     // Hide booking modal, show voucher
     document.getElementById("bookingEngineModal")?.classList.remove("active");
     voucherModal.classList.add("active");
+
+    // Re-render calendar so the new booking is immediately marked as booked
+    renderRoomCalendar();
   }
 }
 
@@ -427,8 +983,13 @@ function initSuiteModals() {
         reserveBtn.onclick = () => {
           detailModal.classList.remove("active");
           const suiteSelect = document.getElementById("bookingSuiteSelect");
-          if (suiteSelect) suiteSelect.value = suiteKey;
+          if (suiteSelect) {
+            suiteSelect.value = suiteKey;
+            syncRoomFromSuite(suiteKey);
+          }
+          initBookingFormDates();
           calculateBookingSummary();
+          renderRoomCalendar();
           document.getElementById("bookingEngineModal")?.classList.add("active");
         };
       }
@@ -516,4 +1077,192 @@ function initFaqAccordion() {
       }
     });
   });
+}
+
+
+/* -------------------------------------------------------------
+ * 12. Interactive Guest Feedback & Reviews System
+ * ------------------------------------------------------------- */
+function initGuestFeedbackSystem() {
+  const toggleBtn = document.getElementById("toggleFeedbackFormBtn");
+  const formCard = document.getElementById("feedbackFormCard");
+  const closeBtn = document.getElementById("closeFeedbackFormBtn");
+  const cancelBtn = document.getElementById("cancelFeedbackBtn");
+  const form = document.getElementById("guestFeedbackForm");
+  const grid = document.getElementById("havenReviewsGrid");
+
+  if (!grid) return;
+
+  // Toggle Form Visibility
+  const openForm = () => {
+    if (formCard) {
+      formCard.style.display = "block";
+      formCard.scrollIntoView({ behavior: "smooth", block: "center" });
+      document.getElementById("reviewGuestName")?.focus();
+    }
+  };
+
+  const closeForm = () => {
+    if (formCard) formCard.style.display = "none";
+  };
+
+  if (toggleBtn) toggleBtn.addEventListener("click", openForm);
+  if (closeBtn) closeBtn.addEventListener("click", closeForm);
+  if (cancelBtn) cancelBtn.addEventListener("click", closeForm);
+
+  // Star Rating Click Logic
+  const starBtns = document.querySelectorAll("#starRatingSelect .star-btn");
+  const ratingInput = document.getElementById("reviewRatingVal");
+  const ratingText = document.getElementById("starRatingText");
+  const ratingLabels = {
+    1: "1.0 - Needs Improvement",
+    2: "2.0 - Fair",
+    3: "3.0 - Good Experience",
+    4: "4.0 - Wonderful Stay",
+    5: "5.0 - Exceptional Stay"
+  };
+
+  starBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const selectedRating = parseInt(btn.getAttribute("data-rating"), 10);
+      if (ratingInput) ratingInput.value = selectedRating;
+      if (ratingText) ratingText.textContent = ratingLabels[selectedRating] || `${selectedRating}.0 Stars`;
+
+      starBtns.forEach(s => {
+        const r = parseInt(s.getAttribute("data-rating"), 10);
+        if (r <= selectedRating) {
+          s.classList.add("active");
+        } else {
+          s.classList.remove("active");
+        }
+      });
+    });
+  });
+
+  // Default seed reviews (Warm authentic reviews from Sri Lankan and international guests)
+  const defaultReviews = [
+    {
+      name: "Naveen & Malithi Fernando",
+      city: "Colombo, Sri Lanka",
+      rating: 5,
+      date: "Recent Stay",
+      text: "We had a truly peaceful weekend at The Ehelepola Hotel. The thatched garden pavilion is magnificent for afternoon Ceylon tea, the food was delicious, and the staff treated us with genuine Kandyan warmth. Highly recommended!"
+    },
+    {
+      name: "Marcus & Elena Vance",
+      city: "Sydney, Australia",
+      rating: 5,
+      date: "Recent Stay",
+      text: "A boutique heritage gem tucked away in the serene hills of Kandy. The antique teak beds, calm courtyard atmosphere, and personal attention to detail made our stay unforgettable."
+    },
+    {
+      name: "Chaminda Jayasuriya",
+      city: "Kurunegala, Sri Lanka",
+      rating: 5,
+      date: "Recent Stay",
+      text: "Very calm, quiet, and spotless environment. The night illumination of the villa and the garden lawn terrace are breathtaking. A great place to relax with family."
+    }
+  ];
+
+  const getSavedReviews = () => {
+    try {
+      const saved = localStorage.getItem("ehelepola_hotel_reviews");
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      console.warn("Could not read localStorage reviews", e);
+    }
+    return defaultReviews;
+  };
+
+  const saveReviews = (reviews) => {
+    try {
+      localStorage.setItem("ehelepola_hotel_reviews", JSON.stringify(reviews));
+    } catch (e) {
+      console.warn("Could not save to localStorage", e);
+    }
+  };
+
+  const getInitials = (name) => {
+    const parts = name.trim().split(" ");
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+  };
+
+  const escapeHtml = (str) => {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  };
+
+  const renderReviews = () => {
+    const reviews = getSavedReviews();
+    grid.innerHTML = "";
+
+    reviews.forEach((rev) => {
+      const card = document.createElement("div");
+      card.className = "haven-review-card";
+
+      const stars = "★".repeat(rev.rating) + "☆".repeat(5 - rev.rating);
+      const initials = getInitials(rev.name);
+
+      card.innerHTML = `
+        <div class="haven-quote-icon">“</div>
+        <p class="haven-review-text">"${escapeHtml(rev.text)}"</p>
+        <div class="haven-review-author">
+          <div class="haven-author-info">
+            <div class="haven-avatar-initials">${initials}</div>
+            <div>
+              <div class="haven-author-name">
+                ${escapeHtml(rev.name)}
+                <span class="haven-review-badge"><i class="fas fa-check-circle"></i> Verified Guest</span>
+              </div>
+              <div class="haven-author-city">${escapeHtml(rev.city)} • ${rev.date || 'Recent'}</div>
+            </div>
+          </div>
+          <div class="haven-stars">${stars}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  };
+
+  // Form Submit Handler
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("reviewGuestName")?.value.trim();
+      const city = document.getElementById("reviewGuestCity")?.value.trim();
+      const rating = parseInt(document.getElementById("reviewRatingVal")?.value || "5", 10);
+      const message = document.getElementById("reviewGuestMessage")?.value.trim();
+
+      if (!name || !city || !message) {
+        alert("Please complete all required fields.");
+        return;
+      }
+
+      const newReview = {
+        name,
+        city,
+        rating,
+        date: "Just Now",
+        text: message
+      };
+
+      const currentList = getSavedReviews();
+      currentList.unshift(newReview);
+      saveReviews(currentList);
+
+      renderReviews();
+      form.reset();
+      closeForm();
+
+      grid.scrollIntoView({ behavior: "smooth", block: "start" });
+      alert("Thank you! Your feedback has been published successfully.");
+    });
+  }
+
+  // Initial render
+  renderReviews();
 }
