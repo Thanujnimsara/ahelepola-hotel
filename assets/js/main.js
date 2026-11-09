@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGuestFeedbackSystem();
   initDiscoverGallerySlider();
   initHeroBackgroundSlider();
-  initDiningShowcaseSlider();
+  initDiningCarouselSlider();
 });
 
 /* -------------------------------------------------------------
@@ -1427,126 +1427,89 @@ function initHeroBackgroundSlider() {
 }
 
 /* -------------------------------------------------------------
- * 15. Naturaliza-Style Full-Image Dining Showcase Slider
+ * 15. Naturaliza-Style Luxury Dining Carousel
  * ------------------------------------------------------------- */
-function initDiningShowcaseSlider() {
-  const stageFrame = document.getElementById("diningStageFrame");
-  if (!stageFrame) return;
+function initDiningCarouselSlider() {
+  const track = document.getElementById("diningCarouselTrack");
+  const prevBtn = document.getElementById("diningCarouselPrev");
+  const nextBtn = document.getElementById("diningCarouselNext");
+  const dotsContainer = document.getElementById("diningCarouselDots");
 
-  const stageSlides = stageFrame.querySelectorAll(".dining-stage-slide");
-  const ambientSlides = document.querySelectorAll("#diningAmbientBg .dining-ambient-slide");
-  const chips = document.querySelectorAll("#diningVenueTabs .venue-tab-chip");
-  const dots = document.querySelectorAll("#diningDots .stage-dot");
-  const prevBtn = document.getElementById("diningPrevBtn");
-  const nextBtn = document.getElementById("diningNextBtn");
-  const counter = document.getElementById("diningSlideCounter");
+  if (!track) return;
 
-  const badgeEl = document.getElementById("diningVenueBadge");
-  const nameEl = document.getElementById("diningVenueName");
-  const descEl = document.getElementById("diningVenueDesc");
-  const hoursEl = document.getElementById("venueHours");
-  const typeEl = document.getElementById("venueType");
-
-  const venuesInfo = [
-    {
-      badge: "AL FRESCO COURTYARD",
-      icon: "fas fa-leaf",
-      name: "Courtyard Terrace Dining Lounge",
-      desc: "Breezy open-air terrace dining featuring vibrant emerald green lawn turf, contemporary designer quilted chairs, and sleek marble tables. Ideal for tranquil morning tea, family dinners, and relaxed evening conversations amidst cool mountain breezes.",
-      hours: "7:00 AM – 10:30 PM Daily",
-      type: "Breakfast, Lunch, High Tea & Dinner"
-    },
-    {
-      badge: "REGAL INDOOR BANQUET",
-      icon: "fas fa-utensils",
-      name: "Heritage Teak Dining Hall",
-      desc: "Authentic Ceylon gastronomy served in a grand colonial hall featuring handcrafted high-back teak chairs, polished timber ceilings, and warm amber chandeliers. Savor exquisite Sri Lankan curries, fresh hill-country vegetables, and signature multi-course dinners.",
-      hours: "12:00 PM – 3:30 PM & 7:00 PM – 11:00 PM",
-      type: "Gourmet Luncheons & Evening Banquets"
-    },
-    {
-      badge: "PRIVATE ROMANTIC SANCTUARY",
-      icon: "fas fa-moon",
-      name: "Starlight Gazebo Candlelit Dining",
-      desc: "An enchanting multi-course private dinner under the stars in our authentic hand-thatched circular cabana. Surrounded by ambient fairy-lit mango trees, gentle night breezes, and personalized table butler service for unforgettable celebrations.",
-      hours: "6:30 PM – 11:00 PM (By Reservation)",
-      type: "Private Candlelit Multi-Course Dining"
-    },
-    {
-      badge: "FARM-TO-TABLE BREAKFAST",
-      icon: "fas fa-coffee",
-      name: "Traditional Kandyan Morning Table",
-      desc: "Start your day with crispy golden hoppers, fragrant kiri bath (coconut milk rice), fiery pol sambol, fresh estate fruits, and freshly brewed single-estate Ceylon highlands tea as dawn mist rolls gently across the valley.",
-      hours: "7:00 AM – 10:30 AM Daily",
-      type: "Traditional Breakfast & Ceylon High Tea"
-    },
-    {
-      badge: "ARISTOCRATIC LOUNGE",
-      icon: "fas fa-couch",
-      name: "Heritage Living Salon & Lounge",
-      desc: "Aristocratic guest salon featuring polished timber ceilings, warm ambient ring chandeliers, vintage brass gramophone, arched timber French doors, and handcrafted teak furniture. Perfect for afternoon high tea, reading, and evening aperitifs.",
-      hours: "8:00 AM – 11:00 PM Daily",
-      type: "High Tea, Coffee, Wine & Aperitifs"
-    }
-  ];
-
-  if (!stageSlides || stageSlides.length < 2) return;
+  const cards = track.querySelectorAll(".dining-luxury-card");
+  if (!cards || cards.length === 0) return;
 
   let currentIndex = 0;
   let autoTimer = null;
-  const slideDuration = 6000;
+  const slideInterval = 5500;
 
-  const updateSlide = (index) => {
-    if (index < 0) index = stageSlides.length - 1;
-    if (index >= stageSlides.length) index = 0;
-    currentIndex = index;
+  const getVisibleCount = () => {
+    if (window.innerWidth <= 640) return 1;
+    if (window.innerWidth <= 991) return 2;
+    return 3;
+  };
 
-    stageSlides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === currentIndex);
-    });
+  const getMaxIndex = () => {
+    return Math.max(0, cards.length - getVisibleCount());
+  };
 
-    ambientSlides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === currentIndex);
-    });
-
-    chips.forEach((chip, i) => {
-      chip.classList.toggle("active", i === currentIndex);
-    });
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === currentIndex);
-    });
-
-    if (counter) {
-      counter.textContent = `0${currentIndex + 1} / 0${stageSlides.length}`;
-    }
-
-    const info = venuesInfo[currentIndex];
-    if (info) {
-      if (badgeEl) {
-        badgeEl.innerHTML = `<i class="${info.icon}"></i> <span>${info.badge}</span>`;
-      }
-      if (nameEl) {
-        nameEl.style.opacity = "0";
-        setTimeout(() => {
-          nameEl.textContent = info.name;
-          nameEl.style.opacity = "1";
-        }, 150);
-      }
-      if (descEl) {
-        descEl.style.opacity = "0";
-        setTimeout(() => {
-          descEl.textContent = info.desc;
-          descEl.style.opacity = "1";
-        }, 150);
-      }
-      if (hoursEl) hoursEl.textContent = info.hours;
-      if (typeEl) typeEl.textContent = info.type;
+  const buildDots = () => {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = "";
+    const totalDots = getMaxIndex() + 1;
+    for (let i = 0; i < totalDots; i++) {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "dining-carousel-dot" + (i === currentIndex ? " active" : "");
+      dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+      dot.addEventListener("click", () => {
+        goToSlide(i);
+        restartTimer();
+      });
+      dotsContainer.appendChild(dot);
     }
   };
 
-  const nextSlide = () => updateSlide(currentIndex + 1);
-  const prevSlide = () => updateSlide(currentIndex - 1);
+  const updateDots = () => {
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll(".dining-carousel-dot");
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  };
+
+  const goToSlide = (index) => {
+    const maxIdx = getMaxIndex();
+    if (index < 0) index = maxIdx;
+    if (index > maxIdx) index = 0;
+    currentIndex = index;
+
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 28;
+    const offset = currentIndex * (cardWidth + gap);
+    track.style.transform = `translateX(-${offset}px)`;
+
+    updateDots();
+  };
+
+  const nextSlide = () => {
+    const maxIdx = getMaxIndex();
+    if (currentIndex >= maxIdx) {
+      goToSlide(0);
+    } else {
+      goToSlide(currentIndex + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    const maxIdx = getMaxIndex();
+    if (currentIndex <= 0) {
+      goToSlide(maxIdx);
+    } else {
+      goToSlide(currentIndex - 1);
+    }
+  };
 
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
@@ -1562,34 +1525,48 @@ function initDiningShowcaseSlider() {
     });
   }
 
-  chips.forEach(chip => {
-    chip.addEventListener("click", () => {
-      const targetIndex = parseInt(chip.getAttribute("data-slide"), 10);
-      if (!isNaN(targetIndex)) {
-        updateSlide(targetIndex);
-        restartTimer();
-      }
-    });
-  });
-
-  dots.forEach(dot => {
-    dot.addEventListener("click", () => {
-      const targetIndex = parseInt(dot.getAttribute("data-slide"), 10);
-      if (!isNaN(targetIndex)) {
-        updateSlide(targetIndex);
-        restartTimer();
-      }
-    });
-  });
-
   const startTimer = () => {
     if (autoTimer) clearInterval(autoTimer);
-    autoTimer = setInterval(nextSlide, slideDuration);
+    autoTimer = setInterval(nextSlide, slideInterval);
   };
 
   const restartTimer = () => {
     startTimer();
   };
 
+  const wrapper = track.parentElement;
+  if (wrapper) {
+    wrapper.addEventListener("mouseenter", () => {
+      if (autoTimer) clearInterval(autoTimer);
+    });
+    wrapper.addEventListener("mouseleave", () => {
+      restartTimer();
+    });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    wrapper.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    wrapper.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) {
+        nextSlide();
+        restartTimer();
+      } else if (touchEndX - touchStartX > 50) {
+        prevSlide();
+        restartTimer();
+      }
+    }, { passive: true });
+  }
+
+  window.addEventListener("resize", () => {
+    buildDots();
+    goToSlide(Math.min(currentIndex, getMaxIndex()));
+  });
+
+  buildDots();
+  goToSlide(0);
   startTimer();
 }

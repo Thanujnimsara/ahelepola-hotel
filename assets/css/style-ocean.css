@@ -3016,334 +3016,128 @@ button {
 }
 
 /* ==========================================================================
-   NATURALIZA-STYLE DINING SHOWCASE SECTION (2-Column Full-Image Showcase)
+   NATURALIZA-STYLE DINING CAROUSEL SECTION (Luxury Cards Slider)
    ========================================================================== */
-.haven-dining-showcase {
+.haven-dining-carousel-section {
   position: relative;
-  min-height: 720px;
-  display: flex;
-  align-items: center;
-  background: #0c1c17;
+  background: radial-gradient(circle at 50% 0%, #153328 0%, #0c1c17 70%);
+  padding: 105px 0 115px;
   overflow: hidden;
-  padding: 100px 0;
   border-top: 1px solid rgba(213, 178, 135, 0.25);
   border-bottom: 1px solid rgba(213, 178, 135, 0.25);
 }
 
-/* Ambient Blurred Background (Matches Active Venue Atmosphere) */
-.dining-showcase-ambient {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.dining-ambient-slide {
-  position: absolute;
-  inset: -30px;
-  background-size: cover;
-  background-position: center;
-  filter: blur(50px) brightness(0.24) saturate(1.25);
-  opacity: 0;
-  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(1.1);
-}
-
-.dining-ambient-slide.active {
-  opacity: 1;
-}
-
-.dining-ambient-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: radial-gradient(circle at 70% 50%, rgba(12, 28, 23, 0.35) 0%, rgba(10, 24, 19, 0.90) 75%),
-              linear-gradient(180deg, rgba(8, 20, 16, 0.45) 0%, transparent 40%, rgba(8, 20, 16, 0.65) 100%);
-  pointer-events: none;
-}
-
-/* 2-Column Split Container */
-.dining-showcase-container {
-  position: relative;
-  z-index: 3;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: 52px;
-  align-items: center;
-}
-
-/* Left Column: Typography & Dynamic Venue Details */
-.dining-showcase-left {
-  color: #ffffff;
-}
-
-.dining-showcase-tag {
+.dining-carousel-header {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 18px;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 44px;
 }
 
-.dining-tag-line {
-  display: inline-block;
-  width: 80px;
-  height: 1.5px;
-  background: rgba(213, 178, 135, 0.75);
+.dining-header-left {
+  max-width: 720px;
 }
 
-.dining-showcase-title {
-  font-family: var(--font-serif);
-  font-size: 3.1rem;
-  font-weight: 500;
-  line-height: 1.15;
-  color: #ffffff;
-  margin-bottom: 24px;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
-}
-
-/* Dynamic Venue Card */
-.dining-venue-info-box {
-  background: rgba(16, 36, 29, 0.65);
-  border: 1px solid rgba(213, 178, 135, 0.3);
-  border-radius: var(--radius-md);
-  padding: 24px 28px;
-  margin-bottom: 26px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  transition: all 0.4s ease;
-}
-
-.dining-venue-badge-wrap {
-  margin-bottom: 12px;
-}
-
-.dining-venue-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--sand-primary);
-  background: rgba(213, 178, 135, 0.15);
-  border: 1px solid rgba(213, 178, 135, 0.4);
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-}
-
-.dining-venue-name {
-  font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 12px;
-  transition: opacity 0.3s ease;
-}
-
-.dining-venue-desc {
-  font-family: var(--font-body);
-  font-size: 0.94rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.86);
-  margin-bottom: 16px;
+.dining-header-desc {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin: 0;
   font-weight: 300;
-  min-height: 75px;
-  transition: opacity 0.3s ease;
 }
 
-.dining-venue-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.8rem;
-  color: var(--sand-light);
-  font-weight: 500;
-}
-
-.dining-venue-meta .meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.dining-venue-meta .meta-dot {
-  color: rgba(213, 178, 135, 0.5);
-}
-
-.dining-showcase-actions {
+.dining-carousel-controls {
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 28px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
-.btn-haven-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #d5b287 0%, #b88d57 100%);
-  color: #0b1a15;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 12px 26px;
-  border-radius: var(--radius-full);
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(184, 141, 87, 0.4);
-  transition: all var(--transition-fast);
-}
-
-.btn-haven-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(184, 141, 87, 0.6);
-  color: #000000;
-}
-
-.dining-explore-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-body);
-  font-size: 0.86rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+.carousel-nav-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(213, 178, 135, 0.45);
+  background: rgba(255, 255, 255, 0.06);
   color: #ffffff;
-  text-decoration: none;
-  padding-bottom: 4px;
-  border-bottom: 1.5px solid var(--sand-primary);
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
   cursor: pointer;
-}
-
-.dining-explore-link:hover {
-  color: var(--sand-primary);
-  gap: 14px;
-  border-color: #ffffff;
-  transform: translateX(2px);
-}
-
-/* Venue Selector Chips */
-.dining-venues-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.venue-tab-chip {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.venue-tab-chip:hover {
-  background: rgba(213, 178, 135, 0.2);
-  border-color: var(--sand-primary);
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-.venue-tab-chip.active {
+.carousel-nav-btn:hover {
   background: var(--sand-primary);
+  color: #0b1a15;
   border-color: var(--sand-primary);
-  color: #0d1e19;
-  font-weight: 700;
-  box-shadow: 0 4px 16px rgba(213, 178, 135, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(213, 178, 135, 0.45);
 }
 
-/* Right Column: Framed Full-Image Stage */
-.dining-showcase-right {
+/* Carousel Track & Cards */
+.dining-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 4px 25px;
+}
+
+.dining-carousel-track {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 28px;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
 }
 
-.dining-stage-frame {
+.dining-luxury-card {
+  flex: 0 0 calc(33.333% - 19px);
+  background: #11261f;
+  border-radius: 20px;
+  border: 1px solid rgba(213, 178, 135, 0.32);
+  overflow: hidden;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dining-luxury-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.6), 0 0 28px rgba(213, 178, 135, 0.22);
+  border-color: var(--sand-primary);
+}
+
+.dining-card-img-wrap {
   position: relative;
   width: 100%;
-  max-width: 500px;
-  height: 560px;
-  border-radius: 20px;
+  height: 285px;
   overflow: hidden;
-  border: 2px solid rgba(213, 178, 135, 0.45);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(213, 178, 135, 0.18);
-  background: radial-gradient(circle at center, #132a23 0%, #06110d 100%);
+  background: #081511;
 }
 
-.dining-stage-slide {
-  position: absolute;
-  inset: 0;
+.dining-card-img-wrap img {
   width: 100%;
   height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px;
+  object-fit: cover;
+  transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.dining-stage-slide.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 2;
+.dining-luxury-card:hover .dining-card-img-wrap img {
+  transform: scale(1.08);
 }
 
-/* 100% Full Uncropped Image */
-.dining-full-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.5));
-  transition: transform 7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dining-stage-slide.active .dining-full-img {
-  transform: scale(1.02);
-}
-
-.dining-stage-tag {
+.dining-card-pill {
   position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 3;
-  background: rgba(8, 20, 16, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(213, 178, 135, 0.5);
+  top: 16px;
+  left: 16px;
+  background: rgba(8, 20, 16, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(213, 178, 135, 0.55);
   color: #ffffff;
   font-size: 0.72rem;
   letter-spacing: 0.12em;
@@ -3351,88 +3145,105 @@ button {
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Stage Navigation Overlay */
-.dining-stage-nav {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(10, 24, 19, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(213, 178, 135, 0.45);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-}
-
-.stage-nav-arrow {
-  background: transparent;
-  border: none;
-  color: #f7f3ed;
-  font-size: 0.8rem;
-  cursor: pointer;
-  width: 26px;
-  height: 26px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.dining-card-body {
+  padding: 26px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  color: #ffffff;
+}
+
+.dining-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.48rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.dining-card-desc {
+  font-size: 0.91rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.62;
+  margin-bottom: 22px;
+  flex: 1;
+  font-weight: 300;
+}
+
+.dining-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 18px;
+  margin-top: auto;
+}
+
+.dining-time {
+  font-size: 0.78rem;
+  color: var(--sand-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dining-card-action {
+  background: transparent;
+  border: none;
+  color: var(--sand-primary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
   padding: 0;
 }
 
-.stage-nav-arrow:hover {
-  background: rgba(213, 178, 135, 0.25);
-  color: var(--sand-primary);
-  transform: scale(1.15);
+.dining-card-action:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+  gap: 10px;
 }
 
-.stage-nav-dots {
+/* Dots */
+.dining-carousel-dots {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 8px;
+  margin-top: 24px;
 }
 
-.stage-dot {
-  width: 9px;
-  height: 9px;
+.dining-carousel-dot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s ease;
   padding: 0;
 }
 
-.stage-dot:hover {
-  background: rgba(213, 178, 135, 0.7);
-  border-color: var(--sand-primary);
-}
-
-.stage-dot.active {
-  width: 24px;
+.dining-carousel-dot.active {
+  width: 26px;
   border-radius: 10px;
   background: var(--sand-primary);
   border-color: var(--sand-primary);
-  box-shadow: 0 0 12px rgba(213, 178, 135, 0.85);
-}
-
-.stage-nav-counter {
-  font-family: var(--font-body);
-  font-size: 0.76rem;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 600;
-  min-width: 44px;
-  text-align: center;
+  box-shadow: 0 0 12px rgba(213, 178, 135, 0.7);
 }
 
 /* Hero Slide Index 2 (Living Salon) object-position tweak */
@@ -3441,38 +3252,24 @@ button {
 }
 
 @media (max-width: 991px) {
-  .dining-showcase-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .dining-luxury-card {
+    flex: 0 0 calc(50% - 14px);
   }
-  .dining-showcase-title {
-    font-size: 2.5rem;
-  }
-  .dining-stage-frame {
-    max-width: 100%;
-    height: 480px;
-  }
-  .haven-dining-showcase {
-    padding: 70px 0 90px;
-    min-height: auto;
+  .dining-carousel-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
-@media (max-width: 768px) {
-  .dining-showcase-title {
-    font-size: 2rem;
+@media (max-width: 640px) {
+  .dining-luxury-card {
+    flex: 0 0 100%;
   }
-  .dining-tag-line {
-    width: 40px;
+  .haven-dining-carousel-section {
+    padding: 75px 0 85px;
   }
-  .dining-venue-info-box {
-    padding: 18px 20px;
-  }
-  .dining-stage-frame {
-    height: 420px;
-  }
-  .dining-stage-nav {
-    padding: 6px 14px;
+  .dining-card-img-wrap {
+    height: 240px;
   }
 }
 
