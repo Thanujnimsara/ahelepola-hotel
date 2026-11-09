@@ -838,7 +838,7 @@ button {
 .haven-hero-content {
   position: relative;
   z-index: 3;
-  max-width: 680px;
+  max-width: 1080px;
   color: #ffffff;
 }
 
@@ -911,71 +911,45 @@ button {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
-.hero-typewriter-container {
-  margin-bottom: 16px;
-  display: inline-block;
-}
-
-.hero-typewriter-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 22px;
-  background: rgba(17, 40, 35, 0.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(213, 178, 135, 0.75);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(213, 178, 135, 0.25);
-  border-radius: 50px;
-  color: #ffffff;
-  font-size: 0.88rem;
-  letter-spacing: 0.12em;
-  font-weight: 700;
-  text-transform: uppercase;
-  min-height: 40px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-}
-
-.hero-typewriter-text {
-  color: #ffffff;
-  font-weight: 700;
-}
-
-.typewriter-cursor {
-  display: inline-block;
-  color: var(--sand-primary);
-  font-weight: 900;
-  animation: typewriterBlink 0.85s infinite;
-  margin-left: 3px;
-  font-size: 1.05rem;
-  vertical-align: middle;
-}
-
-@keyframes typewriterBlink {
-  0%, 45% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
 .haven-hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 5vw, 4.6rem);
+  font-size: clamp(2.3rem, 4.2vw, 3.8rem);
   font-weight: 500;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  line-height: 1.2;
+  margin-bottom: 22px;
   color: #ffffff;
   text-shadow: 0 3px 20px rgba(0, 0, 0, 0.85), 0 1px 4px rgba(0, 0, 0, 0.95);
+  max-width: 100%;
+}
+
+.haven-hero-title .hero-title-line-1 {
+  display: block;
+  letter-spacing: -0.01em;
+  white-space: normal;
+}
+
+.haven-hero-title .hero-title-line-2 {
+  display: inline-block;
+  font-family: var(--font-script);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 400;
+  color: #f7d5a5;
+  margin-top: 6px;
+  white-space: nowrap;
+  transform: rotate(-2deg);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95);
 }
 
 .haven-hero-desc {
   font-family: var(--font-serif);
-  font-size: 1.34rem;
+  font-size: 1.32rem;
   font-style: italic;
   font-weight: 400;
   line-height: 1.65;
   letter-spacing: 0.02em;
   color: #f7f3ea;
   margin-bottom: 34px;
-  max-width: 680px;
+  max-width: 840px;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.95);
 }
 
@@ -2511,9 +2485,14 @@ button {
     color: #8c6a38;
   }
   .haven-hero-title {
-    font-size: clamp(2rem, 7.5vw, 2.7rem);
-    line-height: 1.15;
+    font-size: clamp(1.85rem, 6.2vw, 2.5rem);
+    line-height: 1.25;
     margin-bottom: 16px;
+  }
+  .haven-hero-title .hero-title-line-2 {
+    font-size: clamp(1.75rem, 6vw, 2.3rem);
+    margin-top: 4px;
+    display: inline-block;
   }
   .haven-hero-desc {
     font-size: 1.12rem;

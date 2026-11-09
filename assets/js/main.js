@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initDiningCarouselSlider();
   initExperiencesSlider();
   initExperiencesModal();
-  initHeroTypewriter();
   initAiConciergeChatbot();
 });
 
@@ -1737,57 +1736,7 @@ function initExperiencesModal() {
 }
 
 /* -------------------------------------------------------------
- * 18. Hero Typewriter Animation ("Welcome to Heritage Ehelepola Hotel")
- * ------------------------------------------------------------- */
-function initHeroTypewriter() {
-  const el = document.getElementById("heroTypewriterText");
-  if (!el) return;
-
-  const phrases = [
-    "Welcome to Heritage Ehelepola Hotel",
-    "Ayubowan • Welcome to Sanctuary",
-    "An Intimate 6-Suite Boutique Sanctuary",
-    "Where Royal Heritage Meets Nature's Serenity"
-  ];
-
-  let phraseIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typingSpeed = 80;
-
-  // Clear initial text for smooth typing start
-  el.textContent = "";
-
-  function typeStep() {
-    const currentPhrase = phrases[phraseIndex];
-
-    if (isDeleting) {
-      el.textContent = currentPhrase.substring(0, charIndex - 1);
-      charIndex--;
-      typingSpeed = 35;
-    } else {
-      el.textContent = currentPhrase.substring(0, charIndex + 1);
-      charIndex++;
-      typingSpeed = 80;
-    }
-
-    if (!isDeleting && charIndex === currentPhrase.length) {
-      typingSpeed = 3500; // Hold completed phrase
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      typingSpeed = 450;
-    }
-
-    setTimeout(typeStep, typingSpeed);
-  }
-
-  setTimeout(typeStep, 350);
-}
-
-/* -------------------------------------------------------------
- * 19. Royal AI Concierge Chatbot (Heritage Butler)
+ * 18. Royal AI Concierge Chatbot (Heritage Butler)
  * ------------------------------------------------------------- */
 function initAiConciergeChatbot() {
   const widget = document.getElementById("aiConciergeWidget");
