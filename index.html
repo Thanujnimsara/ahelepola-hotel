@@ -528,32 +528,21 @@
     </div>
   </section>
 
-  <!-- 7. Ceylon Gastronomy & Flavours Section (Naturaliza Inspired Dining Showcase) -->
+  <!-- 7. Ceylon Gastronomy & Flavours Section (Naturaliza Inspired Full-Image Showcase) -->
   <section class="haven-dining-showcase" id="dining">
-    <!-- Background Slideshow with 5 Authentic Dining & Living Venues -->
-    <div class="dining-showcase-bg-slider" id="diningBgSlider">
-      <div class="dining-showcase-slide active" data-index="0" data-name="Courtyard Terrace Dining Lounge">
-        <img src="assets/images/dining_terrace_lawn.jpg" alt="Courtyard Terrace Dining Lounge on Emerald Turf">
-      </div>
-      <div class="dining-showcase-slide" data-index="1" data-name="Heritage Teak Dining Hall">
-        <img src="assets/images/hotel_dining_hall.jpg" alt="Heritage Teak Dining Hall Banquet">
-      </div>
-      <div class="dining-showcase-slide" data-index="2" data-name="Starlight Gazebo Candlelit Dining">
-        <img src="assets/images/garden_gazebo_night.jpg" alt="Starlight Gazebo Candlelit Dining Pavilion">
-      </div>
-      <div class="dining-showcase-slide" data-index="3" data-name="Traditional Kandyan Morning Table">
-        <img src="assets/images/high_tea.jpg" alt="Traditional Kandyan Morning Breakfast & Ceylon Tea">
-      </div>
-      <div class="dining-showcase-slide" data-index="4" data-name="Heritage Living Salon & Lounge">
-        <img src="assets/images/living_salon_lounge.jpg" alt="Heritage Living Salon with Gramophone & Chandelier">
-      </div>
+    <!-- Ambient Atmospheric Blurred Background -->
+    <div class="dining-showcase-ambient" id="diningAmbientBg">
+      <div class="dining-ambient-slide active" style="background-image: url('assets/images/dining_terrace_lawn.jpg');"></div>
+      <div class="dining-ambient-slide" style="background-image: url('assets/images/hotel_dining_hall.jpg');"></div>
+      <div class="dining-ambient-slide" style="background-image: url('assets/images/garden_gazebo_night.jpg');"></div>
+      <div class="dining-ambient-slide" style="background-image: url('assets/images/high_tea.jpg');"></div>
+      <div class="dining-ambient-slide" style="background-image: url('assets/images/living_salon_lounge.jpg');"></div>
     </div>
+    <div class="dining-ambient-overlay"></div>
 
-    <div class="dining-showcase-overlay"></div>
-
-    <!-- Content Card Overlaid on Left (Matching Naturaliza Video) -->
     <div class="container dining-showcase-container">
-      <div class="dining-showcase-content">
+      <!-- Left Column: Naturaliza Typography & Dynamic Venue Details -->
+      <div class="dining-showcase-left">
         <div class="dining-showcase-tag">
           <span>DINING AT HERITAGE EHELEPOLA RESORT</span>
           <span class="dining-tag-line"></span>
@@ -561,13 +550,34 @@
 
         <h2 class="dining-showcase-title">Delectable Excellence</h2>
 
-        <p class="dining-showcase-desc">
-          Step into our heritage dining spaces, where every dish is an artful celebration of flavor and royal Ceylon hospitality. Our chefs blend vibrant Sri Lankan spices and freshly handpicked hill-country garden herbs with global culinary influences to create meals that excite your taste buds and warm your soul. From fiery favorites and crispy morning hoppers to subtly seasoned delights, breezy courtyard terrace lunches, and candlelit garden feasts, we serve food that's as lively and enchanting as our estate atmosphere. Whether you're sharing a family luncheon, enjoying a romantic dinner, or simply craving something unforgettable, Heritage Ehelepola is your perfect sanctuary for a feast that cures every craving.
-        </p>
+        <!-- Dynamic Venue Info Card -->
+        <div class="dining-venue-info-box">
+          <div class="dining-venue-badge-wrap">
+            <span class="dining-venue-badge" id="diningVenueBadge">
+              <i class="fas fa-leaf"></i> <span>AL FRESCO COURTYARD</span>
+            </span>
+          </div>
+
+          <h3 class="dining-venue-name" id="diningVenueName">Courtyard Terrace Dining Lounge</h3>
+
+          <p class="dining-venue-desc" id="diningVenueDesc">
+            Breezy open-air terrace dining featuring vibrant emerald green lawn turf, contemporary designer quilted chairs, and sleek marble tables. Ideal for tranquil morning tea, family dinners, and relaxed evening conversations amidst cool mountain breezes.
+          </p>
+
+          <div class="dining-venue-meta" id="diningVenueMeta">
+            <span class="meta-item"><i class="far fa-clock"></i> <span id="venueHours">7:00 AM – 10:30 PM Daily</span></span>
+            <span class="meta-dot">•</span>
+            <span class="meta-item"><i class="fas fa-utensils"></i> <span id="venueType">Breakfast, Lunch &amp; Dinner</span></span>
+          </div>
+        </div>
 
         <div class="dining-showcase-actions">
-          <a href="#stay" class="dining-explore-link open-booking-modal" data-suite="dining-reservation">
-            <span>EXPLORE</span>
+          <button type="button" class="btn-haven-gold open-booking-modal" data-suite="dining-reservation">
+            <i class="far fa-calendar-check"></i>
+            <span>RESERVE A TABLE</span>
+          </button>
+          <a href="#facilities" class="dining-explore-link">
+            <span>EXPLORE ALL FACILITIES</span>
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -592,22 +602,48 @@
         </div>
       </div>
 
-      <!-- Floating Slide Navigation (Arrows, Dots & Counter) -->
-      <div class="dining-showcase-nav" id="diningNavControls">
-        <button type="button" class="dining-nav-btn" id="diningPrevBtn" aria-label="Previous Dining Venue">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div class="dining-dots" id="diningDots">
-          <button type="button" class="dining-dot active" data-slide="0" aria-label="Terrace Lounge"></button>
-          <button type="button" class="dining-dot" data-slide="1" aria-label="Teak Dining Hall"></button>
-          <button type="button" class="dining-dot" data-slide="2" aria-label="Starlight Gazebo"></button>
-          <button type="button" class="dining-dot" data-slide="3" aria-label="Morning Table"></button>
-          <button type="button" class="dining-dot" data-slide="4" aria-label="Living Salon"></button>
+      <!-- Right Column: Framed 100% Full-Image Showcase Stage -->
+      <div class="dining-showcase-right">
+        <div class="dining-stage-frame" id="diningStageFrame">
+          <div class="dining-stage-slide active" data-index="0">
+            <img src="assets/images/dining_terrace_lawn.jpg" alt="Courtyard Terrace Dining Lounge on Emerald Lawn Turf" class="dining-full-img">
+            <span class="dining-stage-tag"><i class="fas fa-camera"></i> 100% Authentic Estate Photo</span>
+          </div>
+          <div class="dining-stage-slide" data-index="1">
+            <img src="assets/images/hotel_dining_hall.jpg" alt="Heritage Teak Dining Hall Regal Banquet" class="dining-full-img">
+            <span class="dining-stage-tag"><i class="fas fa-camera"></i> 100% Authentic Estate Photo</span>
+          </div>
+          <div class="dining-stage-slide" data-index="2">
+            <img src="assets/images/garden_gazebo_night.jpg" alt="Starlight Gazebo Candlelit Dining Pavilion" class="dining-full-img">
+            <span class="dining-stage-tag"><i class="fas fa-camera"></i> 100% Authentic Estate Photo</span>
+          </div>
+          <div class="dining-stage-slide" data-index="3">
+            <img src="assets/images/high_tea.jpg" alt="Traditional Kandyan Morning Breakfast & Ceylon Tea" class="dining-full-img">
+            <span class="dining-stage-tag"><i class="fas fa-camera"></i> 100% Authentic Estate Photo</span>
+          </div>
+          <div class="dining-stage-slide" data-index="4">
+            <img src="assets/images/living_salon_lounge.jpg" alt="Heritage Living Salon with Gramophone & Chandelier" class="dining-full-img">
+            <span class="dining-stage-tag"><i class="fas fa-camera"></i> 100% Authentic Estate Photo</span>
+          </div>
+
+          <!-- Stage Navigation Overlay (Arrows, Dots & Counter) -->
+          <div class="dining-stage-nav" id="diningNavControls">
+            <button type="button" class="stage-nav-arrow" id="diningPrevBtn" aria-label="Previous Dining Venue">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="stage-nav-dots" id="diningDots">
+              <button type="button" class="stage-dot active" data-slide="0" aria-label="Terrace Lounge"></button>
+              <button type="button" class="stage-dot" data-slide="1" aria-label="Teak Dining Hall"></button>
+              <button type="button" class="stage-dot" data-slide="2" aria-label="Starlight Gazebo"></button>
+              <button type="button" class="stage-dot" data-slide="3" aria-label="Morning Table"></button>
+              <button type="button" class="stage-dot" data-slide="4" aria-label="Living Salon"></button>
+            </div>
+            <button type="button" class="stage-nav-arrow" id="diningNextBtn" aria-label="Next Dining Venue">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <span class="stage-nav-counter" id="diningSlideCounter">01 / 05</span>
+          </div>
         </div>
-        <button type="button" class="dining-nav-btn" id="diningNextBtn" aria-label="Next Dining Venue">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-        <span class="dining-counter" id="diningSlideCounter">01 / 05</span>
       </div>
     </div>
   </section>

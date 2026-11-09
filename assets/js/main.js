@@ -1427,31 +1427,85 @@ function initHeroBackgroundSlider() {
 }
 
 /* -------------------------------------------------------------
- * 15. Naturaliza-Style Dining Showcase Slider
+ * 15. Naturaliza-Style Full-Image Dining Showcase Slider
  * ------------------------------------------------------------- */
 function initDiningShowcaseSlider() {
-  const container = document.getElementById("diningBgSlider");
-  if (!container) return;
+  const stageFrame = document.getElementById("diningStageFrame");
+  if (!stageFrame) return;
 
-  const slides = container.querySelectorAll(".dining-showcase-slide");
+  const stageSlides = stageFrame.querySelectorAll(".dining-stage-slide");
+  const ambientSlides = document.querySelectorAll("#diningAmbientBg .dining-ambient-slide");
   const chips = document.querySelectorAll("#diningVenueTabs .venue-tab-chip");
-  const dots = document.querySelectorAll("#diningDots .dining-dot");
+  const dots = document.querySelectorAll("#diningDots .stage-dot");
   const prevBtn = document.getElementById("diningPrevBtn");
   const nextBtn = document.getElementById("diningNextBtn");
   const counter = document.getElementById("diningSlideCounter");
 
-  if (!slides || slides.length < 2) return;
+  const badgeEl = document.getElementById("diningVenueBadge");
+  const nameEl = document.getElementById("diningVenueName");
+  const descEl = document.getElementById("diningVenueDesc");
+  const hoursEl = document.getElementById("venueHours");
+  const typeEl = document.getElementById("venueType");
+
+  const venuesInfo = [
+    {
+      badge: "AL FRESCO COURTYARD",
+      icon: "fas fa-leaf",
+      name: "Courtyard Terrace Dining Lounge",
+      desc: "Breezy open-air terrace dining featuring vibrant emerald green lawn turf, contemporary designer quilted chairs, and sleek marble tables. Ideal for tranquil morning tea, family dinners, and relaxed evening conversations amidst cool mountain breezes.",
+      hours: "7:00 AM – 10:30 PM Daily",
+      type: "Breakfast, Lunch, High Tea & Dinner"
+    },
+    {
+      badge: "REGAL INDOOR BANQUET",
+      icon: "fas fa-utensils",
+      name: "Heritage Teak Dining Hall",
+      desc: "Authentic Ceylon gastronomy served in a grand colonial hall featuring handcrafted high-back teak chairs, polished timber ceilings, and warm amber chandeliers. Savor exquisite Sri Lankan curries, fresh hill-country vegetables, and signature multi-course dinners.",
+      hours: "12:00 PM – 3:30 PM & 7:00 PM – 11:00 PM",
+      type: "Gourmet Luncheons & Evening Banquets"
+    },
+    {
+      badge: "PRIVATE ROMANTIC SANCTUARY",
+      icon: "fas fa-moon",
+      name: "Starlight Gazebo Candlelit Dining",
+      desc: "An enchanting multi-course private dinner under the stars in our authentic hand-thatched circular cabana. Surrounded by ambient fairy-lit mango trees, gentle night breezes, and personalized table butler service for unforgettable celebrations.",
+      hours: "6:30 PM – 11:00 PM (By Reservation)",
+      type: "Private Candlelit Multi-Course Dining"
+    },
+    {
+      badge: "FARM-TO-TABLE BREAKFAST",
+      icon: "fas fa-coffee",
+      name: "Traditional Kandyan Morning Table",
+      desc: "Start your day with crispy golden hoppers, fragrant kiri bath (coconut milk rice), fiery pol sambol, fresh estate fruits, and freshly brewed single-estate Ceylon highlands tea as dawn mist rolls gently across the valley.",
+      hours: "7:00 AM – 10:30 AM Daily",
+      type: "Traditional Breakfast & Ceylon High Tea"
+    },
+    {
+      badge: "ARISTOCRATIC LOUNGE",
+      icon: "fas fa-couch",
+      name: "Heritage Living Salon & Lounge",
+      desc: "Aristocratic guest salon featuring polished timber ceilings, warm ambient ring chandeliers, vintage brass gramophone, arched timber French doors, and handcrafted teak furniture. Perfect for afternoon high tea, reading, and evening aperitifs.",
+      hours: "8:00 AM – 11:00 PM Daily",
+      type: "High Tea, Coffee, Wine & Aperitifs"
+    }
+  ];
+
+  if (!stageSlides || stageSlides.length < 2) return;
 
   let currentIndex = 0;
   let autoTimer = null;
-  const slideDuration = 6000; // 6 seconds per venue
+  const slideDuration = 6000;
 
   const updateSlide = (index) => {
-    if (index < 0) index = slides.length - 1;
-    if (index >= slides.length) index = 0;
+    if (index < 0) index = stageSlides.length - 1;
+    if (index >= stageSlides.length) index = 0;
     currentIndex = index;
 
-    slides.forEach((slide, i) => {
+    stageSlides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentIndex);
+    });
+
+    ambientSlides.forEach((slide, i) => {
       slide.classList.toggle("active", i === currentIndex);
     });
 
@@ -1464,7 +1518,30 @@ function initDiningShowcaseSlider() {
     });
 
     if (counter) {
-      counter.textContent = `0${currentIndex + 1} / 0${slides.length}`;
+      counter.textContent = `0${currentIndex + 1} / 0${stageSlides.length}`;
+    }
+
+    const info = venuesInfo[currentIndex];
+    if (info) {
+      if (badgeEl) {
+        badgeEl.innerHTML = `<i class="${info.icon}"></i> <span>${info.badge}</span>`;
+      }
+      if (nameEl) {
+        nameEl.style.opacity = "0";
+        setTimeout(() => {
+          nameEl.textContent = info.name;
+          nameEl.style.opacity = "1";
+        }, 150);
+      }
+      if (descEl) {
+        descEl.style.opacity = "0";
+        setTimeout(() => {
+          descEl.textContent = info.desc;
+          descEl.style.opacity = "1";
+        }, 150);
+      }
+      if (hoursEl) hoursEl.textContent = info.hours;
+      if (typeEl) typeEl.textContent = info.type;
     }
   };
 
