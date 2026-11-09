@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGuestFeedbackSystem();
   initDiscoverGallerySlider();
   initHeroBackgroundSlider();
+  initDiningShowcaseSlider();
 });
 
 /* -------------------------------------------------------------
@@ -1422,5 +1423,96 @@ function initHeroBackgroundSlider() {
   };
 
   // Start continuous automatic sliding
+  startTimer();
+}
+
+/* -------------------------------------------------------------
+ * 15. Naturaliza-Style Dining Showcase Slider
+ * ------------------------------------------------------------- */
+function initDiningShowcaseSlider() {
+  const container = document.getElementById("diningBgSlider");
+  if (!container) return;
+
+  const slides = container.querySelectorAll(".dining-showcase-slide");
+  const chips = document.querySelectorAll("#diningVenueTabs .venue-tab-chip");
+  const dots = document.querySelectorAll("#diningDots .dining-dot");
+  const prevBtn = document.getElementById("diningPrevBtn");
+  const nextBtn = document.getElementById("diningNextBtn");
+  const counter = document.getElementById("diningSlideCounter");
+
+  if (!slides || slides.length < 2) return;
+
+  let currentIndex = 0;
+  let autoTimer = null;
+  const slideDuration = 6000; // 6 seconds per venue
+
+  const updateSlide = (index) => {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    currentIndex = index;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentIndex);
+    });
+
+    chips.forEach((chip, i) => {
+      chip.classList.toggle("active", i === currentIndex);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+
+    if (counter) {
+      counter.textContent = `0${currentIndex + 1} / 0${slides.length}`;
+    }
+  };
+
+  const nextSlide = () => updateSlide(currentIndex + 1);
+  const prevSlide = () => updateSlide(currentIndex - 1);
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      restartTimer();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      restartTimer();
+    });
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const targetIndex = parseInt(chip.getAttribute("data-slide"), 10);
+      if (!isNaN(targetIndex)) {
+        updateSlide(targetIndex);
+        restartTimer();
+      }
+    });
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const targetIndex = parseInt(dot.getAttribute("data-slide"), 10);
+      if (!isNaN(targetIndex)) {
+        updateSlide(targetIndex);
+        restartTimer();
+      }
+    });
+  });
+
+  const startTimer = () => {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, slideDuration);
+  };
+
+  const restartTimer = () => {
+    startTimer();
+  };
+
   startTimer();
 }

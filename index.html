@@ -558,79 +558,86 @@
     </div>
   </section>
 
-  <!-- 7. Ceylon Gastronomy & Flavours Section (Naturaliza Inspired) -->
-  <section class="haven-dining-section" id="dining">
-    <div class="container">
-      <div class="section-heading-center">
-        <span class="section-tag">CEYLON GASTRONOMY &amp; FLAVOURS</span>
-        <h2 class="section-title-haven">Farm-to-Table Dining Crafted with Heritage Spices</h2>
-        <div class="section-divider">❖</div>
-        <p style="max-width: 660px; margin: 12px auto 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-          Savor the rich culinary heritage of Sri Lanka, prepared with freshly handpicked herbs, local spices, and century-old recipes served in regal settings.
+  <!-- 7. Ceylon Gastronomy & Flavours Section (Naturaliza Inspired Dining Showcase) -->
+  <section class="haven-dining-showcase" id="dining">
+    <!-- Background Slideshow with 5 Authentic Dining & Living Venues -->
+    <div class="dining-showcase-bg-slider" id="diningBgSlider">
+      <div class="dining-showcase-slide active" data-index="0" data-name="Courtyard Terrace Dining Lounge">
+        <img src="assets/images/dining_terrace_lawn.jpg" alt="Courtyard Terrace Dining Lounge on Emerald Turf">
+      </div>
+      <div class="dining-showcase-slide" data-index="1" data-name="Heritage Teak Dining Hall">
+        <img src="assets/images/hotel_dining_hall.jpg" alt="Heritage Teak Dining Hall Banquet">
+      </div>
+      <div class="dining-showcase-slide" data-index="2" data-name="Starlight Gazebo Candlelit Dining">
+        <img src="assets/images/garden_gazebo_night.jpg" alt="Starlight Gazebo Candlelit Dining Pavilion">
+      </div>
+      <div class="dining-showcase-slide" data-index="3" data-name="Traditional Kandyan Morning Table">
+        <img src="assets/images/high_tea.jpg" alt="Traditional Kandyan Morning Breakfast & Ceylon Tea">
+      </div>
+      <div class="dining-showcase-slide" data-index="4" data-name="Heritage Living Salon & Lounge">
+        <img src="assets/images/living_salon_lounge.jpg" alt="Heritage Living Salon with Gramophone & Chandelier">
+      </div>
+    </div>
+
+    <div class="dining-showcase-overlay"></div>
+
+    <!-- Content Card Overlaid on Left (Matching Naturaliza Video) -->
+    <div class="container dining-showcase-container">
+      <div class="dining-showcase-content">
+        <div class="dining-showcase-tag">
+          <span>DINING AT HERITAGE EHELEPOLA RESORT</span>
+          <span class="dining-tag-line"></span>
+        </div>
+
+        <h2 class="dining-showcase-title">Delectable Excellence</h2>
+
+        <p class="dining-showcase-desc">
+          Step into our heritage dining spaces, where every dish is an artful celebration of flavor and royal Ceylon hospitality. Our chefs blend vibrant Sri Lankan spices and freshly handpicked hill-country garden herbs with global culinary influences to create meals that excite your taste buds and warm your soul. From fiery favorites and crispy morning hoppers to subtly seasoned delights, breezy courtyard terrace lunches, and candlelit garden feasts, we serve food that's as lively and enchanting as our estate atmosphere. Whether you're sharing a family luncheon, enjoying a romantic dinner, or simply craving something unforgettable, Heritage Ehelepola is your perfect sanctuary for a feast that cures every craving.
         </p>
-      </div>
 
-      <div class="dining-grid">
-        <!-- Dining Card 1 -->
-        <div class="dining-card">
-          <div class="dining-card-img-wrap">
-            <img src="assets/images/high_tea.jpg" alt="Traditional Kandyan Breakfast & Ceylon Tea">
-            <span class="dining-card-pill">BREAKFAST &amp; TEA</span>
-          </div>
-          <div class="dining-card-body">
-            <h3 class="dining-card-title">Traditional Kandyan Morning Table</h3>
-            <p class="dining-card-desc">
-              Crispy golden hoppers, fragrant kiri bath (coconut milk rice), fiery pol sambol, tropical fruits, and freshly brewed single-estate Ceylon highlands tea as dawn mist rolls across the estate.
-            </p>
-            <div class="dining-card-meta">
-              <i class="fas fa-coffee"></i>
-              <span>7:00 AM – 10:30 AM Daily</span>
-            </div>
-          </div>
+        <div class="dining-showcase-actions">
+          <a href="#stay" class="dining-explore-link open-booking-modal" data-suite="dining-reservation">
+            <span>EXPLORE</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
 
-        <!-- Dining Card 2 -->
-        <div class="dining-card">
-          <div class="dining-card-img-wrap">
-            <img src="assets/images/hotel_dining_hall.jpg" alt="Heritage Teak Dining Hall">
-            <span class="dining-card-pill">REGAL DINING</span>
-          </div>
-          <div class="dining-card-body">
-            <h3 class="dining-card-title">Heritage Teak Dining Hall</h3>
-            <p class="dining-card-desc">
-              Handcrafted high-back teak chairs and warm amber chandeliers setting the stage for exquisite Sri Lankan curries, fresh hill-country vegetables, and signature multi-course dinners.
-            </p>
-            <div class="dining-card-meta">
-              <i class="fas fa-utensils"></i>
-              <span>Luncheons &amp; Evening Dining</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Dining Card 3 -->
-        <div class="dining-card">
-          <div class="dining-card-img-wrap">
-            <img src="assets/images/garden_gazebo_night.jpg" alt="Starlight Gazebo Candlelit Dining">
-            <span class="dining-card-pill">PRIVATE DINING</span>
-          </div>
-          <div class="dining-card-body">
-            <h3 class="dining-card-title">Starlight Gazebo Candlelit Dining</h3>
-            <p class="dining-card-desc">
-              An intimate multi-course dinner under the stars in our thatched garden pavilion, surrounded by ambient lantern light, gentle night breezes, and personal table butler service.
-            </p>
-            <div class="dining-card-meta">
-              <i class="fas fa-moon"></i>
-              <span>Private Reservation Required</span>
-            </div>
-          </div>
+        <!-- Venue Selector Chips -->
+        <div class="dining-venues-strip" id="diningVenueTabs">
+          <button type="button" class="venue-tab-chip active" data-slide="0">
+            <i class="fas fa-leaf"></i> <span>Terrace Lounge</span>
+          </button>
+          <button type="button" class="venue-tab-chip" data-slide="1">
+            <i class="fas fa-utensils"></i> <span>Teak Dining Hall</span>
+          </button>
+          <button type="button" class="venue-tab-chip" data-slide="2">
+            <i class="fas fa-moon"></i> <span>Starlight Gazebo</span>
+          </button>
+          <button type="button" class="venue-tab-chip" data-slide="3">
+            <i class="fas fa-coffee"></i> <span>Morning Table</span>
+          </button>
+          <button type="button" class="venue-tab-chip" data-slide="4">
+            <i class="fas fa-couch"></i> <span>Living Salon</span>
+          </button>
         </div>
       </div>
 
-      <div style="text-align: center;">
-        <button class="btn-haven-dark open-booking-modal" data-suite="dining-reservation">
-          <i class="fas fa-utensils"></i>
-          <span>RESERVE A PRIVATE DINING EXPERIENCE</span>
+      <!-- Floating Slide Navigation (Arrows, Dots & Counter) -->
+      <div class="dining-showcase-nav" id="diningNavControls">
+        <button type="button" class="dining-nav-btn" id="diningPrevBtn" aria-label="Previous Dining Venue">
+          <i class="fas fa-chevron-left"></i>
         </button>
+        <div class="dining-dots" id="diningDots">
+          <button type="button" class="dining-dot active" data-slide="0" aria-label="Terrace Lounge"></button>
+          <button type="button" class="dining-dot" data-slide="1" aria-label="Teak Dining Hall"></button>
+          <button type="button" class="dining-dot" data-slide="2" aria-label="Starlight Gazebo"></button>
+          <button type="button" class="dining-dot" data-slide="3" aria-label="Morning Table"></button>
+          <button type="button" class="dining-dot" data-slide="4" aria-label="Living Salon"></button>
+        </div>
+        <button type="button" class="dining-nav-btn" id="diningNextBtn" aria-label="Next Dining Venue">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <span class="dining-counter" id="diningSlideCounter">01 / 05</span>
       </div>
     </div>
   </section>

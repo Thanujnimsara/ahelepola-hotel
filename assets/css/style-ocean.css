@@ -3016,108 +3016,327 @@ button {
 }
 
 /* ==========================================================================
-   CEYLON GASTRONOMY SECTION (Naturaliza Dining Showcase)
+   NATURALIZA-STYLE DINING SHOWCASE SECTION (Full-Width Slideshow Banner)
    ========================================================================== */
-.haven-dining-section {
-  padding: 100px 0;
-  background: var(--bg-cream);
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
+.haven-dining-showcase {
   position: relative;
-}
-
-.dining-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 48px;
-  margin-bottom: 42px;
-}
-
-.dining-card {
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--transition-smooth);
+  min-height: 640px;
   display: flex;
-  flex-direction: column;
-}
-
-.dining-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--sand-primary);
-}
-
-.dining-card-img-wrap {
-  width: 100%;
-  height: 250px;
+  align-items: center;
+  background: #0d1e19;
   overflow: hidden;
-  position: relative;
+  padding: 110px 0;
+  border-top: 1px solid rgba(213, 178, 135, 0.25);
+  border-bottom: 1px solid rgba(213, 178, 135, 0.25);
 }
 
-.dining-card-img-wrap img {
+.dining-showcase-bg-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.dining-showcase-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.8s;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dining-showcase-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.dining-showcase-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-smooth);
+  object-position: center center;
+  filter: brightness(1.04) contrast(1.05);
+  transform: scale(1.0);
+  will-change: transform, opacity;
 }
 
-.dining-card:hover .dining-card-img-wrap img {
-  transform: scale(1.08);
+.dining-showcase-slide.active img {
+  animation: diningPanZoom 9s ease-in-out infinite alternate;
 }
 
-.dining-card-pill {
+@keyframes diningPanZoom {
+  0% {
+    transform: scale(1.01) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.07) translate(-1.2%, -0.6%);
+  }
+  100% {
+    transform: scale(1.03) translate(1.0%, 0.6%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dining-showcase-slide.active img {
+    animation: none;
+  }
+}
+
+.dining-showcase-overlay {
   position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(17, 40, 35, 0.88);
-  backdrop-filter: blur(8px);
-  color: #ffffff;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(213, 178, 135, 0.6);
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(8, 20, 16, 0.94) 0%, rgba(8, 20, 16, 0.84) 44%, rgba(8, 20, 16, 0.42) 75%, rgba(8, 20, 16, 0.22) 100%),
+              linear-gradient(180deg, rgba(8, 20, 16, 0.35) 0%, transparent 40%, rgba(8, 20, 16, 0.65) 100%);
+  z-index: 2;
 }
 
-.dining-card-body {
-  padding: 26px 24px 28px;
+.dining-showcase-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.dining-card-title {
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  color: var(--pine-primary);
-  margin-bottom: 10px;
+.dining-showcase-content {
+  max-width: 660px;
+  color: #ffffff;
+}
+
+.dining-showcase-tag {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
   font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 22px;
 }
 
-.dining-card-desc {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  flex: 1;
+.dining-tag-line {
+  display: inline-block;
+  width: 90px;
+  height: 1.5px;
+  background: rgba(213, 178, 135, 0.75);
 }
 
-.dining-card-meta {
+.dining-showcase-title {
+  font-family: var(--font-serif);
+  font-size: 3.2rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.dining-showcase-desc {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.dining-showcase-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.dining-explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--sand-primary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dining-explore-link:hover {
+  color: var(--sand-primary);
+  gap: 16px;
+  border-color: #ffffff;
+  transform: translateX(3px);
+}
+
+.dining-venues-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.venue-tab-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.venue-tab-chip:hover {
+  background: rgba(213, 178, 135, 0.2);
+  border-color: var(--sand-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.venue-tab-chip.active {
+  background: var(--sand-primary);
+  border-color: var(--sand-primary);
+  color: #0d1e19;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(213, 178, 135, 0.45);
+}
+
+/* Floating Navigation Bar for Dining Showcase */
+.dining-showcase-nav {
+  position: absolute;
+  bottom: 34px;
+  right: 48px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(12, 28, 22, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(213, 178, 135, 0.4);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.dining-showcase-nav:hover {
+  border-color: var(--sand-primary);
+  transform: translateY(-2px);
+}
+
+.dining-nav-btn {
+  background: transparent;
+  border: none;
+  color: #f7f3ed;
+  font-size: 0.8rem;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dining-nav-btn:hover {
+  background: rgba(213, 178, 135, 0.25);
+  color: var(--sand-primary);
+  transform: scale(1.15);
+}
+
+.dining-dots {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8rem;
-  color: var(--cinnamon-primary);
+}
+
+.dining-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+}
+
+.dining-dot:hover {
+  background: rgba(213, 178, 135, 0.7);
+  border-color: var(--sand-primary);
+}
+
+.dining-dot.active {
+  width: 24px;
+  border-radius: 10px;
+  background: var(--sand-primary);
+  border-color: var(--sand-primary);
+  box-shadow: 0 0 12px rgba(213, 178, 135, 0.85);
+}
+
+.dining-counter {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  min-width: 44px;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .dining-showcase-title {
+    font-size: 2.4rem;
+  }
+  .dining-showcase-content {
+    max-width: 100%;
+  }
+  .haven-dining-showcase {
+    padding: 80px 0 120px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .dining-showcase-title {
+    font-size: 2rem;
+  }
+  .dining-tag-line {
+    width: 40px;
+  }
+  .dining-showcase-nav {
+    right: 18px;
+    bottom: 20px;
+    padding: 6px 14px;
+  }
 }
 
 /* Responsive Overrides for Naturaliza Sections */
