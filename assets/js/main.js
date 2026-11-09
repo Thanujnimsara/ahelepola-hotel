@@ -1,5 +1,5 @@
 /**
- * THE EHELEPOLA HOTEL & LUXURY HERITAGE RETREAT
+ * HERITAGE EHELEPOLA HOTEL & RESORT
  * Interactive Client Scripts & Application Controller
  */
 
@@ -805,7 +805,7 @@ function validateRoomAvailabilityAndAlerts(selectedRoom, checkinVal, checkoutVal
           </div>
         ` : `
           <div style="font-size: 0.82rem; color: #b91c1c; font-weight: 600; margin-top: 4px;">
-            ⚠️ All 6 rooms of The Ehelepola Hotel are reserved for these dates. Please choose different stay dates.
+            ⚠️ All 6 rooms of Heritage Ehelepola Hotel are reserved for these dates. Please choose different stay dates.
           </div>
         `}
       </div>
@@ -1043,7 +1043,7 @@ function initGalleryLightbox() {
   galleryItems.forEach(item => {
     item.addEventListener("click", () => {
       const img = item.querySelector("img");
-      const caption = item.getAttribute("data-caption") || "The Ehelepola Hotel Estate";
+      const caption = item.getAttribute("data-caption") || "Heritage Ehelepola Hotel Estate";
       if (lightboxImg && img) {
         lightboxImg.src = img.src;
         if (lightboxCaption) lightboxCaption.textContent = caption;
@@ -1146,7 +1146,7 @@ function initGuestFeedbackSystem() {
       city: "Colombo, Sri Lanka",
       rating: 5,
       date: "Recent Stay",
-      text: "We had a truly peaceful weekend at The Ehelepola Hotel. The thatched garden pavilion is magnificent for afternoon Ceylon tea, the food was delicious, and the staff treated us with genuine Kandyan warmth. Highly recommended!"
+      text: "We had a truly peaceful weekend at Heritage Ehelepola Hotel. The thatched garden pavilion is magnificent for afternoon Ceylon tea, the food was delicious, and the staff treated us with genuine Kandyan warmth. Highly recommended!"
     },
     {
       name: "Marcus & Elena Vance",
