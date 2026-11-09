@@ -3643,13 +3643,12 @@ button {
    ========================================================================== */
 .haven-experiences-section {
   padding: 105px 0 115px;
-  background: #fbf7ee;
-  background: radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.85) 0%, rgba(245, 237, 224, 0) 60%),
-              radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.5) 0%, rgba(245, 237, 224, 0) 50%),
-              linear-gradient(180deg, #faf6ee 0%, #f4ede0 50%, #eee4d3 100%);
+  background: #edd9be;
+  background: linear-gradient(135deg, #f0e1c9 0%, #e8d2b2 45%, #dcbd91 100%);
   position: relative;
-  border-top: 1px solid rgba(213, 178, 135, 0.45);
-  border-bottom: 1px solid rgba(213, 178, 135, 0.45);
+  border-top: 2px solid #c89f66;
+  border-bottom: 2px solid #c89f66;
+  box-shadow: inset 0 12px 30px rgba(125, 85, 35, 0.07), inset 0 -12px 30px rgba(125, 85, 35, 0.07);
   scroll-margin-top: 80px;
 }
 
@@ -3665,10 +3664,10 @@ button {
   position: relative;
   width: 100%;
   height: 480px;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 22px 50px rgba(17, 40, 35, 0.16), 0 4px 16px rgba(0, 0, 0, 0.08);
-  border: 1.5px solid rgba(213, 178, 135, 0.5);
+  box-shadow: 0 24px 55px rgba(17, 40, 35, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.95);
   background: #0d1e1a;
 }
 
@@ -3834,36 +3833,36 @@ button {
 }
 
 .exp-category-label {
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.24em;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--cinnamon-primary);
+  color: #8c3e12;
 }
 
 .exp-category-line {
   display: inline-block;
-  height: 1.5px;
-  background: var(--sand-primary);
+  height: 2px;
+  background: #b85d28;
   width: 140px;
   max-width: 45%;
 }
 
 .exp-editorial-title {
   font-family: var(--font-serif);
-  font-size: 2.85rem;
-  font-weight: 500;
-  line-height: 1.22;
-  color: var(--pine-primary);
+  font-size: 2.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #112823;
   margin-bottom: 24px;
   letter-spacing: -0.01em;
 }
 
 .exp-editorial-desc {
-  font-size: 1.02rem;
-  line-height: 1.82;
-  color: #4c5d58;
-  margin-bottom: 34px;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #2b3e39;
+  margin-bottom: 36px;
   max-width: 540px;
 }
 
@@ -3871,25 +3870,25 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #d47a16;
-  background: linear-gradient(135deg, #df851f 0%, #c86f0c 100%);
+  background: #b85d28;
+  background: linear-gradient(135deg, #c96728 0%, #a44812 100%);
   color: #ffffff;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 15px 36px;
-  border-radius: 6px;
+  padding: 16px 38px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(212, 122, 22, 0.28);
+  box-shadow: 0 6px 22px rgba(164, 72, 18, 0.35);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-exp-explore:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #eb922c 0%, #d57a13 100%);
-  box-shadow: 0 10px 28px rgba(212, 122, 22, 0.42);
+  background: linear-gradient(135deg, #db7532 0%, #b85419 100%);
+  box-shadow: 0 10px 28px rgba(164, 72, 18, 0.45);
 }
 
 /* Experiences Modal Grid */
