@@ -98,8 +98,16 @@
 
   <!-- 2. Hero Section: "Where Royal Heritage Meets Nature's Serenity" -->
   <section class="haven-hero" id="hero">
-    <div class="haven-hero-bg">
-      <img src="assets/images/hero_hotel_night.jpg" alt="Heritage Ehelepola Hotel Night Illumination & Architecture">
+    <div class="haven-hero-bg" id="heroBgSlideshow">
+      <div class="haven-hero-slide active" data-index="0">
+        <img src="assets/images/hero_hotel_night.jpg" alt="Heritage Ehelepola Hotel Night Illumination & Architecture">
+      </div>
+      <div class="haven-hero-slide" data-index="1">
+        <img src="assets/images/hero_heritage_sign_gate.jpg" alt="Heritage Ehelepola Hotel Illuminated Entrance Sign & Gates">
+      </div>
+      <div class="haven-hero-slide" data-index="2">
+        <img src="assets/images/hero_heritage_lounge_salon.jpg" alt="Heritage Living Salon & Antique Gramophone Lounge">
+      </div>
     </div>
     <div class="haven-hero-overlay"></div>
 
@@ -134,6 +142,22 @@
         <span class="indicator-sep">•</span>
         <span><i class="fas fa-bell"></i> 24/7 Butler Service</span>
       </div>
+    </div>
+
+    <!-- Hero Slideshow Controls (Luxury Minimalist Floating Bar) -->
+    <div class="haven-hero-nav" id="heroNavControls">
+      <button type="button" class="haven-hero-nav-arrow" id="heroPrevBtn" aria-label="Previous Slide">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="haven-hero-dots" id="heroDots">
+        <button type="button" class="hero-dot active" data-slide="0" aria-label="Hotel Illuminated Night Facade"></button>
+        <button type="button" class="hero-dot" data-slide="1" aria-label="Entrance Illuminated Sign & Gate"></button>
+        <button type="button" class="hero-dot" data-slide="2" aria-label="Heritage Living Salon & Lounge"></button>
+      </div>
+      <button type="button" class="haven-hero-nav-arrow" id="heroNextBtn" aria-label="Next Slide">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <span class="hero-slide-counter" id="heroSlideCounter">01 / 03</span>
     </div>
   </section>
 

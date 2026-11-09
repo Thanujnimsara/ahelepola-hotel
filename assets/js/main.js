@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDatesDefaults();
   initGuestFeedbackSystem();
   initDiscoverGallerySlider();
+  initHeroBackgroundSlider();
 });
 
 /* -------------------------------------------------------------
@@ -1344,5 +1345,82 @@ function initDiscoverGallerySlider() {
     restartTimer();
   });
 
+  startTimer();
+}
+
+/* -------------------------------------------------------------
+ * 14. Hero Background Rotating Slideshow
+ * ------------------------------------------------------------- */
+function initHeroBackgroundSlider() {
+  const container = document.getElementById("heroBgSlideshow");
+  if (!container) return;
+
+  const slides = container.querySelectorAll(".haven-hero-slide");
+  const dots = document.querySelectorAll("#heroDots .hero-dot");
+  const prevBtn = document.getElementById("heroPrevBtn");
+  const nextBtn = document.getElementById("heroNextBtn");
+  const counter = document.getElementById("heroSlideCounter");
+
+  if (!slides || slides.length < 2) return;
+
+  let currentIndex = 0;
+  let autoTimer = null;
+  const slideDuration = 6000; // 6 seconds per slide
+
+  const updateSlide = (index) => {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    currentIndex = index;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentIndex);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+
+    if (counter) {
+      counter.textContent = `0${currentIndex + 1} / 0${slides.length}`;
+    }
+  };
+
+  const nextSlide = () => updateSlide(currentIndex + 1);
+  const prevSlide = () => updateSlide(currentIndex - 1);
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      restartTimer();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      restartTimer();
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const targetIndex = parseInt(dot.getAttribute("data-slide"), 10);
+      if (!isNaN(targetIndex)) {
+        updateSlide(targetIndex);
+        restartTimer();
+      }
+    });
+  });
+
+  const startTimer = () => {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, slideDuration);
+  };
+
+  const restartTimer = () => {
+    startTimer();
+  };
+
+  // Start continuous automatic sliding
   startTimer();
 }
