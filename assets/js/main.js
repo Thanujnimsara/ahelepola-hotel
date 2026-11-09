@@ -88,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initDiningCarouselSlider();
   initExperiencesSlider();
   initExperiencesModal();
+  initHeroTypewriter();
+  initAiConciergeChatbot();
 });
 
 /* -------------------------------------------------------------
@@ -1733,3 +1735,499 @@ function initExperiencesModal() {
     });
   });
 }
+
+/* -------------------------------------------------------------
+ * 18. Hero Typewriter Animation ("Welcome to Heritage Ehelepola Hotel")
+ * ------------------------------------------------------------- */
+function initHeroTypewriter() {
+  const el = document.getElementById("heroTypewriterText");
+  if (!el) return;
+
+  const phrases = [
+    "Welcome to Heritage Ehelepola Hotel",
+    "Ayubowan • Welcome to Sanctuary",
+    "An Intimate 6-Suite Boutique Sanctuary",
+    "Where Royal Heritage Meets Nature's Serenity"
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 80;
+
+  // Clear initial text for smooth typing start
+  el.textContent = "";
+
+  function typeStep() {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      el.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 35;
+    } else {
+      el.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 80;
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      typingSpeed = 3500; // Hold completed phrase
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typingSpeed = 450;
+    }
+
+    setTimeout(typeStep, typingSpeed);
+  }
+
+  setTimeout(typeStep, 350);
+}
+
+/* -------------------------------------------------------------
+ * 19. Royal AI Concierge Chatbot (Heritage Butler)
+ * ------------------------------------------------------------- */
+function initAiConciergeChatbot() {
+  const widget = document.getElementById("aiConciergeWidget");
+  const triggerBtn = document.getElementById("aiConciergeTrigger");
+  const closeBtn = document.getElementById("aiChatClose");
+  const resetBtn = document.getElementById("aiChatReset");
+  const chatBody = document.getElementById("aiChatBody");
+  const chatForm = document.getElementById("aiChatForm");
+  const chatInput = document.getElementById("aiChatInput");
+  const triggerBadge = document.getElementById("aiTriggerBadge");
+
+  if (!widget) return;
+
+  const welcomeHTML = `
+    <div class="ai-msg ai-msg-bot">
+      <div class="ai-msg-avatar">
+        <img src="assets/images/ai_butler_avatar.png" alt="Royal Butler">
+      </div>
+      <div class="ai-msg-bubble">
+        <p><strong>Ayubowan! 🙏 Welcome to Heritage Ehelepola Hotel.</strong></p>
+        <p>I am your dedicated Royal AI Concierge. I have full knowledge of our 6 boutique suites, royal dining, gazebos, hill-country excursions, spa, check-in, and direct bookings.</p>
+        <p style="font-size:0.84rem; color: rgba(255,255,255,0.7);">You can ask in <strong>English, සිංහල, or Singlish</strong>!</p>
+        <div class="ai-quick-suggestions">
+          <button type="button" class="ai-chip" data-query="Suites and Room Rates">🏰 Suites &amp; Rates</button>
+          <button type="button" class="ai-chip" data-query="Dining and Gazebo">🍽️ Royal Dining</button>
+          <button type="button" class="ai-chip" data-query="Excursions and Ambuluwawa">🗺️ Excursions</button>
+          <button type="button" class="ai-chip" data-query="How to Book">📅 How to Book</button>
+          <button type="button" class="ai-chip" data-query="Hotel Location in Kandy">📍 Location</button>
+          <button type="button" class="ai-chip" data-query="Check-in and Check-out Times">🕒 Check-in Times</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Open / Close Widget
+  const openWidget = () => {
+    widget.classList.add("active");
+    widget.setAttribute("aria-hidden", "false");
+    if (triggerBadge) triggerBadge.style.display = "none";
+    if (chatInput) {
+      setTimeout(() => chatInput.focus(), 300);
+    }
+    scrollToBottom();
+  };
+
+  const closeWidget = () => {
+    widget.classList.remove("active");
+    widget.setAttribute("aria-hidden", "true");
+  };
+
+  if (triggerBtn) {
+    triggerBtn.addEventListener("click", () => {
+      if (widget.classList.contains("active")) {
+        closeWidget();
+      } else {
+        openWidget();
+      }
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener("click", closeWidget);
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      chatBody.innerHTML = welcomeHTML;
+      bindChips();
+      if (chatInput) chatInput.value = "";
+    });
+  }
+
+  // Auto-scroll body
+  const scrollToBottom = () => {
+    if (!chatBody) return;
+    chatBody.scrollTop = chatBody.scrollHeight;
+  };
+
+  // Add User Message
+  const addUserMessage = (text) => {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "ai-msg ai-msg-user";
+    msgDiv.innerHTML = `
+      <div class="ai-msg-bubble">
+        <p>${escapeHTML(text)}</p>
+      </div>
+    `;
+    chatBody.appendChild(msgDiv);
+    scrollToBottom();
+  };
+
+  // Add Bot Typing Indicator
+  const showTypingIndicator = () => {
+    const indicator = document.createElement("div");
+    indicator.className = "ai-msg ai-msg-bot ai-typing-wrapper";
+    indicator.innerHTML = `
+      <div class="ai-msg-avatar">
+        <img src="assets/images/ai_butler_avatar.png" alt="Royal Butler">
+      </div>
+      <div class="ai-typing-indicator">
+        <span class="ai-typing-dot"></span>
+        <span class="ai-typing-dot"></span>
+        <span class="ai-typing-dot"></span>
+      </div>
+    `;
+    chatBody.appendChild(indicator);
+    scrollToBottom();
+    return indicator;
+  };
+
+  // Add Bot Message
+  const addBotMessage = (contentHTML) => {
+    const msgDiv = document.createElement("div");
+    msgDiv.className = "ai-msg ai-msg-bot";
+    msgDiv.innerHTML = `
+      <div class="ai-msg-avatar">
+        <img src="assets/images/ai_butler_avatar.png" alt="Royal Butler">
+      </div>
+      <div class="ai-msg-bubble">
+        ${contentHTML}
+      </div>
+    `;
+    chatBody.appendChild(msgDiv);
+    scrollToBottom();
+    bindActions(msgDiv);
+    bindChips(msgDiv);
+  };
+
+  // Process User Query
+  const handleQuery = (queryText) => {
+    const trimmed = (queryText || "").trim();
+    if (!trimmed) return;
+
+    addUserMessage(trimmed);
+    if (chatInput) chatInput.value = "";
+
+    const indicator = showTypingIndicator();
+
+    setTimeout(() => {
+      if (indicator && indicator.parentNode) {
+        indicator.parentNode.removeChild(indicator);
+      }
+      const responseHTML = getBotResponse(trimmed);
+      addBotMessage(responseHTML);
+    }, 450);
+  };
+
+  // Form submit & Enter key
+  if (chatForm) {
+    chatForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (chatInput) handleQuery(chatInput.value);
+    });
+  }
+
+  // Quick Chips Click Delegation
+  const bindChips = (parent = chatBody) => {
+    const chips = parent.querySelectorAll(".ai-chip");
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const query = chip.getAttribute("data-query");
+        if (query) handleQuery(query);
+      });
+    });
+  };
+
+  // Interactive Actions inside Bot Messages
+  const bindActions = (parent = chatBody) => {
+    const actions = parent.querySelectorAll("[data-action]");
+    actions.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const action = btn.getAttribute("data-action");
+        if (action === "open-booking") {
+          closeWidget();
+          const modal = document.getElementById("bookingEngineModal");
+          if (modal) {
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        } else if (action === "view-experiences") {
+          closeWidget();
+          const expSection = document.getElementById("experiences");
+          if (expSection) {
+            expSection.scrollIntoView({ behavior: "smooth" });
+          } else {
+            window.location.href = "index.html#experiences";
+          }
+        } else if (action === "view-album") {
+          window.location.href = "album.html";
+        }
+      });
+    });
+  };
+
+  bindChips();
+  bindActions();
+
+  // Escape HTML helper
+  function escapeHTML(str) {
+    const p = document.createElement("p");
+    p.appendChild(document.createTextNode(str));
+    return p.innerHTML;
+  }
+
+  /* -------------------------------------------------------------
+   * Heritage Hotel Knowledge Base & Multi-Language NLP Matcher
+   * ------------------------------------------------------------- */
+  function getBotResponse(rawQuery) {
+    const q = rawQuery.toLowerCase();
+
+    // 1. Rooms, Suites, Pricing, Rates
+    if (
+      q.includes("room") || q.includes("suite") || q.includes("cabana") ||
+      q.includes("price") || q.includes("rate") || q.includes("cost") ||
+      q.includes("how much") || q.includes("dollar") || q.includes("rupee") ||
+      q.includes("rs") || q.includes("mansion") || q.includes("stay") ||
+      q.includes("mila") || q.includes("gana") || q.includes("ganan") ||
+      q.includes("kiyada") || q.includes("කාමර") || q.includes("මිල") ||
+      q.includes("ගාස්තු") || q.includes("නවාතැන්")
+    ) {
+      return `
+        <p><strong>👑 Our 6 Intimate Boutique Suites &amp; Rates:</strong></p>
+        <p>Heritage Ehelepola Hotel features three bespoke suite collections with handcrafted antique furnishings:</p>
+        <p>• <strong>The Royal Ehelepola Suite</strong> ($520 / ~Rs. 158,600 / nt)<br>
+        King 4-poster antique carved teak bed, private jacuzzi bath with mountain valley view, and 24/7 private butler.</p>
+        <p>• <strong>Heritage Garden Pavilion Suite</strong> ($380 / ~Rs. 115,900 / nt)<br>
+        2 Queen canopy beds, private garden veranda opening onto organic cinnamon &amp; tea gardens.</p>
+        <p>• <strong>Courtyard Terrace Lounge Suite</strong> ($320 / ~Rs. 97,600 / nt)<br>
+        Queen colonial bed, direct lawn terrace access, and sleek marble ensuite.</p>
+        <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>*All suites include daily Ceylon breakfast, free high-speed Wi-Fi, and 24/7 butler service.</em></p>
+        <div class="ai-msg-actions">
+          <button type="button" class="ai-action-btn ai-action-primary" data-action="open-booking"><i class="fas fa-calendar-check"></i> Reserve Suite</button>
+          <a href="https://wa.me/94637245245?text=Hello%20Butler,%20I%20would%20like%20to%20inquire%20about%20suite%20rates." target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> WhatsApp Butler</a>
+          <button type="button" class="ai-action-btn" data-action="view-album"><i class="fas fa-images"></i> Suite Photos</button>
+        </div>
+      `;
+    }
+
+    // 2. Dining, Restaurant, Gazebo, Breakfast, Food
+    if (
+      q.includes("dining") || q.includes("food") || q.includes("restaurant") ||
+      q.includes("gazebo") || q.includes("dinner") || q.includes("breakfast") ||
+      q.includes("lunch") || q.includes("eat") || q.includes("meal") ||
+      q.includes("tea") || q.includes("hopper") || q.includes("kiri bath") ||
+      q.includes("halal") || q.includes("vegan") || q.includes("vegetarian") ||
+      q.includes("kama") || q.includes("bath") || q.includes("keema") ||
+      q.includes("කෑම") || q.includes("ආහාර") || q.includes("රෙස්ටුරන්ට්") ||
+      q.includes("ගැසීබෝ")
+    ) {
+      return `
+        <p><strong>🍽️ Royal Gastronomy &amp; Romantic Dining:</strong></p>
+        <p>Savor authentic Ceylon heritage culinary traditions:</p>
+        <p>✨ <strong>Starlight Gazebo Dining</strong> (6:30 PM – 11:00 PM)<br>
+        An intimate candlelit multi-course private dinner under fairy-lit mango trees in a thatched circular cabana with private table butler.</p>
+        <p>🍛 <strong>Heritage Teak Dining Hall</strong> (7:00 AM – 10:30 PM)<br>
+        Handcrafted high-back teak furniture, authentic royal Kandyan curries, fresh organic spices, and international gourmet cuisine.</p>
+        <p>🍵 <strong>Kandyan Morning Table</strong> (7:00 AM – 10:30 AM)<br>
+        Live golden hoppers (appa), royal milk rice (kiri bath), spicy lunu miris, pol sambol, tropical fruits, and pure single-origin Ceylon tea.</p>
+        <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>*Halal, Vegetarian, Vegan, and Gluten-Free dining requests are gracefully accommodated.</em></p>
+        <div class="ai-msg-actions">
+          <a href="https://wa.me/94637245245?text=Hello%20Concierge,%20I%20would%20like%20to%20reserve%20a%20private%20Starlight%20Gazebo%20dinner." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-utensils"></i> Reserve Gazebo Table</a>
+          <a href="tel:0637245245" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call Dining Butler</a>
+        </div>
+      `;
+    }
+
+    // 3. Excursions, Tours, Ambuluwawa, Train, Embekke, Stupa
+    if (
+      q.includes("excursion") || q.includes("tour") || q.includes("trip") ||
+      q.includes("ambuluwawa") || q.includes("embekke") || q.includes("train") ||
+      q.includes("blue train") || q.includes("stupa") || q.includes("temple") ||
+      q.includes("travel") || q.includes("places to visit") || q.includes("sight") ||
+      q.includes("visit") || q.includes("balanna") || q.includes("sanchara") ||
+      q.includes("සංචාර") || q.includes("අඹුළුවාව") || q.includes("ඇම්බැක්කේ") ||
+      q.includes("දුම්රිය")
+    ) {
+      return `
+        <p><strong>🗺️ Curated Central Highland Excursions:</strong></p>
+        <p>We provide private chauffeur-driven excursions from our estate:</p>
+        <p>🗼 <strong>Ambuluwawa Biodiversity Peak</strong> (28 km • 45 mins)<br>
+        Ascend the world-famous 360° spiral white tower rising above misty valleys.</p>
+        <p>🏛️ <strong>Embekke Devalaya Wood Carvings</strong> (14 km • 30 mins)<br>
+        Marvel at 514 historic 14th-century Kandyan timber pillar carvings.</p>
+        <p>🚂 <strong>Iconic Ceylon Blue Train Odyssey</strong> (Daily departure)<br>
+        Glide past cascading waterfalls and misty mountain tea viaducts with chauffeur transfer.</p>
+        <p>🛕 <strong>Sacred Hillside Temples &amp; White Stupa</strong> (8 km • 15 mins)<br>
+        Sunset meditation and panoramic views across Kandy's mountain basin.</p>
+        <div class="ai-msg-actions">
+          <button type="button" class="ai-action-btn ai-action-primary" data-action="view-experiences"><i class="fas fa-compass"></i> View Experiences</button>
+          <a href="https://wa.me/94637245245?text=Hello%20Concierge,%20I%20am%20interested%20in%20arranging%20an%20excursion." target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Inquire Excursion</a>
+        </div>
+      `;
+    }
+
+    // 4. Location, Address, Distance, Kandy
+    if (
+      q.includes("location") || q.includes("address") || q.includes("where") ||
+      q.includes("map") || q.includes("directions") || q.includes("distance") ||
+      q.includes("how far") || q.includes("reach") || q.includes("kandy") ||
+      q.includes("dalada") || q.includes("tooth") || q.includes("airport") ||
+      q.includes("koheda") || q.includes("thiyenne") || q.includes("thanak") ||
+      q.includes("දුර") || q.includes("කොහෙද") || q.includes("පිහිටීම")
+    ) {
+      return `
+        <p><strong>📍 Hotel Location &amp; Distances:</strong></p>
+        <p><strong>Address:</strong> Ehelepola Heritage Estate, Royal Valley, Kandy, Sri Lanka.</p>
+        <p><strong>Travel Times from Sanctuary:</strong><br>
+        • <strong>Temple of the Sacred Tooth Relic:</strong> 15 mins (6 km)<br>
+        • <strong>Kandy Lake &amp; City Center:</strong> 12 - 15 mins<br>
+        • <strong>Peradeniya Botanical Gardens:</strong> 25 mins<br>
+        • <strong>Colombo Airport (CMB):</strong> ~3 hours via Central Expressway (luxury airport transfers available upon request).</p>
+        <div class="ai-msg-actions">
+          <a href="https://wa.me/94637245245?text=Hello%20Butler,%20please%20send%20me%20the%20Google%20Maps%20location." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-map-marked-alt"></i> Get Directions on WhatsApp</a>
+          <a href="tel:0637245245" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call for Assistance</a>
+        </div>
+      `;
+    }
+
+    // 5. Booking, Reservation, How to Book, Payment
+    if (
+      q.includes("book") || q.includes("reserve") || q.includes("reservation") ||
+      q.includes("how to book") || q.includes("payment") || q.includes("card") ||
+      q.includes("voucher") || q.includes("deposit") || q.includes("offer") ||
+      q.includes("discount") || q.includes("deal") || q.includes("adu") ||
+      q.includes("karanna") || q.includes("බුක්") || q.includes("වෙන්කර")
+    ) {
+      return `
+        <p><strong>📅 How to Reserve Your Sanctuary:</strong></p>
+        <p>Reserving directly with us guarantees our lowest price commitment and VIP royal treatment:</p>
+        <p>1. <strong>Online Engine:</strong> Click <em>'Reserve Suite'</em> below to pick your dates and suite.<br>
+        2. <strong>Direct Voucher:</strong> Instant confirmation voucher with zero hidden fees.<br>
+        3. <strong>Personal Butler Booking:</strong> Chat with our butler on WhatsApp (+94 63 724 5245) for custom arrangements.</p>
+        <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>*Direct booking perks include a complimentary Ceylon welcome tea ceremony and early check-in priority.</em></p>
+        <div class="ai-msg-actions">
+          <button type="button" class="ai-action-btn ai-action-primary" data-action="open-booking"><i class="fas fa-calendar-check"></i> Open Booking Engine</button>
+          <a href="https://wa.me/94637245245?text=Hello%20Heritage%20Ehelepola%20Hotel,%20I%20would%20like%20to%20book%20a%20stay." target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
+        </div>
+      `;
+    }
+
+    // 6. Check-in / Check-out Times
+    if (
+      q.includes("check in") || q.includes("check out") || q.includes("checkin") ||
+      q.includes("checkout") || q.includes("time") || q.includes("timing") ||
+      q.includes("hours") || q.includes("arrive") || q.includes("departure") ||
+      q.includes("welawa") || q.includes("welaawa") || q.includes("පැමිණීම") ||
+      q.includes("පිටවීම") || q.includes("වේලාව")
+    ) {
+      return `
+        <p><strong>🕒 Sanctuary Timings &amp; Hours:</strong></p>
+        <p>• <strong>Check-In:</strong> 2:00 PM onwards<br>
+        • <strong>Check-Out:</strong> Until 11:00 AM<br>
+        • <strong>Front Desk &amp; Butler:</strong> 24 Hours Uninterrupted<br>
+        • <strong>Royal Dining:</strong> 7:00 AM – 10:30 PM<br>
+        • <strong>Ayurvedic Spa:</strong> 8:00 AM – 8:00 PM</p>
+        <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>Early arrival or late departure requests are happily accommodated based on suite availability.</em></p>
+        <div class="ai-msg-actions">
+          <button type="button" class="ai-action-btn ai-action-primary" data-action="open-booking"><i class="fas fa-calendar-check"></i> Book Stay</button>
+          <a href="https://wa.me/94637245245?text=Hello%20Butler,%20can%20I%20request%20an%20early%20check-in%20or%20late%20checkout?" target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Request Flexible Time</a>
+        </div>
+      `;
+    }
+
+    // 7. Facilities, Spa, Butler, Wi-Fi, Parking
+    if (
+      q.includes("facility") || q.includes("facilities") || q.includes("spa") ||
+      q.includes("ayurvedic") || q.includes("massage") || q.includes("butler") ||
+      q.includes("wifi") || q.includes("internet") || q.includes("parking") ||
+      q.includes("bentley") || q.includes("garage") || q.includes("pool") ||
+      q.includes("salon") || q.includes("පහසුකම්") || q.includes("ස්පා")
+    ) {
+      return `
+        <p><strong>🌿 Resort Facilities &amp; Amenities:</strong></p>
+        <p>• <strong>24/7 Dedicated Butler:</strong> Personalized aristocratic care round the clock.<br>
+        • <strong>Heritage Ayurvedic Spa:</strong> Traditional herbal head &amp; body therapies (8:00 AM – 8:00 PM).<br>
+        • <strong>Living Heritage Salon:</strong> Rare antique gramophone lounge and historic reading library.<br>
+        • <strong>Vintage Bentley Showcase:</strong> Classic automobile showcase in our private collector's garage.<br>
+        • <strong>Wi-Fi &amp; Parking:</strong> High-speed fiber Wi-Fi throughout all grounds, plus secure complimentary valet parking.</p>
+        <div class="ai-msg-actions">
+          <a href="https://wa.me/94637245245?text=Hello%20Spa%20Concierge,%20I%20would%20like%20to%20inquire%20about%20Ayurvedic%20treatments." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-spa"></i> Book Spa Treatment</a>
+          <button type="button" class="ai-action-btn" data-action="view-album"><i class="fas fa-camera"></i> Explore Facilities</button>
+        </div>
+      `;
+    }
+
+    // 8. Contact & Phone Numbers
+    if (
+      q.includes("contact") || q.includes("phone") || q.includes("telephone") ||
+      q.includes("number") || q.includes("call") || q.includes("whatsapp") ||
+      q.includes("email") || q.includes("mail") || q.includes("katha") ||
+      q.includes("දුරකථන") || q.includes("ඇමතුම්")
+    ) {
+      return `
+        <p><strong>📞 Official Hotel Contact Numbers:</strong></p>
+        <p>• <strong>Front Desk Hotline:</strong> <a href="tel:0637245245" style="color:#d5b287; font-weight:700;">0637245245</a><br>
+        • <strong>Reservations Desk:</strong> <a href="tel:0631234567" style="color:#d5b287; font-weight:700;">0631234567</a><br>
+        • <strong>WhatsApp Butler:</strong> <a href="https://wa.me/94637245245" target="_blank" style="color:#25d366; font-weight:700;">+94 63 724 5245</a><br>
+        • <strong>Official Email:</strong> info@ehelepolahotel.lk<br>
+        • <strong>Address:</strong> Ehelepola Heritage Estate, Royal Valley, Kandy, Sri Lanka.</p>
+        <div class="ai-msg-actions">
+          <a href="tel:0637245245" class="ai-action-btn ai-action-primary"><i class="fas fa-phone-alt"></i> Call Front Desk</a>
+          <a href="https://wa.me/94637245245" target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Open WhatsApp</a>
+        </div>
+      `;
+    }
+
+    // 9. Ayubowan / Greetings
+    if (
+      q.includes("ayubowan") || q.includes("hello") || q.includes("hi") ||
+      q.includes("hey") || q.includes("morning") || q.includes("evening") ||
+      q.includes("kohomada") || q.includes("subha") || q.includes("ආයුබෝවන්") ||
+      q.includes("කොහොමද")
+    ) {
+      return `
+        <p><strong>Ayubowan! 🙏 Warm greetings from Heritage Ehelepola Hotel.</strong></p>
+        <p>It is my honor to assist you. Whether you are planning a romantic getaway, family vacation, or exploring the cultural wonders of Kandy, I am here to help with every detail.</p>
+        <p>What would you like to know about our suites, dining, or hill-country excursions?</p>
+        <div class="ai-quick-suggestions">
+          <button type="button" class="ai-chip" data-query="Suites and Room Rates">🏰 Suites &amp; Rates</button>
+          <button type="button" class="ai-chip" data-query="Dining and Gazebo">🍽️ Royal Dining</button>
+          <button type="button" class="ai-chip" data-query="Excursions and Ambuluwawa">🗺️ Excursions</button>
+          <button type="button" class="ai-chip" data-query="How to Book">📅 How to Book</button>
+        </div>
+      `;
+    }
+
+    // 10. Fallback (Friendly Butler Guide)
+    return `
+      <p><strong>Ayubowan! 🙏 Thank you for reaching out.</strong></p>
+      <p>As your Heritage Butler, I can provide complete details on our resort:</p>
+      <p>• <strong>Suites:</strong> The Royal Suite ($520), Garden Pavilion ($380), Courtyard Terrace ($320).<br>
+      • <strong>Dining:</strong> Teak Dining Hall &amp; Romantic Starlight Gazebo dinner.<br>
+      • <strong>Excursions:</strong> Ambuluwawa Tower, Embekke Woodcarvings, Ceylon Blue Train.<br>
+      • <strong>Direct Contact:</strong> Call <strong>0637245245</strong> or WhatsApp <strong>+94 63 724 5245</strong>.</p>
+      <p>Please select a topic below or ask your question in English or සිංහල:</p>
+      <div class="ai-quick-suggestions">
+        <button type="button" class="ai-chip" data-query="Suites and Room Rates">🏰 Suites &amp; Rates</button>
+        <button type="button" class="ai-chip" data-query="Dining and Gazebo">🍽️ Royal Dining</button>
+        <button type="button" class="ai-chip" data-query="How to Book">📅 How to Book</button>
+        <button type="button" class="ai-chip" data-query="Hotel Location in Kandy">📍 Location</button>
+      </div>
+    `;
+  }
+}
+
