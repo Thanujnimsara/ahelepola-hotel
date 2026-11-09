@@ -86,6 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initDiscoverGallerySlider();
   initHeroBackgroundSlider();
   initDiningCarouselSlider();
+  initExperiencesSlider();
+  initExperiencesModal();
 });
 
 /* -------------------------------------------------------------
@@ -1569,4 +1571,165 @@ function initDiningCarouselSlider() {
   buildDots();
   goToSlide(0);
   startTimer();
+}
+
+/* -------------------------------------------------------------
+ * 16. Naturaliza-Style Experiences Collection Slider & Modal
+ * ------------------------------------------------------------- */
+function initExperiencesSlider() {
+  const wrap = document.getElementById("expSliderWrap");
+  if (!wrap) return;
+
+  const slides = wrap.querySelectorAll(".haven-exp-slide");
+  const prevBtn = document.getElementById("expPrevBtn");
+  const nextBtn = document.getElementById("expNextBtn");
+  const dotsContainer = document.getElementById("expSliderDots");
+
+  if (!slides || slides.length === 0) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let autoTimer = null;
+
+  const goToSlide = (index) => {
+    slides[currentIndex].classList.remove("active");
+    currentIndex = (index + totalSlides) % totalSlides;
+    slides[currentIndex].classList.add("active");
+
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll(".exp-slider-dot");
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+  };
+
+  const nextSlide = () => goToSlide(currentIndex + 1);
+  const prevSlide = () => goToSlide(currentIndex - 1);
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      prevSlide();
+      restartTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      nextSlide();
+      restartTimer();
+    });
+  }
+
+  if (dotsContainer) {
+    const dots = dotsContainer.querySelectorAll(".exp-slider-dot");
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", (e) => {
+        e.stopPropagation();
+        goToSlide(i);
+        restartTimer();
+      });
+    });
+  }
+
+  const startTimer = () => {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(nextSlide, 5000);
+  };
+
+  const restartTimer = () => {
+    startTimer();
+  };
+
+  wrap.addEventListener("mouseenter", () => {
+    if (autoTimer) clearInterval(autoTimer);
+  });
+  wrap.addEventListener("mouseleave", () => {
+    startTimer();
+  });
+
+  // Touch Swipe for mobile devices
+  let touchStartX = 0;
+  let touchEndX = 0;
+  wrap.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  wrap.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 40) {
+      nextSlide();
+      restartTimer();
+    } else if (touchEndX - touchStartX > 40) {
+      prevSlide();
+      restartTimer();
+    }
+  }, { passive: true });
+
+  startTimer();
+}
+
+function initExperiencesModal() {
+  const modal = document.getElementById("experiencesCollectionModal");
+  const openBtn = document.getElementById("exploreExperiencesBtn");
+  const closeBtn = document.getElementById("closeExperiencesModal");
+  const sliderSlides = document.querySelectorAll(".haven-exp-slide");
+
+  if (!modal) return;
+
+  const openModal = () => {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  };
+
+  if (openBtn) {
+    openBtn.addEventListener("click", openModal);
+  }
+
+  // Also allow clicking directly on slider slides to open details
+  sliderSlides.forEach((slide) => {
+    slide.addEventListener("click", openModal);
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  // Handle "ENQUIRE EXCURSION" buttons inside modal
+  const enquireBtns = modal.querySelectorAll(".btn-enquire-exp");
+  enquireBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const expTitle = btn.getAttribute("data-exp") || "Highland Excursion";
+      closeModal();
+
+      // Open booking modal
+      const bookingModal = document.getElementById("bookingEngineModal");
+      if (bookingModal) {
+        bookingModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      // If there's an experience or request field, focus it
+      const guestNameInput = document.getElementById("bookGuestName");
+      if (guestNameInput) {
+        setTimeout(() => guestNameInput.focus(), 300);
+      }
+    });
+  });
 }

@@ -3637,3 +3637,404 @@ button {
   line-height: 1.55;
   margin: 0;
 }
+
+/* ==========================================================================
+   AN EXQUISITE COLLECTION OF EXPERIENCES (Naturaliza Luxury Module)
+   ========================================================================== */
+.haven-experiences-section {
+  padding: 100px 0;
+  background: #ffffff;
+  position: relative;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  scroll-margin-top: 80px;
+}
+
+.haven-experiences-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* Left Carousel Slider */
+.haven-exp-slider-wrap {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 42px rgba(17, 40, 35, 0.14);
+  background: #0d1e1a;
+}
+
+.haven-exp-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.haven-exp-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.03);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.haven-exp-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.haven-exp-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.haven-exp-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(14, 30, 26, 0.25) 50%, rgba(14, 30, 26, 0.85) 100%);
+  pointer-events: none;
+}
+
+.haven-exp-slide-caption {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  right: 90px;
+  z-index: 3;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.exp-caption-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sand-primary);
+  margin-bottom: 6px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.exp-caption-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 4px;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.exp-caption-loc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Circular Amber Nav Arrows */
+.exp-slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #d48812;
+  background: linear-gradient(135deg, #e5971e 0%, #c8780c 100%);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exp-prev-btn {
+  left: 20px;
+}
+
+.exp-next-btn {
+  right: 20px;
+}
+
+.exp-slider-nav-btn:hover {
+  transform: translateY(-50%) scale(1.12);
+  background: linear-gradient(135deg, #f0a32b 0%, #d88212 100%);
+  box-shadow: 0 8px 24px rgba(200, 120, 12, 0.45);
+}
+
+/* Pagination Dots */
+.exp-slider-dots {
+  position: absolute;
+  bottom: 22px;
+  right: 26px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.exp-slider-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.exp-slider-dot.active {
+  width: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Right Editorial Content */
+.haven-exp-editorial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exp-category-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.exp-category-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #485c56;
+}
+
+.exp-category-line {
+  display: inline-block;
+  height: 1px;
+  background: #c2cbc7;
+  width: 140px;
+  max-width: 45%;
+}
+
+.exp-editorial-title {
+  font-family: var(--font-serif);
+  font-size: 2.85rem;
+  font-weight: 400;
+  line-height: 1.22;
+  color: #172824;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.exp-editorial-desc {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #556662;
+  margin-bottom: 34px;
+  max-width: 540px;
+}
+
+.btn-exp-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #d47a16;
+  background: linear-gradient(135deg, #df851f 0%, #c86f0c 100%);
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 15px 36px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(212, 122, 22, 0.28);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-exp-explore:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #eb922c 0%, #d57a13 100%);
+  box-shadow: 0 10px 28px rgba(212, 122, 22, 0.42);
+}
+
+/* Experiences Modal Grid */
+.exp-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.exp-modal-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+}
+
+.exp-modal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--sand-primary);
+}
+
+.exp-modal-img {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-modal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.exp-modal-card:hover .exp-modal-img img {
+  transform: scale(1.05);
+}
+
+.exp-modal-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(17, 40, 35, 0.88);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(213, 178, 135, 0.5);
+  font-weight: 600;
+}
+
+.exp-modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.exp-modal-dist {
+  font-size: 0.78rem;
+  color: var(--cinnamon-primary);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.exp-modal-body h4 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--pine-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.exp-modal-body p {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.exp-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-light);
+  padding-top: 14px;
+}
+
+.exp-modal-time {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.btn-enquire-exp {
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+  .haven-experiences-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .haven-exp-slider-wrap {
+    height: 380px;
+  }
+  .exp-editorial-title {
+    font-size: 2.2rem;
+  }
+  .exp-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .haven-experiences-section {
+    padding: 70px 0;
+  }
+  .haven-exp-slider-wrap {
+    height: 300px;
+  }
+  .exp-editorial-title {
+    font-size: 1.85rem;
+  }
+  .exp-caption-title {
+    font-size: 1.25rem;
+  }
+  .exp-slider-nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+  .exp-prev-btn {
+    left: 12px;
+  }
+  .exp-next-btn {
+    right: 12px;
+  }
+}
