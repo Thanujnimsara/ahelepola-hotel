@@ -466,35 +466,61 @@ button {
 }
 
 .haven-nav-link {
-  font-size: 0.72rem;
+  font-size: 0.81rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--pine-primary);
   position: relative;
-  padding: 5px 8px;
+  padding: 8px 12px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   text-decoration: none;
   white-space: nowrap !important;
-  border: none !important;
-  background: transparent !important;
-  border-radius: 4px;
-  transition: all 0.22s ease;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .haven-nav-link span {
+  position: relative;
+  z-index: 2;
   white-space: nowrap !important;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
 .haven-nav-link i {
-  font-size: 0.72rem;
+  position: relative;
+  z-index: 2;
+  font-size: 0.84rem;
   color: var(--sand-dark);
-  transition: transform 0.22s ease, color 0.22s ease;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.28s ease;
 }
 
-/* Minimal luxury underline indicator */
+/* Shimmer Light Flare Beam on Hover */
+.haven-nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: skewX(-22deg);
+  transition: left 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Luminous Underline Glow Indicator */
 .haven-nav-link::after {
   content: '';
   position: absolute;
@@ -502,16 +528,26 @@ button {
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   transform-origin: center;
-  width: 18px;
-  height: 2px;
-  background: var(--cinnamon-primary);
+  width: calc(100% - 18px);
+  height: 2.5px;
+  background: linear-gradient(90deg, #d5b287, #b85d28, #d5b287);
   border-radius: 2px;
-  transition: transform 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0 8px rgba(184, 93, 40, 0.65);
+  transition: transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 2;
 }
 
+/* Interactive Mouse-Over (Hover) Style */
 .haven-nav-link:hover {
   color: var(--cinnamon-primary) !important;
-  background: rgba(184, 93, 40, 0.05) !important;
+  background: linear-gradient(135deg, rgba(213, 178, 135, 0.16) 0%, rgba(184, 93, 40, 0.1) 100%) !important;
+  border-color: rgba(184, 93, 40, 0.3) !important;
+  transform: translateY(-2.5px);
+  box-shadow: 0 6px 16px rgba(184, 93, 40, 0.16);
+}
+
+.haven-nav-link:hover::before {
+  left: 150%;
 }
 
 .haven-nav-link:hover::after {
@@ -519,16 +555,20 @@ button {
 }
 
 .haven-nav-link:hover i {
-  transform: scale(1.15);
-  color: var(--cinnamon-primary);
+  transform: scale(1.22) rotate(-8deg);
+  color: var(--cinnamon-primary) !important;
+}
+
+.haven-nav-link:active {
+  transform: translateY(-0.5px) scale(0.97);
 }
 
 /* Active State: Clean and refined with underline, no bulky oval pill */
 .haven-nav-link.active {
   color: var(--cinnamon-primary) !important;
   font-weight: 700;
-  background: transparent !important;
-  border: none !important;
+  background: rgba(184, 93, 40, 0.06);
+  border-color: rgba(184, 93, 40, 0.18);
 }
 
 .haven-nav-link.active::after {
@@ -541,16 +581,20 @@ button {
   color: var(--cinnamon-primary) !important;
   font-weight: 700;
   white-space: nowrap !important;
+  background: rgba(213, 178, 135, 0.14);
+  border-color: rgba(213, 178, 135, 0.35);
 }
 
 .haven-nav-album i {
   color: var(--cinnamon-primary) !important;
-  font-size: 0.72rem;
+  font-size: 0.84rem;
 }
 
 .haven-nav-album:hover {
-  background: rgba(184, 93, 40, 0.08) !important;
+  background: linear-gradient(135deg, rgba(213, 178, 135, 0.24) 0%, rgba(184, 93, 40, 0.16) 100%) !important;
+  border-color: var(--cinnamon-primary) !important;
   color: var(--cinnamon-dark) !important;
+  box-shadow: 0 6px 18px rgba(184, 93, 40, 0.22);
 }
 
 .haven-header-actions {
@@ -1669,7 +1713,7 @@ button {
 /* ==========================================================================
    RESPONSIVE DESIGN
    ========================================================================== */
-@media (max-width: 1040px) {
+@media (max-width: 1140px) {
   .haven-nav-links {
     display: none;
     position: absolute;
