@@ -240,13 +240,76 @@
   <section class="haven-discover-section" id="discover">
     <div class="container">
       <div class="discover-grid">
-        <!-- Visuals Column -->
-        <div class="discover-visuals">
-          <img src="assets/images/cta_hotel_exterior.jpg" alt="Heritage Ehelepola Hotel Facade & Estate Grounds" class="discover-img-main">
-          <img src="assets/images/heritage_curio_shelf.jpg" alt="Vintage Curio Antiques & Colonial Heirlooms" class="discover-img-sub">
-          <div class="discover-badge-float">
-            <span class="badge-number">6</span>
-            <span class="badge-text">Exclusive<br>Private Suites</span>
+        <!-- Visuals Column with Interactive Multi-Photo Showcase -->
+        <div class="discover-visuals" id="discoverVisualsGallery">
+          <!-- Slide 0: Hotel Sanctuary Facade -->
+          <div class="discover-slide active" data-slide-index="0">
+            <img src="assets/images/cta_hotel_exterior.jpg" alt="Heritage Ehelepola Hotel Facade & Estate Grounds" class="discover-img-main">
+            <div class="discover-badge-float">
+              <span class="badge-number">6</span>
+              <span class="badge-text">Exclusive<br>Private Suites</span>
+            </div>
+            <img src="assets/images/heritage_curio_shelf.jpg" alt="Vintage Curio Antiques & Colonial Heirlooms" class="discover-img-sub">
+          </div>
+
+          <!-- Slide 1: Temple of the Sacred Tooth Relic -->
+          <div class="discover-slide" data-slide-index="1">
+            <img src="assets/images/kandy_temple_tooth_relic.jpg" alt="Temple of the Sacred Tooth Relic (Sri Dalada Maligawa)" class="discover-img-main">
+            <div class="discover-badge-float">
+              <span class="badge-number"><i class="fas fa-landmark" style="font-size: 1.8rem; color: var(--sand-primary);"></i></span>
+              <span class="badge-text">Royal Heritage<br>Dalada Maligawa</span>
+            </div>
+            <div class="discover-slide-caption">
+              <i class="fas fa-map-marker-alt" style="color: var(--sand-primary); margin-right: 4px;"></i> Sri Dalada Maligawa • 15 Mins
+            </div>
+          </div>
+
+          <!-- Slide 2: Hanthana Mountain Misty Trails -->
+          <div class="discover-slide" data-slide-index="2">
+            <img src="assets/images/hanthana_mountain_misty_trails.jpg" alt="Hanthana Mountain Misty Tea Trails" class="discover-img-main">
+            <div class="discover-badge-float">
+              <span class="badge-number"><i class="fas fa-mountain" style="font-size: 1.8rem; color: var(--sand-primary);"></i></span>
+              <span class="badge-text">Cloud Ridge Trek<br>Hanthana Peaks</span>
+            </div>
+            <div class="discover-slide-caption">
+              <i class="fas fa-hiking" style="color: var(--sand-primary); margin-right: 4px;"></i> Hanthana Mountain Ridge • 20 Mins
+            </div>
+          </div>
+
+          <!-- Slide 3: Pinnawala Elephant River Gathering -->
+          <div class="discover-slide" data-slide-index="3">
+            <img src="assets/images/pinnawala_elephant_sanctuary.jpg" alt="Pinnawala Elephant Sanctuary River Gathering" class="discover-img-main">
+            <div class="discover-badge-float">
+              <span class="badge-number"><i class="fas fa-paw" style="font-size: 1.8rem; color: var(--sand-primary);"></i></span>
+              <span class="badge-text">Wildlife Wonder<br>River Gathering</span>
+            </div>
+            <div class="discover-slide-caption">
+              <i class="fas fa-water" style="color: var(--sand-primary); margin-right: 4px;"></i> Pinnawala Elephants • 40 Mins
+            </div>
+          </div>
+
+          <!-- Navigation Arrow Controls -->
+          <button type="button" class="discover-nav-btn discover-prev" id="discoverPrevBtn" aria-label="Previous Photo"><i class="fas fa-chevron-left"></i></button>
+          <button type="button" class="discover-nav-btn discover-next" id="discoverNextBtn" aria-label="Next Photo"><i class="fas fa-chevron-right"></i></button>
+
+          <!-- 4 Thumbnail Switcher Selector Buttons -->
+          <div class="discover-thumbnails-row">
+            <button type="button" class="discover-thumb-btn active" data-target-slide="0">
+              <img src="assets/images/cta_hotel_exterior.jpg" alt="Hotel Estate Sanctuary">
+              <span>Sanctuary</span>
+            </button>
+            <button type="button" class="discover-thumb-btn" data-target-slide="1">
+              <img src="assets/images/kandy_temple_tooth_relic.jpg" alt="Temple of the Tooth">
+              <span>Dalada Maligawa</span>
+            </button>
+            <button type="button" class="discover-thumb-btn" data-target-slide="2">
+              <img src="assets/images/hanthana_mountain_misty_trails.jpg" alt="Hanthana Mountain Ridge">
+              <span>Hanthana Ridge</span>
+            </button>
+            <button type="button" class="discover-thumb-btn" data-target-slide="3">
+              <img src="assets/images/pinnawala_elephant_sanctuary.jpg" alt="Pinnawala Elephants">
+              <span>Elephants</span>
+            </button>
           </div>
         </div>
 
@@ -297,6 +360,56 @@
               <i class="fas fa-door-open"></i>
               <span>EXPLORE SANCTUARY SUITES</span>
             </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curated Kandyan Excursions & Heritage Trails Strip -->
+      <div class="discover-excursions-wrap">
+        <div class="section-heading-center" style="margin-bottom: 30px;">
+          <span class="section-tag">CURATED KANDYAN EXPERIENCES</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.95rem; color: var(--pine-primary); font-weight: 600;">Iconic Destinations at Your Doorstep</h3>
+          <div class="section-divider">❖</div>
+          <p style="max-width: 600px; margin: 8px auto 0; font-size: 0.92rem; color: var(--text-muted); line-height: 1.55;">
+            Immerse yourself in centuries of royal spirituality, misty cloud-forest peaks, and gentle river wildlife — all effortlessly accessible from Heritage Ehelepola Hotel.
+          </p>
+        </div>
+
+        <div class="discover-excursions-grid">
+          <!-- Excursion 1: Dalada Maligawa -->
+          <div class="excursion-card">
+            <div class="excursion-card-img">
+              <img src="assets/images/kandy_temple_tooth_relic.jpg" alt="Temple of the Sacred Tooth Relic (Sri Dalada Maligawa)">
+              <span class="excursion-pill"><i class="fas fa-landmark"></i> 15 MINS • DALADA MALIGAWA</span>
+            </div>
+            <div class="excursion-card-body">
+              <h4>Temple of the Sacred Tooth Relic</h4>
+              <p>The sacred spiritual epicenter of Sri Lanka and ancient royal palace complex of Kandyan monarchs, overlooking the serene waters of Kandy Lake.</p>
+            </div>
+          </div>
+
+          <!-- Excursion 2: Hanthana Mountain Range -->
+          <div class="excursion-card">
+            <div class="excursion-card-img">
+              <img src="assets/images/hanthana_mountain_misty_trails.jpg" alt="Hanthana Mountain Misty Ridge Trek">
+              <span class="excursion-pill"><i class="fas fa-mountain"></i> 20 MINS • NATURE TREK</span>
+            </div>
+            <div class="excursion-card-body">
+              <h4>Hanthana Mountain Ridge</h4>
+              <p>Misty hill-country trekking trails through single-estate tea plantations with breathtaking 360-degree vistas across the central highlands.</p>
+            </div>
+          </div>
+
+          <!-- Excursion 3: Pinnawala Elephant Sanctuary -->
+          <div class="excursion-card">
+            <div class="excursion-card-img">
+              <img src="assets/images/pinnawala_elephant_sanctuary.jpg" alt="Pinnawala Elephant Sanctuary River Gathering">
+              <span class="excursion-pill"><i class="fas fa-paw"></i> 40 MINS • WILDLIFE HAVEN</span>
+            </div>
+            <div class="excursion-card-body">
+              <h4>Pinnawala Elephant Gathering</h4>
+              <p>Marvel at majestic herds of free-roaming Sri Lankan elephants playing and bathing in the refreshing waters of the Ma Oya river.</p>
+            </div>
           </div>
         </div>
       </div>

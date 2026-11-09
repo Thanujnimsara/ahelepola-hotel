@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGalleryLightbox();
   initDatesDefaults();
   initGuestFeedbackSystem();
+  initDiscoverGallerySlider();
 });
 
 /* -------------------------------------------------------------
@@ -1266,4 +1267,82 @@ function initGuestFeedbackSystem() {
 
   // Initial render
   renderReviews();
+}
+
+/* -------------------------------------------------------------
+ * Discover Section Interactive Gallery Slider
+ * ------------------------------------------------------------- */
+function initDiscoverGallerySlider() {
+  const container = document.getElementById("discoverVisualsGallery");
+  if (!container) return;
+
+  const slides = container.querySelectorAll(".discover-slide");
+  const thumbs = container.querySelectorAll(".discover-thumb-btn");
+  const prevBtn = document.getElementById("discoverPrevBtn");
+  const nextBtn = document.getElementById("discoverNextBtn");
+
+  if (!slides.length) return;
+
+  let currentSlide = 0;
+  let autoTimer = null;
+
+  const showSlide = (index) => {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    currentSlide = index;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentSlide);
+    });
+
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle("active", i === currentSlide);
+    });
+  };
+
+  const nextSlide = () => showSlide(currentSlide + 1);
+  const prevSlide = () => showSlide(currentSlide - 1);
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      restartTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      restartTimer();
+    });
+  }
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener("click", () => {
+      const target = parseInt(thumb.getAttribute("data-target-slide"), 10);
+      if (!isNaN(target)) {
+        showSlide(target);
+        restartTimer();
+      }
+    });
+  });
+
+  const startTimer = () => {
+    autoTimer = setInterval(nextSlide, 6000);
+  };
+
+  const restartTimer = () => {
+    if (autoTimer) clearInterval(autoTimer);
+    startTimer();
+  };
+
+  container.addEventListener("mouseenter", () => {
+    if (autoTimer) clearInterval(autoTimer);
+  });
+
+  container.addEventListener("mouseleave", () => {
+    restartTimer();
+  });
+
+  startTimer();
 }
