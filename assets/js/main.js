@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
  * 1. Navbar Scroll & Mobile Menu
  * ------------------------------------------------------------- */
 function initNavbarScroll() {
-  const header = document.querySelector(".site-header");
+  const header = document.querySelector(".haven-header, .site-header");
+  if (!header) return;
   window.addEventListener("scroll", () => {
     if (window.scrollY > 40) {
       header.classList.add("scrolled");

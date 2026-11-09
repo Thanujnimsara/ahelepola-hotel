@@ -2466,3 +2466,456 @@ button {
   background: #9ca3af !important;
   border-color: #9ca3af !important;
 }
+
+/* ==========================================================================
+   NATURALIZA BY RSK LUXURY RESORT THEME & EXTENSIONS
+   Atmosphere: Hillside Sanctuary, Editorial Storytelling & Ceylon Gastronomy
+   ========================================================================== */
+
+/* Hero Quick Specifications Bar */
+.haven-hero-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.haven-hero-indicator span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.haven-hero-indicator span i {
+  color: var(--sand-primary);
+  font-size: 0.85rem;
+}
+
+.haven-hero-indicator .indicator-sep {
+  color: var(--sand-primary);
+  opacity: 0.6;
+}
+
+/* Room Card Badges (Naturaliza Suite Style) */
+.haven-room-floor-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  color: var(--pine-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.haven-room-floor-tag i {
+  color: var(--cinnamon-primary);
+  font-size: 0.75rem;
+}
+
+.haven-room-price-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(17, 40, 35, 0.92);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--sand-primary);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  z-index: 5;
+  transition: transform var(--transition-fast);
+}
+
+.haven-room-card:hover .haven-room-price-badge {
+  transform: scale(1.05);
+}
+
+.haven-room-price-badge span {
+  font-size: 0.68rem;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  color: var(--sand-light);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.haven-room-price-badge em {
+  font-size: 0.72rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   DISCOVER SANCTUARY SECTION (Naturaliza Editorial Story Module)
+   ========================================================================== */
+.haven-discover-section {
+  padding: 100px 0;
+  background: #ffffff;
+  position: relative;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.discover-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.discover-visuals {
+  position: relative;
+}
+
+.discover-img-main {
+  width: 100%;
+  height: 490px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.discover-visuals:hover .discover-img-main {
+  transform: scale(1.015);
+}
+
+.discover-img-sub {
+  position: absolute;
+  bottom: -32px;
+  right: -24px;
+  width: 50%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 5px solid #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  z-index: 3;
+  transition: transform var(--transition-smooth);
+}
+
+.discover-visuals:hover .discover-img-sub {
+  transform: translateY(-6px);
+}
+
+.discover-badge-float {
+  position: absolute;
+  top: 32px;
+  left: -24px;
+  background: var(--pine-primary);
+  color: #ffffff;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px rgba(17, 40, 35, 0.35);
+  border: 1.5px solid var(--sand-primary);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 4;
+}
+
+.discover-badge-float .badge-number {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--sand-primary);
+  line-height: 1;
+}
+
+.discover-badge-float .badge-text {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.discover-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.discover-tag {
+  color: var(--cinnamon-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.discover-title {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: var(--pine-primary);
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.discover-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.discover-p {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.discover-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.discover-highlight-item {
+  background: var(--bg-cream);
+  border: 1px solid var(--border-light);
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.discover-highlight-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--sand-primary);
+  box-shadow: var(--shadow-subtle);
+  background: #ffffff;
+}
+
+.discover-highlight-item .highlight-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(184, 93, 40, 0.12);
+  color: var(--cinnamon-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.discover-highlight-item .highlight-text h5 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--pine-primary);
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+.discover-highlight-item .highlight-text p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ==========================================================================
+   CEYLON GASTRONOMY SECTION (Naturaliza Dining Showcase)
+   ========================================================================== */
+.haven-dining-section {
+  padding: 100px 0;
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.dining-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+  margin-bottom: 42px;
+}
+
+.dining-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.dining-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--sand-primary);
+}
+
+.dining-card-img-wrap {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.dining-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.dining-card:hover .dining-card-img-wrap img {
+  transform: scale(1.08);
+}
+
+.dining-card-pill {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(17, 40, 35, 0.88);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(213, 178, 135, 0.6);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dining-card-body {
+  padding: 26px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.dining-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--pine-primary);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.dining-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.dining-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--cinnamon-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Responsive Overrides for Naturaliza Sections */
+@media (max-width: 991px) {
+  .discover-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .discover-visuals {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .discover-img-main {
+    height: 380px;
+  }
+
+  .discover-badge-float {
+    top: 20px;
+    left: 20px;
+  }
+
+  .discover-img-sub {
+    bottom: -20px;
+    right: 20px;
+    width: 44%;
+    height: 160px;
+  }
+
+  .dining-grid {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .haven-hero-indicator {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .haven-hero-indicator .indicator-sep {
+    display: none;
+  }
+
+  .discover-title {
+    font-size: 2.1rem;
+  }
+
+  .discover-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .discover-img-sub {
+    display: none;
+  }
+}
