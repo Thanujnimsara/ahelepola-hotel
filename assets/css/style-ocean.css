@@ -842,6 +842,94 @@ button {
   color: #ffffff;
 }
 
+/* Naturaliza-Style Grand Hero Banner */
+.natural-hero-container {
+  max-width: 1280px !important;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.natural-hero-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.natural-hero-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.natural-hero-tag,
+.natural-hero-loc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.1vw, 0.88rem);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.natural-hero-brand {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 8.2vw, 7.2rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 35px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.9);
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.natural-hero-bottom-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+  padding: 0 4px;
+}
+
+.natural-hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.1vw, 0.88rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 768px) {
+  .natural-hero-top-row {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .natural-hero-brand {
+    white-space: normal;
+    font-size: clamp(2.2rem, 10vw, 3.6rem);
+    letter-spacing: 0.08em;
+    line-height: 1.12;
+  }
+  .natural-hero-bottom-row {
+    justify-content: center;
+    margin-top: 8px;
+  }
+}
+
 /* Hero Brand Badge (Logo + The Ehelepola Hotel & Resort) - Luminous Luxury Pill */
 .haven-hero-brand-badge {
   display: inline-flex;
