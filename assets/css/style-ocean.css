@@ -1183,6 +1183,286 @@ button {
 }
 
 /* ==========================================================================
+   3b. NATURALIZA-STYLE AYUBOWAN WELCOME SECTION
+   ========================================================================== */
+.natural-ayubowan-section {
+  background-color: #faf8f5;
+  background-image: 
+    radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.85) 0%, rgba(250, 248, 245, 0.98) 70%),
+    linear-gradient(180deg, #f7f4ee 0%, #faf8f5 15%, #faf8f5 85%, #f4f0e8 100%);
+  padding: 110px 24px 95px;
+  position: relative;
+  border-top: 1px solid rgba(213, 178, 135, 0.28);
+  border-bottom: 1px solid rgba(213, 178, 135, 0.28);
+  overflow: hidden;
+}
+
+.ayubowan-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Luxury Framed Logo Crest Box */
+.ayubowan-logo-frame {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 24px 34px 20px;
+  background: #ffffff;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(197, 160, 89, 0.1);
+  margin-bottom: 28px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ayubowan-logo-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(197, 160, 89, 0.15);
+}
+
+/* Corner Bracket Accents */
+.ayubowan-logo-frame .frame-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #b89358;
+  pointer-events: none;
+}
+.ayubowan-logo-frame .corner-tl {
+  top: -3px; left: -3px;
+  border-top: 2px solid #b89358;
+  border-left: 2px solid #b89358;
+}
+.ayubowan-logo-frame .corner-tr {
+  top: -3px; right: -3px;
+  border-top: 2px solid #b89358;
+  border-right: 2px solid #b89358;
+}
+.ayubowan-logo-frame .corner-bl {
+  bottom: -3px; left: -3px;
+  border-bottom: 2px solid #b89358;
+  border-left: 2px solid #b89358;
+}
+.ayubowan-logo-frame .corner-br {
+  bottom: -3px; right: -3px;
+  border-bottom: 2px solid #b89358;
+  border-right: 2px solid #b89358;
+}
+
+.ayubowan-frame-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  margin-bottom: 12px;
+}
+
+.ayubowan-frame-brand {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.ayubowan-frame-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: #9c825a;
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+/* Meta Bar (Phone, Address, Handle) */
+.ayubowan-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: #2e2b26;
+  margin-bottom: 34px;
+}
+
+.ayubowan-meta-item {
+  color: #2e2b26;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 0.25s ease;
+}
+
+.ayubowan-meta-item i {
+  color: #b89358;
+  font-size: 0.82rem;
+}
+
+.ayubowan-meta-item:hover {
+  color: #b89358;
+}
+
+.ayubowan-meta-sep {
+  color: #d1c5b0;
+  font-weight: 300;
+  user-select: none;
+}
+
+/* Category Divider Line */
+.ayubowan-category-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto 28px;
+}
+
+.ayubowan-category-divider .category-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 147, 88, 0.4), transparent);
+}
+
+.ayubowan-category-divider .category-tag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8f7952;
+  white-space: nowrap;
+}
+
+/* Main Heading */
+.ayubowan-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.015em;
+  color: #1a1a1a;
+  margin: 0 0 34px;
+  text-align: center;
+}
+
+/* Narrative Text */
+.ayubowan-narrative {
+  max-width: 860px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.ayubowan-narrative p {
+  font-family: var(--font-sans);
+  font-size: clamp(0.96rem, 1.3vw, 1.06rem);
+  line-height: 1.88;
+  color: #44403b;
+  margin-bottom: 24px;
+  font-weight: 350;
+  letter-spacing: 0.01em;
+}
+
+.ayubowan-narrative p:last-child {
+  margin-bottom: 0;
+}
+
+.ayubowan-narrative em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15em;
+  color: #8f7952;
+}
+
+/* Bottom Flourish */
+.ayubowan-bottom-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ayubowan-bottom-flourish .flourish-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 147, 88, 0.5), transparent);
+}
+
+.ayubowan-bottom-flourish .flourish-icon {
+  color: #b89358;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* Responsive queries */
+@media (max-width: 768px) {
+  .natural-ayubowan-section {
+    padding: 75px 18px 65px;
+  }
+  .ayubowan-logo-frame {
+    padding: 20px 26px 16px;
+    margin-bottom: 22px;
+  }
+  .ayubowan-frame-logo {
+    width: 48px;
+    height: 48px;
+  }
+  .ayubowan-frame-brand {
+    font-size: 0.88rem;
+    letter-spacing: 0.14em;
+  }
+  .ayubowan-meta-row {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.84rem;
+    margin-bottom: 26px;
+  }
+  .ayubowan-meta-sep {
+    display: none;
+  }
+  .ayubowan-category-divider {
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .ayubowan-category-divider .category-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+  .ayubowan-heading {
+    font-size: clamp(1.75rem, 6.5vw, 2.3rem);
+    margin-bottom: 24px;
+  }
+  .ayubowan-narrative {
+    text-align: left;
+    margin-bottom: 28px;
+  }
+  .ayubowan-narrative p {
+    font-size: 0.94rem;
+    line-height: 1.76;
+    margin-bottom: 18px;
+  }
+}
+
+/* ==========================================================================
    4. 5-PILLAR ICON FEATURE BAR
    ========================================================================== */
 .haven-pillars-section {
