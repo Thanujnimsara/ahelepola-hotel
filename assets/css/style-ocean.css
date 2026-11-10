@@ -887,10 +887,10 @@ button {
 
 /* Naturaliza-Style Grand Hero Banner (Positioned Lower & Refined Luxury Scale) */
 .natural-hero-container {
-  max-width: 760px !important;
+  max-width: 980px !important;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px 28px;
+  padding: 0 28px 28px;
   margin-top: auto;
   box-sizing: border-box;
 }
@@ -906,20 +906,40 @@ button {
 
 .natural-hero-brand {
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 2.2vw, 1.85rem) !important;
+  font-size: clamp(1.85rem, 3.8vw, 3.1rem) !important;
   font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: 0.09em !important;
+  line-height: 1.22;
+  letter-spacing: 0.10em !important;
   text-transform: uppercase;
   color: #ffffff;
-  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.9);
   margin: 0 auto;
   text-align: center;
   width: auto;
-  max-width: 90%;
+  max-width: 92%;
   white-space: normal !important;
   display: block;
   overflow: visible;
+}
+
+.hero-typewriter-cursor {
+  display: inline-block;
+  color: var(--sand-primary);
+  font-family: var(--font-serif);
+  font-weight: 300;
+  margin-left: 6px;
+  animation: heroCursorBlink 0.75s step-end infinite;
+  vertical-align: baseline;
+  transition: opacity 1.2s ease;
+}
+
+.hero-typewriter-cursor.cursor-fade-out {
+  opacity: 0;
+}
+
+@keyframes heroCursorBlink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-scroll-cue {
@@ -967,13 +987,13 @@ button {
   }
   .natural-hero-container {
     padding: 0 16px 20px;
-    max-width: 92% !important;
+    max-width: 94% !important;
   }
   .natural-hero-brand {
     white-space: normal !important;
-    font-size: clamp(1.1rem, 5.0vw, 1.55rem) !important;
-    letter-spacing: 0.06em !important;
-    line-height: 1.25;
+    font-size: clamp(1.4rem, 6.2vw, 2.1rem) !important;
+    letter-spacing: 0.07em !important;
+    line-height: 1.22;
   }
 }
 
