@@ -89,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initExperiencesSlider();
   initExperiencesModal();
   initAiConciergeChatbot();
-  initHeroTypewriter();
 });
 
 /* -------------------------------------------------------------
@@ -1477,45 +1476,6 @@ function initHeroBackgroundSlider() {
 
   // Start continuous automatic sliding
   startTimer();
-}
-
-/* -------------------------------------------------------------
- * 14b. Hero Brand Title Keyboard Typewriter Animation
- * ------------------------------------------------------------- */
-function initHeroTypewriter() {
-  const brandEl = document.getElementById("heroTypewriterText");
-  const parentHeading = document.getElementById("heroBrandTitle");
-  if (!brandEl || !parentHeading) return;
-
-  const fullText = "HERITAGE EHELEPOLA";
-  brandEl.textContent = "";
-
-  // Append blinking gold typewriter cursor
-  const cursor = document.createElement("span");
-  cursor.className = "hero-typewriter-cursor";
-  cursor.setAttribute("aria-hidden", "true");
-  cursor.textContent = "|";
-  parentHeading.appendChild(cursor);
-
-  let charIndex = 0;
-  const typeSpeed = 85; // 85ms per character for natural keyboard typing pace
-
-  const typeNextChar = () => {
-    if (charIndex < fullText.length) {
-      brandEl.textContent += fullText.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeNextChar, typeSpeed);
-    } else {
-      // Keep cursor blinking for 2 seconds after finishing, then fade away gracefully
-      setTimeout(() => {
-        cursor.classList.add("cursor-fade-out");
-        setTimeout(() => cursor.remove(), 1200);
-      }, 2000);
-    }
-  };
-
-  // Start typing smoothly after 300ms initial page settle
-  setTimeout(typeNextChar, 300);
 }
 
 /* -------------------------------------------------------------
