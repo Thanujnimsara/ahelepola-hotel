@@ -1370,16 +1370,32 @@ function initHeroBackgroundSlider() {
 
   let currentIndex = 0;
   let autoTimer = null;
+  let transitionTimer = null;
   const slideDuration = 6000; // 6 seconds per slide for a relaxed luxury feel
 
   const updateSlide = (index) => {
     if (index < 0) index = slides.length - 1;
     if (index >= slides.length) index = 0;
+    if (index === currentIndex && slides[currentIndex].classList.contains("active")) return;
+
+    const outgoingSlide = slides[currentIndex];
     currentIndex = index;
+    const incomingSlide = slides[currentIndex];
+
+    // Keep outgoing slide visible behind incoming slide for seamless cross-fade
+    if (transitionTimer) clearTimeout(transitionTimer);
+    slides.forEach((slide) => slide.classList.remove("prev-slide"));
+    if (outgoingSlide && outgoingSlide !== incomingSlide) {
+      outgoingSlide.classList.add("prev-slide");
+    }
 
     slides.forEach((slide, i) => {
       slide.classList.toggle("active", i === currentIndex);
     });
+
+    transitionTimer = setTimeout(() => {
+      slides.forEach((slide) => slide.classList.remove("prev-slide"));
+    }, 2100);
 
     dots.forEach((dot, i) => {
       dot.classList.toggle("active", i === currentIndex);

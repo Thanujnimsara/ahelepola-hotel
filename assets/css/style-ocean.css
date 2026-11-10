@@ -680,8 +680,9 @@ button {
   width: 100%;
   height: 100%;
   opacity: 0;
+  z-index: 1;
   visibility: hidden;
-  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.8s ease;
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), visibility 2s ease;
   pointer-events: none;
   overflow: hidden;
 }
@@ -690,6 +691,12 @@ button {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  z-index: 3;
+}
+
+.haven-hero-slide.prev-slide {
+  opacity: 1;
+  visibility: visible;
   z-index: 2;
 }
 
@@ -700,21 +707,21 @@ button {
   object-position: center center;
   filter: brightness(1.06) contrast(1.04);
   transform: scale(1.0);
-  transition: transform 7.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 9s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform, opacity;
 }
 
 .haven-hero-slide.active img {
-  transform: scale(1.055);
+  transform: scale(1.065);
 }
 
 /* Individual Image Framing & Focal Balance for True Edge-to-Edge Fullscreen */
 .haven-hero-slide img.hero-img-bentley {
-  object-position: center center;
+  object-position: center 50%;
 }
 
 .haven-hero-slide img.hero-img-salon {
-  object-position: center 52%;
+  object-position: center 46%;
 }
 
 .haven-hero-slide img.hero-img-reception {
@@ -722,19 +729,19 @@ button {
 }
 
 .haven-hero-slide img.hero-img-guestbook {
-  object-position: center 52%;
+  object-position: center 54%;
 }
 
 .haven-hero-slide img.hero-img-gate {
-  object-position: center 44%;
+  object-position: center 42%;
 }
 
 @media (max-width: 768px) {
   .haven-hero-slide img.hero-img-bentley {
-    object-position: 65% center;
+    object-position: center center;
   }
   .haven-hero-slide img.hero-img-salon {
-    object-position: center 50%;
+    object-position: center 45%;
   }
   .haven-hero-slide img.hero-img-reception {
     object-position: center 52%;
@@ -743,7 +750,7 @@ button {
     object-position: center 52%;
   }
   .haven-hero-slide img.hero-img-gate {
-    object-position: 45% center;
+    object-position: center 40%;
   }
 }
 
@@ -876,13 +883,14 @@ button {
   color: #ffffff;
 }
 
-/* Naturaliza-Style Grand Hero Banner (Positioned Lower) */
+/* Naturaliza-Style Grand Hero Banner (Positioned Lower & Symmetrically Balanced) */
 .natural-hero-container {
-  max-width: 1320px !important;
+  max-width: 1080px !important;
   width: 100%;
   margin: 0 auto;
-  padding: 0 24px 30px;
+  padding: 0 48px 30px;
   margin-top: auto;
+  box-sizing: border-box;
 }
 
 .natural-hero-wrap {
@@ -890,21 +898,25 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .natural-hero-brand {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 8.5vw, 7.5rem);
+  font-size: clamp(2rem, 5.2vw, 4.2rem);
   font-weight: 400;
-  line-height: 1.0;
-  letter-spacing: 0.14em;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #ffffff;
-  text-shadow: 0 4px 35px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.9);
-  margin: 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 2px 12px rgba(0, 0, 0, 0.85);
+  margin: 0 auto;
   text-align: center;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   white-space: nowrap;
+  display: inline-block;
 }
 
 .hero-scroll-cue {
@@ -951,13 +963,13 @@ button {
     padding: 120px 0 45px;
   }
   .natural-hero-container {
-    padding-bottom: 24px;
+    padding: 0 24px 24px;
   }
   .natural-hero-brand {
     white-space: normal;
-    font-size: clamp(2.4rem, 10.5vw, 3.8rem);
-    letter-spacing: 0.08em;
-    line-height: 1.12;
+    font-size: clamp(1.85rem, 8.2vw, 2.85rem);
+    letter-spacing: 0.06em;
+    line-height: 1.18;
   }
 }
 
