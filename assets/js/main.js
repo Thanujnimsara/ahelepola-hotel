@@ -1753,11 +1753,11 @@ function initAiConciergeChatbot() {
   const welcomeHTML = `
     <div class="ai-msg ai-msg-bot">
       <div class="ai-msg-avatar">
-        <img src="assets/images/ai_butler_avatar.png" alt="Royal Butler">
+        <img src="assets/images/ai_concierge_girl_avatar.png" alt="Royal Hostess">
       </div>
       <div class="ai-msg-bubble">
         <p><strong>Ayubowan! 🙏 Welcome to Heritage Ehelepola Hotel.</strong></p>
-        <p>I am your dedicated Royal AI Concierge. I have full knowledge of our 6 boutique suites, royal dining, gazebos, hill-country excursions, spa, check-in, and direct bookings.</p>
+        <p>I am your dedicated Royal Hostess &amp; Concierge. I have full knowledge of our 6 boutique suites, royal dining, gazebos, hill-country excursions, spa, check-in, and direct bookings.</p>
         <p style="font-size:0.84rem; color: rgba(255,255,255,0.7);">You can ask in <strong>English, සිංහල, or Singlish</strong>!</p>
         <div class="ai-quick-suggestions">
           <button type="button" class="ai-chip" data-query="Suites and Room Rates">🏰 Suites &amp; Rates</button>
@@ -1832,7 +1832,7 @@ function initAiConciergeChatbot() {
     indicator.className = "ai-msg ai-msg-bot ai-typing-wrapper";
     indicator.innerHTML = `
       <div class="ai-msg-avatar">
-        <img src="assets/images/ai_butler_avatar.png" alt="Royal Butler">
+        <img src="assets/images/ai_concierge_girl_avatar.png" alt="Royal Hostess">
       </div>
       <div class="ai-typing-indicator">
         <span class="ai-typing-dot"></span>
@@ -1851,7 +1851,7 @@ function initAiConciergeChatbot() {
     msgDiv.className = "ai-msg ai-msg-bot";
     msgDiv.innerHTML = `
       <div class="ai-msg-avatar">
-        <img src="assets/images/ai_butler_avatar.png" alt="Royal Butler">
+        <img src="assets/images/ai_concierge_girl_avatar.png" alt="Royal Hostess">
       </div>
       <div class="ai-msg-bubble">
         ${contentHTML}
@@ -2161,10 +2161,10 @@ function initAiConciergeChatbot() {
       `;
     }
 
-    // 10. Fallback (Friendly Butler Guide)
+    // 10. Fallback (Friendly Hostess Guide)
     return `
       <p><strong>Ayubowan! 🙏 Thank you for reaching out.</strong></p>
-      <p>As your Heritage Butler, I can provide complete details on our resort:</p>
+      <p>As your Heritage Hostess, I can provide complete details on our resort:</p>
       <p>• <strong>Suites:</strong> The Royal Suite ($520), Garden Pavilion ($380), Courtyard Terrace ($320).<br>
       • <strong>Dining:</strong> Teak Dining Hall &amp; Romantic Starlight Gazebo dinner.<br>
       • <strong>Excursions:</strong> Ambuluwawa Tower, Embekke Woodcarvings, Ceylon Blue Train.<br>
