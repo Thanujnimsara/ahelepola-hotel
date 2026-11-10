@@ -1371,7 +1371,7 @@ function initHeroBackgroundSlider() {
   let currentIndex = 0;
   let autoTimer = null;
   let transitionTimer = null;
-  const slideDuration = 6000; // 6 seconds per slide for a relaxed luxury feel
+  const slideDuration = 3500; // 3.5 seconds per slide for a dynamic, smooth luxury slideshow
 
   const updateSlide = (index) => {
     if (index < 0) index = slides.length - 1;
@@ -1395,7 +1395,7 @@ function initHeroBackgroundSlider() {
 
     transitionTimer = setTimeout(() => {
       slides.forEach((slide) => slide.classList.remove("prev-slide"));
-    }, 2100);
+    }, 1300);
 
     dots.forEach((dot, i) => {
       dot.classList.toggle("active", i === currentIndex);
