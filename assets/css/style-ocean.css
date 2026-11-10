@@ -650,9 +650,11 @@ button {
    ========================================================================== */
 .haven-hero {
   position: relative;
-  min-height: 90vh;
-  padding: 160px 0 100px;
+  min-height: 88vh;
+  padding: 180px 0 65px;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   background: #112823;
   overflow: hidden;
@@ -842,46 +844,28 @@ button {
   color: #ffffff;
 }
 
-/* Naturaliza-Style Grand Hero Banner */
+/* Naturaliza-Style Grand Hero Banner (Positioned Lower) */
 .natural-hero-container {
-  max-width: 1280px !important;
+  max-width: 1320px !important;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px 30px;
+  margin-top: auto;
 }
 
 .natural-hero-wrap {
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.natural-hero-top-row {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-bottom: 14px;
-  padding: 0 4px;
-}
-
-.natural-hero-tag,
-.natural-hero-loc {
-  font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 1.1vw, 0.88rem);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.95);
-  font-weight: 700;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 .natural-hero-brand {
   font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 8.2vw, 7.2rem);
+  font-size: clamp(3rem, 8.5vw, 7.5rem);
   font-weight: 400;
   line-height: 1.0;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #ffffff;
   text-shadow: 0 4px 35px rgba(0, 0, 0, 0.95), 0 2px 10px rgba(0, 0, 0, 0.9);
@@ -891,42 +875,19 @@ button {
   white-space: nowrap;
 }
 
-.natural-hero-bottom-row {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  margin-top: 12px;
-  padding: 0 4px;
-}
-
-.natural-hero-sub {
-  font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 1.1vw, 0.88rem);
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 700;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
-}
-
 @media (max-width: 768px) {
-  .natural-hero-top-row {
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
+  .haven-hero {
+    min-height: 75vh;
+    padding: 140px 0 45px;
+  }
+  .natural-hero-container {
+    padding-bottom: 20px;
   }
   .natural-hero-brand {
     white-space: normal;
-    font-size: clamp(2.2rem, 10vw, 3.6rem);
+    font-size: clamp(2.4rem, 10.5vw, 3.8rem);
     letter-spacing: 0.08em;
     line-height: 1.12;
-  }
-  .natural-hero-bottom-row {
-    justify-content: center;
-    margin-top: 8px;
   }
 }
 
