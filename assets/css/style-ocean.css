@@ -2540,6 +2540,11 @@ button {
     gap: 12px;
     text-align: center;
   }
+  .footer-credit {
+    display: block !important;
+    margin-left: 0 !important;
+    margin-top: 5px !important;
+  }
   .haven-cta-banner {
     padding: 100px 0;
     min-height: 480px;
