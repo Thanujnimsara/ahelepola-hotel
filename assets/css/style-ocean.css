@@ -887,10 +887,10 @@ button {
 
 /* Naturaliza-Style Grand Hero Banner (Positioned Lower & Refined Luxury Scale) */
 .natural-hero-container {
-  max-width: 1080px !important;
-  width: 100%;
+  max-width: 1400px !important;
+  width: 96% !important;
   margin: 0 auto;
-  padding: 0 28px 28px;
+  padding: 0 20px 28px;
   margin-top: auto;
   box-sizing: border-box;
 }
@@ -906,19 +906,19 @@ button {
 
 .natural-hero-brand {
   font-family: var(--font-serif);
-  font-size: clamp(2.05rem, 4.1vw, 3.45rem) !important;
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem) !important;
   font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: 0.07em !important;
+  line-height: 1.2;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase;
   color: #ffffff;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 2px 12px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.95), 0 2px 14px rgba(0, 0, 0, 0.9);
   margin: 0 auto;
   text-align: center;
-  width: auto;
-  max-width: 96%;
-  white-space: normal !important;
-  display: inline-block;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap !important;
+  display: block;
   overflow: visible;
 }
 
@@ -987,11 +987,11 @@ button {
   }
   .natural-hero-container {
     padding: 0 16px 20px;
-    max-width: 94% !important;
+    max-width: 96% !important;
   }
   .natural-hero-brand {
     white-space: normal !important;
-    font-size: clamp(1.45rem, 6.2vw, 2.2rem) !important;
+    font-size: clamp(1.5rem, 6.5vw, 2.4rem) !important;
     letter-spacing: 0.06em !important;
     line-height: 1.25;
   }
@@ -1215,11 +1215,11 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 24px 34px 20px;
+  padding: 30px 48px 24px;
   background: #ffffff;
   border: 1px solid rgba(197, 160, 89, 0.45);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(197, 160, 89, 0.1);
-  margin-bottom: 28px;
+  margin-bottom: 30px;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -1231,46 +1231,52 @@ button {
 /* Corner Bracket Accents */
 .ayubowan-logo-frame .frame-corner {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   border-color: #b89358;
   pointer-events: none;
 }
 .ayubowan-logo-frame .corner-tl {
-  top: -3px; left: -3px;
-  border-top: 2px solid #b89358;
-  border-left: 2px solid #b89358;
+  top: -4px; left: -4px;
+  border-top: 2.5px solid #b89358;
+  border-left: 2.5px solid #b89358;
 }
 .ayubowan-logo-frame .corner-tr {
-  top: -3px; right: -3px;
-  border-top: 2px solid #b89358;
-  border-right: 2px solid #b89358;
+  top: -4px; right: -4px;
+  border-top: 2.5px solid #b89358;
+  border-right: 2.5px solid #b89358;
 }
 .ayubowan-logo-frame .corner-bl {
-  bottom: -3px; left: -3px;
-  border-bottom: 2px solid #b89358;
-  border-left: 2px solid #b89358;
+  bottom: -4px; left: -4px;
+  border-bottom: 2.5px solid #b89358;
+  border-left: 2.5px solid #b89358;
 }
 .ayubowan-logo-frame .corner-br {
-  bottom: -3px; right: -3px;
-  border-bottom: 2px solid #b89358;
-  border-right: 2px solid #b89358;
+  bottom: -4px; right: -4px;
+  border-bottom: 2.5px solid #b89358;
+  border-right: 2.5px solid #b89358;
 }
 
 .ayubowan-frame-logo {
-  width: 58px;
-  height: 58px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
-  margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  margin-bottom: 14px;
+  border: 2px solid rgba(197, 160, 89, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.ayubowan-logo-frame:hover .ayubowan-frame-logo {
+  transform: scale(1.04);
 }
 
 .ayubowan-frame-brand {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.20em;
   text-transform: uppercase;
   color: #1a1a1a;
   line-height: 1.2;
@@ -1279,10 +1285,10 @@ button {
 .ayubowan-frame-tagline {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: #9c825a;
   letter-spacing: 0.04em;
-  margin-top: 4px;
+  margin-top: 5px;
 }
 
 /* Meta Bar (Phone, Address, Handle) */
@@ -1419,16 +1425,16 @@ button {
     padding: 75px 18px 65px;
   }
   .ayubowan-logo-frame {
-    padding: 20px 26px 16px;
+    padding: 24px 34px 18px;
     margin-bottom: 22px;
   }
   .ayubowan-frame-logo {
-    width: 48px;
-    height: 48px;
+    width: 80px;
+    height: 80px;
   }
   .ayubowan-frame-brand {
-    font-size: 0.88rem;
-    letter-spacing: 0.14em;
+    font-size: 0.94rem;
+    letter-spacing: 0.16em;
   }
   .ayubowan-meta-row {
     flex-direction: column;
