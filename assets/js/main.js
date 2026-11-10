@@ -2029,7 +2029,7 @@ function initAiConciergeChatbot() {
         <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>*Halal, Vegetarian, Vegan, and Gluten-Free dining requests are gracefully accommodated.</em></p>
         <div class="ai-msg-actions">
           <a href="https://wa.me/94637245245?text=Hello%20Concierge,%20I%20would%20like%20to%20reserve%20a%20private%20Starlight%20Gazebo%20dinner." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-utensils"></i> Reserve Gazebo Table</a>
-          <a href="tel:0637245245" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call Dining Butler</a>
+          <a href="tel:0817008000" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call Dining Butler</a>
         </div>
       `;
     }
@@ -2073,7 +2073,7 @@ function initAiConciergeChatbot() {
     ) {
       return `
         <p><strong>📍 Hotel Location &amp; Distances:</strong></p>
-        <p><strong>Address:</strong> Ehelepola Heritage Estate, Royal Valley, Kandy, Sri Lanka.</p>
+        <p><strong>Address:</strong> No. 103, Pichchamalwaththa Handiya, Ehelepolawaththa, Gurudeniya, Kandy.</p>
         <p><strong>Travel Times from Sanctuary:</strong><br>
         • <strong>Temple of the Sacred Tooth Relic:</strong> 15 mins (6 km)<br>
         • <strong>Kandy Lake &amp; City Center:</strong> 12 - 15 mins<br>
@@ -2081,7 +2081,7 @@ function initAiConciergeChatbot() {
         • <strong>Colombo Airport (CMB):</strong> ~3 hours via Central Expressway (luxury airport transfers available upon request).</p>
         <div class="ai-msg-actions">
           <a href="https://wa.me/94637245245?text=Hello%20Butler,%20please%20send%20me%20the%20Google%20Maps%20location." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-map-marked-alt"></i> Get Directions on WhatsApp</a>
-          <a href="tel:0637245245" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call for Assistance</a>
+          <a href="tel:0817008000" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call for Assistance</a>
         </div>
       `;
     }
@@ -2162,13 +2162,13 @@ function initAiConciergeChatbot() {
     ) {
       return `
         <p><strong>📞 Official Hotel Contact Numbers:</strong></p>
-        <p>• <strong>Front Desk Hotline:</strong> <a href="tel:0637245245" style="color:#d5b287; font-weight:700;">0637245245</a><br>
-        • <strong>Reservations Desk:</strong> <a href="tel:0631234567" style="color:#d5b287; font-weight:700;">0631234567</a><br>
+        <p>• <strong>Front Desk Hotline:</strong> <a href="tel:0817008000" style="color:#d5b287; font-weight:700;">0817008000</a><br>
+        • <strong>Reservations Desk:</strong> <a href="tel:0817008000" style="color:#d5b287; font-weight:700;">0817008000</a><br>
         • <strong>WhatsApp Butler:</strong> <a href="https://wa.me/94637245245" target="_blank" style="color:#25d366; font-weight:700;">+94 63 724 5245</a><br>
         • <strong>Official Email:</strong> info@ehelepolahotel.lk<br>
-        • <strong>Address:</strong> Ehelepola Heritage Estate, Royal Valley, Kandy, Sri Lanka.</p>
+        • <strong>Address:</strong> No. 103, Pichchamalwaththa Handiya, Ehelepolawaththa, Gurudeniya, Kandy.</p>
         <div class="ai-msg-actions">
-          <a href="tel:0637245245" class="ai-action-btn ai-action-primary"><i class="fas fa-phone-alt"></i> Call Front Desk</a>
+          <a href="tel:0817008000" class="ai-action-btn ai-action-primary"><i class="fas fa-phone-alt"></i> Call Front Desk</a>
           <a href="https://wa.me/94637245245" target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Open WhatsApp</a>
         </div>
       `;
@@ -2201,7 +2201,7 @@ function initAiConciergeChatbot() {
       <p>• <strong>Suites:</strong> The Royal Suite ($520), Garden Pavilion ($380), Courtyard Terrace ($320).<br>
       • <strong>Dining:</strong> Teak Dining Hall &amp; Romantic Starlight Gazebo dinner.<br>
       • <strong>Excursions:</strong> Ambuluwawa Tower, Embekke Woodcarvings, Ceylon Blue Train.<br>
-      • <strong>Direct Contact:</strong> Call <strong>0637245245</strong> or WhatsApp <strong>+94 63 724 5245</strong>.</p>
+      • <strong>Direct Contact:</strong> Call <strong>0817008000</strong> or WhatsApp <strong>+94 63 724 5245</strong>.</p>
       <p>Please select a topic below or ask your question in English or සිංහල:</p>
       <div class="ai-quick-suggestions">
         <button type="button" class="ai-chip" data-query="Suites and Room Rates">🏰 Suites &amp; Rates</button>
