@@ -887,7 +887,7 @@ button {
 
 /* Naturaliza-Style Grand Hero Banner (Positioned Lower & Refined Luxury Scale) */
 .natural-hero-container {
-  max-width: 980px !important;
+  max-width: 1080px !important;
   width: 100%;
   margin: 0 auto;
   padding: 0 28px 28px;
@@ -906,17 +906,17 @@ button {
 
 .natural-hero-brand {
   font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 3.6vw, 3.0rem) !important;
+  font-size: clamp(2.05rem, 4.1vw, 3.45rem) !important;
   font-weight: 500;
   line-height: 1.25;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.07em !important;
   text-transform: uppercase;
   color: #ffffff;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95), 0 2px 12px rgba(0, 0, 0, 0.9);
   margin: 0 auto;
   text-align: center;
   width: auto;
-  max-width: 95%;
+  max-width: 96%;
   white-space: normal !important;
   display: inline-block;
   overflow: visible;
@@ -991,7 +991,7 @@ button {
   }
   .natural-hero-brand {
     white-space: normal !important;
-    font-size: clamp(1.35rem, 5.8vw, 2.0rem) !important;
+    font-size: clamp(1.45rem, 6.2vw, 2.2rem) !important;
     letter-spacing: 0.06em !important;
     line-height: 1.25;
   }
