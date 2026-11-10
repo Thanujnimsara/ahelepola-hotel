@@ -1364,12 +1364,13 @@ function initHeroBackgroundSlider() {
   const prevBtn = document.getElementById("heroPrevBtn");
   const nextBtn = document.getElementById("heroNextBtn");
   const counter = document.getElementById("heroSlideCounter");
+  const heroSection = document.getElementById("hero");
 
   if (!slides || slides.length < 2) return;
 
   let currentIndex = 0;
   let autoTimer = null;
-  const slideDuration = 6000; // 6 seconds per slide
+  const slideDuration = 6000; // 6 seconds per slide for a relaxed luxury feel
 
   const updateSlide = (index) => {
     if (index < 0) index = slides.length - 1;
@@ -1424,6 +1425,38 @@ function initHeroBackgroundSlider() {
   const restartTimer = () => {
     startTimer();
   };
+
+  // Pause auto-rotation on mouse hover over hero
+  if (heroSection) {
+    heroSection.addEventListener("mouseenter", () => {
+      if (autoTimer) clearInterval(autoTimer);
+    });
+    heroSection.addEventListener("mouseleave", () => {
+      startTimer();
+    });
+  }
+
+  // Mobile Touch Swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  if (container) {
+    container.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    container.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        restartTimer();
+      }
+    }, { passive: true });
+  }
 
   // Start continuous automatic sliding
   startTimer();

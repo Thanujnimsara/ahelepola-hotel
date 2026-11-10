@@ -678,7 +678,7 @@ button {
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.6s;
+  transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.8s ease;
   pointer-events: none;
   overflow: hidden;
 }
@@ -695,30 +695,59 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  filter: brightness(1.08) contrast(1.05);
+  filter: brightness(1.06) contrast(1.04);
   transform: scale(1.0);
+  transition: transform 7.5s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform, opacity;
 }
 
 .haven-hero-slide.active img {
-  animation: heroPanZoom 9s ease-in-out infinite alternate;
+  transform: scale(1.055);
 }
 
-@keyframes heroPanZoom {
-  0% {
-    transform: scale(1.02) translate(0, 0);
+/* Individual Image Framing & Focal Balance for Portrait and Landscape */
+.haven-hero-slide img.hero-img-bentley {
+  object-position: center 52%;
+}
+
+.haven-hero-slide img.hero-img-salon {
+  object-position: center 36%;
+}
+
+.haven-hero-slide img.hero-img-reception {
+  object-position: center 30%;
+}
+
+.haven-hero-slide img.hero-img-guestbook {
+  object-position: center 58%;
+}
+
+.haven-hero-slide img.hero-img-gate {
+  object-position: center 42%;
+}
+
+@media (max-width: 768px) {
+  .haven-hero-slide img.hero-img-bentley {
+    object-position: 65% center;
   }
-  50% {
-    transform: scale(1.07) translate(-1.4%, -0.8%);
+  .haven-hero-slide img.hero-img-salon {
+    object-position: center 40%;
   }
-  100% {
-    transform: scale(1.04) translate(1.2%, 0.6%);
+  .haven-hero-slide img.hero-img-reception {
+    object-position: center 32%;
+  }
+  .haven-hero-slide img.hero-img-guestbook {
+    object-position: center 60%;
+  }
+  .haven-hero-slide img.hero-img-gate {
+    object-position: 45% center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .haven-hero-slide.active img {
-    animation: none;
+    transform: none;
+    transition: none;
   }
 }
 
