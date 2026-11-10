@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Ocean Haven Template Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style-ocean.css?v=5.0">
+  <link rel="stylesheet" href="assets/css/style-ocean.css?v=6.0">
 
   <!-- Structured Data JSON-LD for Luxury Resort -->
   <script type="application/ld+json">
@@ -120,8 +120,8 @@
 
     <div class="container haven-hero-content natural-hero-container">
       <div class="natural-hero-wrap">
-        <h1 class="natural-hero-brand" id="heroBrandTitle" style="font-size: clamp(1.85rem, 3.8vw, 3.1rem) !important; letter-spacing: 0.10em !important; text-align: center; margin: 0 auto; white-space: normal !important; max-width: 92%;">
-          <span id="heroTypewriterText">HERITAGE EHELEPOLA</span>
+        <h1 class="natural-hero-brand" id="heroBrandTitle" style="font-size: clamp(2.3rem, 4.8vw, 3.85rem) !important; letter-spacing: 0.08em !important; text-align: center; margin: 0 auto; line-height: 1.2; width: auto; max-width: 95%;">
+          <span id="heroTypewriterText">HERITAGE EHELEPOLA</span><span id="heroTypewriterCursor" class="hero-typewriter-cursor">|</span>
         </h1>
         <a href="#explorePillars" class="hero-scroll-cue" aria-label="Explore Heritage Ehelepola Hotel">
           <span>EXPLORE SANCTUARY</span>
@@ -1289,7 +1289,51 @@
   </div>
 
   <!-- Custom Scripts -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=6.0"></script>
+
+  <!-- Live Hero Title Keyboard Typewriter Animation -->
+  <script>
+  (function() {
+    function startHeroTypewriter() {
+      var textEl = document.getElementById("heroTypewriterText");
+      var cursorEl = document.getElementById("heroTypewriterCursor");
+      if (!textEl || !cursorEl) return;
+
+      var fullText = "HERITAGE EHELEPOLA";
+      textEl.textContent = "";
+      cursorEl.style.display = "inline-block";
+      cursorEl.classList.remove("cursor-fade-out");
+
+      var charIndex = 0;
+      var typeSpeed = 80; // 80ms per letter for crisp natural keyboard typing
+
+      function typeNextChar() {
+        if (charIndex < fullText.length) {
+          textEl.textContent += fullText.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeNextChar, typeSpeed);
+        } else {
+          // Keep cursor blinking for 2.2s after completion, then smoothly fade out
+          setTimeout(function() {
+            cursorEl.classList.add("cursor-fade-out");
+            setTimeout(function() {
+              cursorEl.style.display = "none";
+            }, 1200);
+          }, 2200);
+        }
+      }
+
+      // Start typing smoothly after 200ms
+      setTimeout(typeNextChar, 200);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", startHeroTypewriter);
+    } else {
+      startHeroTypewriter();
+    }
+  })();
+  </script>
 </body>
 
 </html>
