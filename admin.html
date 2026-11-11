@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | Heritage Ehelepola Hotel</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Admin Stylesheet -->
+  <link rel="stylesheet" href="assets/css/admin.css?v=1.0">
+</head>
+
+<body>
+
+  <!-- ========================================================================
+       1. AUTHENTICATION / LOGIN SCREEN OVERLAY
+       ======================================================================== -->
+  <div class="admin-login-overlay" id="adminLoginOverlay">
+    <div class="admin-login-card">
+      <img src="assets/images/logo.png" alt="Heritage Ehelepola Hotel Royal Crest" class="login-brand-logo">
+      <h2 class="login-title">Heritage Ehelepola</h2>
+      <p class="login-subtitle">Executive Management &amp; Content Control Portal</p>
+
+      <!-- Alert Notification Message -->
+      <div id="loginAlert" class="login-alert"></div>
+
+      <!-- Login Form -->
+      <form class="login-form" id="adminLoginForm">
+        <div class="form-group">
+          <label class="form-label" for="adminLoginEmail">Admin Email</label>
+          <div class="input-with-icon">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" id="adminLoginEmail" class="form-control" placeholder="admin@ehelepolahotel.lk" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="adminLoginPassword">Password</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" id="adminLoginPassword" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" class="password-toggle-btn" id="passwordToggleBtn" aria-label="Toggle password visibility">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary-admin" id="adminLoginBtn">
+          <i class="fas fa-sign-in-alt"></i>
+          <span>Sign In to Dashboard</span>
+        </button>
+      </form>
+
+      <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 24px;">
+        <i class="fas fa-shield-alt" style="color: var(--gold-dark); margin-right: 4px;"></i>
+        Protected by Firebase Authentication v10+
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. MAIN DASHBOARD APPLICATION
+       ======================================================================== -->
+  <div class="admin-app" id="adminApp" style="display: none;">
+
+    <!-- Top Sticky Navigation Bar -->
+    <header class="admin-navbar">
+      <div class="admin-nav-brand">
+        <img src="assets/images/logo.png" alt="Logo" class="admin-nav-logo">
+        <div>
+          <span class="admin-nav-title">HERITAGE EHELEPOLA HOTEL</span>
+          <span class="admin-nav-badge">ADMIN CONTROL</span>
+        </div>
+      </div>
+
+      <div class="admin-nav-actions">
+        <!-- Live Connection Status -->
+        <span class="status-pill online" id="connectionStatusPill">
+          <span class="status-dot"></span>
+          <span>Online &amp; Connected</span>
+        </span>
+
+        <!-- View Live Site Link -->
+        <a href="index.html" target="_blank" rel="noopener noreferrer" class="btn-nav-action" title="Open public live website in a new tab">
+          <i class="fas fa-external-link-alt"></i>
+          <span>View Live Site</span>
+        </a>
+
+        <!-- Current User Profile Pill -->
+        <div class="admin-user-pill">
+          <span class="admin-user-avatar"><i class="fas fa-user-shield"></i></span>
+          <span id="adminUserEmail">admin@ehelepolahotel.lk</span>
+        </div>
+
+        <!-- Logout Action Button -->
+        <button type="button" class="btn-nav-action btn-logout" id="adminLogoutBtn" title="Sign out of admin session">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="admin-container">
+
+      <!-- Navigation Tabs -->
+      <nav class="admin-tabs-bar" aria-label="Admin Navigation Tabs">
+        <button type="button" class="tab-btn active" data-tab="tabHotelInfo">
+          <i class="fas fa-hotel"></i>
+          <span>Hotel Information</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="tabRooms">
+          <i class="fas fa-bed"></i>
+          <span>Rooms &amp; Pricing (LKR)</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="tabGuide">
+          <i class="fas fa-cog"></i>
+          <span>Firebase Setup Guide</span>
+        </button>
+      </nav>
+
+      <!-- ====================================================================
+           TAB 1: HOTEL INFORMATION MANAGEMENT
+           ==================================================================== -->
+      <section class="tab-panel active" id="tabHotelInfo">
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h3 class="card-title"><i class="fas fa-info-circle"></i> General Hotel Details</h3>
+              <p class="card-subtitle">Changes saved here update the hero banner, contact footer, and welcome story in real-time.</p>
+            </div>
+            <button type="button" class="btn-secondary-admin" id="seedHotelInfoBtn" title="Load current Heritage Ehelepola data">
+              <i class="fas fa-magic"></i> Seed Default Info
+            </button>
+          </div>
+
+          <form id="hotelInfoForm">
+            <div class="form-grid-2">
+              <!-- Hotel Name -->
+              <div class="form-group">
+                <label class="form-label" for="hotelNameInput">Hotel Name</label>
+                <input type="text" id="hotelNameInput" class="form-control no-icon" placeholder="HERITAGE EHELEPOLA HOTEL" required>
+              </div>
+
+              <!-- Tagline -->
+              <div class="form-group">
+                <label class="form-label" for="hotelTaglineInput">Sub-Tagline / Motto</label>
+                <input type="text" id="hotelTaglineInput" class="form-control no-icon" placeholder="The Royal Sanctuary of Kandy">
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <!-- Hotline Phone -->
+              <div class="form-group">
+                <label class="form-label" for="hotelHotlineInput">Landline Hotline</label>
+                <input type="text" id="hotelHotlineInput" class="form-control no-icon" placeholder="0817008000">
+              </div>
+
+              <!-- Mobile / WhatsApp -->
+              <div class="form-group">
+                <label class="form-label" for="hotelMobileInput">Mobile / WhatsApp Number</label>
+                <input type="text" id="hotelMobileInput" class="form-control no-icon" placeholder="+94 77 070 0281">
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="form-label" for="hotelEmailInput">Official Email Address</label>
+                <input type="email" id="hotelEmailInput" class="form-control no-icon" placeholder="info@ehelepolahotel.lk">
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+              <label class="form-label" for="hotelAddressInput">Full Physical Address</label>
+              <input type="text" id="hotelAddressInput" class="form-control no-icon" placeholder="No. 103, Pichchamalwaththa Handiya, Ehelepolawaththa, Gurudeniya, Kandy">
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid var(--admin-border); margin: 26px 0 20px;">
+
+            <!-- About Section Heading -->
+            <div class="form-group">
+              <label class="form-label" for="aboutHeadingInput">About Welcome Heading</label>
+              <input type="text" id="aboutHeadingInput" class="form-control no-icon" placeholder="Ayubowan To Heritage Ehelepola">
+            </div>
+
+            <!-- About Paragraph 1 -->
+            <div class="form-group">
+              <label class="form-label" for="aboutPara1Input">About Story: Paragraph 1 (Heritage &amp; Location)</label>
+              <textarea id="aboutPara1Input" class="form-control no-icon" rows="3" placeholder="Step into a sanctuary where timeless aristocratic elegance meets..."></textarea>
+            </div>
+
+            <!-- About Paragraph 2 -->
+            <div class="form-group">
+              <label class="form-label" for="aboutPara2Input">About Story: Paragraph 2 (Architecture &amp; Service)</label>
+              <textarea id="aboutPara2Input" class="form-control no-icon" rows="3" placeholder="Our boutique sanctuary is thoughtfully designed to embrace..."></textarea>
+            </div>
+
+            <!-- About Paragraph 3 -->
+            <div class="form-group">
+              <label class="form-label" for="aboutPara3Input">About Story: Paragraph 3 (Warm Welcome &amp; Peace)</label>
+              <textarea id="aboutPara3Input" class="form-control no-icon" rows="3" placeholder="At Heritage Ehelepola, our dedicated team ensures your every comfort..."></textarea>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
+              <button type="submit" class="btn-primary-admin" id="saveHotelInfoBtn" style="width: auto; padding: 13px 28px;">
+                <i class="fas fa-save"></i>
+                <span>Save Changes to Live Website</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           TAB 2: ROOMS & PRICING MANAGEMENT (LKR)
+           ==================================================================== -->
+      <section class="tab-panel" id="tabRooms">
+        
+        <!-- Add / Edit Room Card -->
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h3 class="card-title" id="roomFormTitle"><i class="fas fa-plus-circle"></i> Add New Room / Suite</h3>
+              <p class="card-subtitle">Manage room descriptions, photos, and live pricing in Sri Lankan Rupees (LKR).</p>
+            </div>
+          </div>
+
+          <form id="roomForm">
+            <div class="form-grid-2">
+              <!-- Room Title -->
+              <div class="form-group">
+                <label class="form-label" for="roomTitleInput">Room / Suite Title *</label>
+                <input type="text" id="roomTitleInput" class="form-control no-icon" placeholder="e.g. Royal Heritage Suite" required>
+              </div>
+
+              <!-- Price in LKR -->
+              <div class="form-group">
+                <label class="form-label" for="roomPriceLKRInput">Price per Night (LKR) *</label>
+                <input type="number" id="roomPriceLKRInput" class="form-control no-icon" placeholder="e.g. 165000" min="0" step="500" required>
+                <small style="font-size: 0.76rem; color: var(--admin-text-muted);">Will be automatically displayed on the website as e.g. <strong>LKR 165,000 / night</strong>.</small>
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <!-- Floor Tag -->
+              <div class="form-group">
+                <label class="form-label" for="roomFloorTagInput">Floor &amp; Wing Tag</label>
+                <input type="text" id="roomFloorTagInput" class="form-control no-icon" placeholder="e.g. 1st Floor • Royal Wing">
+              </div>
+
+              <!-- Bed Type -->
+              <div class="form-group">
+                <label class="form-label" for="roomBedTypeInput">Bed Specification</label>
+                <input type="text" id="roomBedTypeInput" class="form-control no-icon" placeholder="e.g. Dual Teak Beds / King Bed">
+              </div>
+
+              <!-- Max Guests -->
+              <div class="form-group">
+                <label class="form-label" for="roomGuestsInput">Max Occupancy</label>
+                <input type="text" id="roomGuestsInput" class="form-control no-icon" placeholder="e.g. 4 Guests">
+              </div>
+            </div>
+
+            <!-- Highlights / Amenities -->
+            <div class="form-group">
+              <label class="form-label" for="roomAmenitiesInput">Highlights &amp; Amenities (Separated by Bullet or Comma)</label>
+              <input type="text" id="roomAmenitiesInput" class="form-control no-icon" placeholder="e.g. 24/7 Butler • Mountain Balcony • Jacuzzi Bath">
+            </div>
+
+            <!-- Image Selection & Live Preview -->
+            <div class="form-grid-2">
+              <div class="image-selector-wrap">
+                <!-- Preset Dropdown -->
+                <div class="form-group">
+                  <label class="form-label" for="roomImagePresetSelect">Choose from Local Hotel Photos</label>
+                  <select id="roomImagePresetSelect" class="form-control no-icon">
+                    <option value="">-- Choose Existing Hotel Photo --</option>
+                    <option value="assets/images/royal_suite_real.jpg">Royal Suite Bedroom (Real)</option>
+                    <option value="assets/images/terrace_dining_lounge.jpg">Courtyard Terrace Dining Lounge</option>
+                    <option value="assets/images/garden_gazebo_pavilion.jpg">Heritage Garden Pavilion &amp; Cabana</option>
+                    <option value="assets/images/royal_suite_bedroom_real.jpg">Royal Suite Master Bedroom</option>
+                    <option value="assets/images/heritage_living_salon.jpg">Heritage Living Salon &amp; Gramophone</option>
+                    <option value="assets/images/hero_night_bentley_facade.jpg">Night Facade &amp; Bentley Driveway</option>
+                    <option value="assets/images/hotel_dining_hall.jpg">Teak Dining Hall</option>
+                  </select>
+                </div>
+
+                <!-- Custom Image URL -->
+                <div class="form-group">
+                  <label class="form-label" for="roomImageUrlInput">Or Enter Custom Image URL / Path</label>
+                  <input type="text" id="roomImageUrlInput" class="form-control no-icon" placeholder="assets/images/royal_suite_real.jpg or https://...">
+                </div>
+              </div>
+
+              <!-- Live Image Preview Box -->
+              <div>
+                <label class="form-label">Live Photo Preview</label>
+                <div class="image-preview-box" id="roomImagePreview">
+                  <div class="image-preview-placeholder">
+                    <i class="fas fa-image"></i>
+                    <span>Select or enter an image URL to preview</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group" style="margin-top: 14px;">
+              <label class="form-label" for="roomDescriptionInput">Room Description</label>
+              <textarea id="roomDescriptionInput" class="form-control no-icon" rows="3" placeholder="Describe the royal craftsmanship, views, and comfort..."></textarea>
+            </div>
+
+            <!-- Form Actions -->
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+              <button type="button" class="btn-secondary-admin" id="cancelEditBtn" style="display: none;">
+                <i class="fas fa-times"></i> Cancel Edit
+              </button>
+              <button type="submit" class="btn-primary-admin" id="saveRoomBtn" style="width: auto; padding: 13px 28px;">
+                <i class="fas fa-plus-circle"></i>
+                <span>Add Room to Website</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Existing Rooms List Card -->
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h3 class="card-title"><i class="fas fa-layer-group"></i> Active Rooms in Firestore</h3>
+              <p class="card-subtitle">These suites are actively rendered on the public website in real-time.</p>
+            </div>
+            <button type="button" class="btn-secondary-admin" id="seedRoomsBtn" title="Add default 3 suites to Firestore">
+              <i class="fas fa-magic"></i> Seed Default 3 Suites
+            </button>
+          </div>
+
+          <!-- Dynamic Rooms Grid -->
+          <div class="rooms-admin-grid" id="roomsAdminGrid">
+            <!-- Dynamically populated by admin.js via Firestore onSnapshot -->
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ====================================================================
+           TAB 3: FIREBASE SETUP & DEPLOYMENT GUIDE
+           ==================================================================== -->
+      <section class="tab-panel" id="tabGuide">
+        <div class="admin-card">
+          <div class="card-header-bar">
+            <div>
+              <h3 class="card-title"><i class="fas fa-book"></i> Firebase Integration Guide</h3>
+              <p class="card-subtitle">Follow these quick steps to connect your Firebase Project to this website.</p>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Create a Firebase Project</h4>
+              <p>Go to the <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer" style="color: var(--gold-dark); font-weight: 600;">Firebase Console</a> and click <strong>"Add project"</strong>. Name it e.g. <code>ahelepola-hotel</code>.</p>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Enable Email / Password Authentication</h4>
+              <p>In your Firebase project sidebar, click <strong>Build &gt; Authentication &gt; Get Started</strong>. Under the <strong>Sign-in method</strong> tab, enable <strong>Email/Password</strong> and click Save.</p>
+              <p style="margin-top: 6px;">Next, go to the <strong>Users</strong> tab and click <strong>"Add user"</strong>. Enter your desired admin email (e.g. <code>admin@ehelepolahotel.lk</code>) and a strong password. This is what you will use to log into this admin panel!</p>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Create Cloud Firestore Database</h4>
+              <p>In the sidebar, click <strong>Build &gt; Firestore Database &gt; Create database</strong>. Choose a nearby region (e.g. <code>asia-south1</code> - Mumbai/Singapore) and start in <strong>Production mode</strong> or <strong>Test mode</strong>.</p>
+              <div class="code-snippet">
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Anyone can read hotel info & rooms on the public website:
+    match /{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null; // Only logged in admins can write!
+    }
+  }
+}
+              </div>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Insert Your Configuration Keys</h4>
+              <p>In Firebase Console, click the <strong>Project settings gear (⚙️)</strong> &gt; <strong>General</strong> &gt; scroll to <strong>"Your apps"</strong> &gt; click the <strong>Web (&lt;/&gt;)</strong> icon. Copy the <code>firebaseConfig</code> object and paste it into <code style="color: var(--gold-dark); font-weight: 600;">firebase-config.js</code>.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Toast Notification Wrapper -->
+  <div class="admin-toast-wrap" id="adminToastWrap" aria-live="polite"></div>
+
+  <!-- Admin Controller Script (ES Module) -->
+  <script type="module" src="assets/js/admin.js?v=1.0"></script>
+
+</body>
+
+</html>

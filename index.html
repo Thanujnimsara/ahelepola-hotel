@@ -414,7 +414,7 @@
         </p>
       </div>
 
-      <div class="haven-rooms-grid">
+      <div class="haven-rooms-grid" id="havenRoomsGrid">
         <!-- Card 1: Royal Suite -->
         <div class="haven-room-card view-suite-details" data-suite="royal-heritage" style="cursor: pointer;" title="Click to view suite details">
           <div class="haven-room-img-wrap">
@@ -778,19 +778,19 @@
           <h4>RESORT</h4>
           <p style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 12px; line-height: 1.5;">
             <i class="fas fa-map-marker-alt" style="color: var(--sand-primary); margin-right: 6px;"></i>
-            No. 103, Pichchamalwaththa Handiya, Ehelepolawaththa, Gurudeniya, Kandy
+            <span id="footerAddress">No. 103, Pichchamalwaththa Handiya, Ehelepolawaththa, Gurudeniya, Kandy</span>
           </p>
           <p style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 6px;">
             <i class="fas fa-phone-alt" style="color: var(--sand-primary); margin-right: 6px;"></i>
-            <a href="tel:0817008000" style="color: var(--sand-light);">0817008000</a>
+            <a href="tel:0817008000" id="footerHotline" style="color: var(--sand-light);">0817008000</a>
           </p>
           <p style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 8px;">
             <i class="fas fa-mobile-alt" style="color: var(--sand-primary); margin-right: 6px;"></i>
-            <a href="tel:+94770700281" style="color: var(--sand-light);">+94 77 070 0281</a>
+            <a href="tel:+94770700281" id="footerMobile" style="color: var(--sand-light);">+94 77 070 0281</a>
           </p>
           <p style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.75);">
             <i class="fas fa-envelope" style="color: var(--sand-primary); margin-right: 6px;"></i>
-            info@ehelepolahotel.lk
+            <a href="mailto:info@ehelepolahotel.lk" id="footerEmail" style="color: var(--sand-light);">info@ehelepolahotel.lk</a>
           </p>
         </div>
 
@@ -1383,6 +1383,8 @@
     }
   })();
   </script>
+  <!-- Live Real-Time Firebase Frontend Sync -->
+  <script type="module" src="assets/js/firebase-sync.js"></script>
 </body>
 
 </html>
