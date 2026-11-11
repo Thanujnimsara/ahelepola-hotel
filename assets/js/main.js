@@ -66,7 +66,7 @@ const suitesData = {
 const videoChapters = {
   1: { title: "Resort Grounds & Sunset Pool", time: 0 },
   2: { title: "The Royal Suites & Villas", time: 45 },
-  3: { title: "Ayurvedic Sanctuary & Spa", time: 90 },
+  3: { title: "Heritage Living Lounge & Antiques", time: 90 },
   4: { title: "Kandyan Royal Gastronomy", time: 140 }
 };
 
@@ -1806,7 +1806,7 @@ function initAiConciergeChatbot() {
       </div>
       <div class="ai-msg-bubble">
         <p><strong>Ayubowan! 🙏 Welcome to Heritage Ehelepola Hotel.</strong></p>
-        <p>I am your dedicated Royal Hostess &amp; Concierge. I have full knowledge of our 6 boutique suites, royal dining, gazebos, hill-country excursions, spa, check-in, and direct bookings.</p>
+        <p>I am your dedicated Royal Hostess &amp; Concierge. I have full knowledge of our 6 boutique suites, royal dining, gazebos, hill-country excursions, check-in, and direct bookings.</p>
         <p style="font-size:0.84rem; color: rgba(255,255,255,0.7);">You can ask in <strong>English, සිංහල, or Singlish</strong>!</p>
         <div class="ai-quick-suggestions">
           <button type="button" class="ai-chip" data-query="Suites and Room Rates">🏰 Suites &amp; Rates</button>
@@ -2044,7 +2044,7 @@ function initAiConciergeChatbot() {
         Live golden hoppers (appa), royal milk rice (kiri bath), spicy lunu miris, pol sambol, tropical fruits, and pure single-origin Ceylon tea.</p>
         <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>*Halal, Vegetarian, Vegan, and Gluten-Free dining requests are gracefully accommodated.</em></p>
         <div class="ai-msg-actions">
-          <a href="https://wa.me/94637245245?text=Hello%20Concierge,%20I%20would%20like%20to%20reserve%20a%20private%20Starlight%20Gazebo%20dinner." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-utensils"></i> Reserve Gazebo Table</a>
+          <a href="https://wa.me/94770700281?text=Hello%20Concierge,%20I%20would%20like%20to%20reserve%20a%20private%20Starlight%20Gazebo%20dinner." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-utensils"></i> Reserve Gazebo Table</a>
           <a href="tel:0817008000" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call Dining Butler</a>
         </div>
       `;
@@ -2073,7 +2073,7 @@ function initAiConciergeChatbot() {
         Sunset meditation and panoramic views across Kandy's mountain basin.</p>
         <div class="ai-msg-actions">
           <button type="button" class="ai-action-btn ai-action-primary" data-action="view-experiences"><i class="fas fa-compass"></i> View Experiences</button>
-          <a href="https://wa.me/94637245245?text=Hello%20Concierge,%20I%20am%20interested%20in%20arranging%20an%20excursion." target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Inquire Excursion</a>
+          <a href="https://wa.me/94770700281?text=Hello%20Concierge,%20I%20am%20interested%20in%20arranging%20an%20excursion." target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Inquire Excursion</a>
         </div>
       `;
     }
@@ -2096,7 +2096,7 @@ function initAiConciergeChatbot() {
         • <strong>Peradeniya Botanical Gardens:</strong> 25 mins<br>
         • <strong>Colombo Airport (CMB):</strong> ~3 hours via Central Expressway (luxury airport transfers available upon request).</p>
         <div class="ai-msg-actions">
-          <a href="https://wa.me/94637245245?text=Hello%20Butler,%20please%20send%20me%20the%20Google%20Maps%20location." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-map-marked-alt"></i> Get Directions on WhatsApp</a>
+          <a href="https://wa.me/94770700281?text=Hello%20Butler,%20please%20send%20me%20the%20Google%20Maps%20location." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-map-marked-alt"></i> Get Directions on WhatsApp</a>
           <a href="tel:0817008000" class="ai-action-btn"><i class="fas fa-phone-alt"></i> Call for Assistance</a>
         </div>
       `;
@@ -2115,11 +2115,11 @@ function initAiConciergeChatbot() {
         <p>Reserving directly with us guarantees our lowest price commitment and VIP royal treatment:</p>
         <p>1. <strong>Online Engine:</strong> Click <em>'Reserve Suite'</em> below to pick your dates and suite.<br>
         2. <strong>Direct Voucher:</strong> Instant confirmation voucher with zero hidden fees.<br>
-        3. <strong>Personal Butler Booking:</strong> Chat with our butler on WhatsApp (+94 63 724 5245) for custom arrangements.</p>
+        3. <strong>Personal Butler Booking:</strong> Chat with our butler on WhatsApp (+94 77 070 0281) for custom arrangements.</p>
         <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>*Direct booking perks include a complimentary Ceylon welcome tea ceremony and early check-in priority.</em></p>
         <div class="ai-msg-actions">
           <button type="button" class="ai-action-btn ai-action-primary" data-action="open-booking"><i class="fas fa-calendar-check"></i> Open Booking Engine</button>
-          <a href="https://wa.me/94637245245?text=Hello%20Heritage%20Ehelepola%20Hotel,%20I%20would%20like%20to%20book%20a%20stay." target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
+          <a href="https://wa.me/94770700281?text=Hello%20Heritage%20Ehelepola%20Hotel,%20I%20would%20like%20to%20book%20a%20stay." target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Book via WhatsApp</a>
         </div>
       `;
     }
@@ -2138,32 +2138,32 @@ function initAiConciergeChatbot() {
         • <strong>Check-Out:</strong> Until 11:00 AM<br>
         • <strong>Front Desk &amp; Butler:</strong> 24 Hours Uninterrupted<br>
         • <strong>Royal Dining:</strong> 7:00 AM – 10:30 PM<br>
-        • <strong>Ayurvedic Spa:</strong> 8:00 AM – 8:00 PM</p>
+        • <strong>Garden Pavilions:</strong> 6:00 AM – 10:00 PM</p>
         <p style="font-size:0.82rem; color:rgba(255,255,255,0.75);"><em>Early arrival or late departure requests are happily accommodated based on suite availability.</em></p>
         <div class="ai-msg-actions">
           <button type="button" class="ai-action-btn ai-action-primary" data-action="open-booking"><i class="fas fa-calendar-check"></i> Book Stay</button>
-          <a href="https://wa.me/94637245245?text=Hello%20Butler,%20can%20I%20request%20an%20early%20check-in%20or%20late%20checkout?" target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Request Flexible Time</a>
+          <a href="https://wa.me/94770700281?text=Hello%20Butler,%20can%20I%20request%20an%20early%20check-in%20or%20late%20checkout?" target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Request Flexible Time</a>
         </div>
       `;
     }
 
-    // 7. Facilities, Spa, Butler, Wi-Fi, Parking
+    // 7. Facilities, Butler, Wi-Fi, Parking, Living Lounge
     if (
-      q.includes("facility") || q.includes("facilities") || q.includes("spa") ||
-      q.includes("ayurvedic") || q.includes("massage") || q.includes("butler") ||
+      q.includes("facility") || q.includes("facilities") || q.includes("butler") ||
       q.includes("wifi") || q.includes("internet") || q.includes("parking") ||
       q.includes("bentley") || q.includes("garage") || q.includes("pool") ||
-      q.includes("salon") || q.includes("පහසුකම්") || q.includes("ස්පා")
+      q.includes("salon") || q.includes("lounge") || q.includes("gazebo") ||
+      q.includes("පහසුකම්")
     ) {
       return `
         <p><strong>🌿 Resort Facilities &amp; Amenities:</strong></p>
         <p>• <strong>24/7 Dedicated Butler:</strong> Personalized aristocratic care round the clock.<br>
-        • <strong>Heritage Ayurvedic Spa:</strong> Traditional herbal head &amp; body therapies (8:00 AM – 8:00 PM).<br>
-        • <strong>Living Heritage Salon:</strong> Rare antique gramophone lounge and historic reading library.<br>
-        • <strong>Vintage Bentley Showcase:</strong> Classic automobile showcase in our private collector's garage.<br>
+        • <strong>Private Hillside Gazebos:</strong> Starlight candlelit dining &amp; serene outdoor garden pavilions.<br>
+        • <strong>Living Heritage Salon:</strong> Rare antique brass gramophone lounge, retro curios &amp; colonial library.<br>
+        • <strong>Vintage Bentley Showcase:</strong> Classic automobile showcase in our private collector's driveway.<br>
         • <strong>Wi-Fi &amp; Parking:</strong> High-speed fiber Wi-Fi throughout all grounds, plus secure complimentary valet parking.</p>
         <div class="ai-msg-actions">
-          <a href="https://wa.me/94637245245?text=Hello%20Spa%20Concierge,%20I%20would%20like%20to%20inquire%20about%20Ayurvedic%20treatments." target="_blank" class="ai-action-btn ai-action-primary"><i class="fas fa-spa"></i> Book Spa Treatment</a>
+          <a href="https://wa.me/94770700281?text=Hello%20Concierge,%20I%20would%20like%20to%20inquire%20about%20resort%20facilities." target="_blank" class="ai-action-btn ai-action-primary"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
           <button type="button" class="ai-action-btn" data-action="view-album"><i class="fas fa-camera"></i> Explore Facilities</button>
         </div>
       `;
@@ -2179,13 +2179,13 @@ function initAiConciergeChatbot() {
       return `
         <p><strong>📞 Official Hotel Contact Numbers:</strong></p>
         <p>• <strong>Front Desk Hotline:</strong> <a href="tel:0817008000" style="color:#d5b287; font-weight:700;">0817008000</a><br>
-        • <strong>Reservations Desk:</strong> <a href="tel:0817008000" style="color:#d5b287; font-weight:700;">0817008000</a><br>
-        • <strong>WhatsApp Butler:</strong> <a href="https://wa.me/94637245245" target="_blank" style="color:#25d366; font-weight:700;">+94 63 724 5245</a><br>
+        • <strong>Mobile / WhatsApp:</strong> <a href="tel:+94770700281" style="color:#d5b287; font-weight:700;">+94 77 070 0281</a><br>
+        • <strong>WhatsApp Direct:</strong> <a href="https://wa.me/94770700281" target="_blank" style="color:#25d366; font-weight:700;">+94 77 070 0281</a><br>
         • <strong>Official Email:</strong> info@ehelepolahotel.lk<br>
         • <strong>Address:</strong> No. 103, Pichchamalwaththa Handiya, Ehelepolawaththa, Gurudeniya, Kandy.</p>
         <div class="ai-msg-actions">
           <a href="tel:0817008000" class="ai-action-btn ai-action-primary"><i class="fas fa-phone-alt"></i> Call Front Desk</a>
-          <a href="https://wa.me/94637245245" target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Open WhatsApp</a>
+          <a href="https://wa.me/94770700281" target="_blank" class="ai-action-btn"><i class="fab fa-whatsapp"></i> Open WhatsApp</a>
         </div>
       `;
     }
@@ -2217,7 +2217,7 @@ function initAiConciergeChatbot() {
       <p>• <strong>Suites:</strong> The Royal Suite ($520), Garden Pavilion ($380), Courtyard Terrace ($320).<br>
       • <strong>Dining:</strong> Teak Dining Hall &amp; Romantic Starlight Gazebo dinner.<br>
       • <strong>Excursions:</strong> Ambuluwawa Tower, Embekke Woodcarvings, Ceylon Blue Train.<br>
-      • <strong>Direct Contact:</strong> Call <strong>0817008000</strong> or WhatsApp <strong>+94 63 724 5245</strong>.</p>
+      • <strong>Direct Contact:</strong> Call <strong>0817008000</strong> or WhatsApp <strong>+94 77 070 0281</strong>.</p>
       <p>Please select a topic below or ask your question in English or සිංහල:</p>
       <div class="ai-quick-suggestions">
         <button type="button" class="ai-chip" data-query="Suites and Room Rates">🏰 Suites &amp; Rates</button>
