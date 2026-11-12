@@ -2137,6 +2137,45 @@ button {
   color: var(--pine-dark);
 }
 
+/* Hotel Google Maps Location Link */
+.haven-maps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: rgba(200, 169, 126, 0.14);
+  border: 1px solid rgba(200, 169, 126, 0.45);
+  border-radius: 30px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.haven-maps-btn:hover {
+  background: var(--sand-primary, #c8a97e);
+  border-color: var(--sand-primary, #c8a97e);
+  color: #0b1f16;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 169, 126, 0.38);
+}
+
+.haven-maps-btn i.fa-map-marked-alt,
+.haven-maps-btn i.fa-map-marker-alt {
+  color: #e5a953;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.haven-maps-btn:hover i.fa-map-marked-alt,
+.haven-maps-btn:hover i.fa-map-marker-alt {
+  color: #0b1f16;
+}
+
 .haven-newsletter-box {
   display: flex;
   flex-direction: column;
