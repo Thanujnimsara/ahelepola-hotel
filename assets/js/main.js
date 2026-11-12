@@ -913,6 +913,7 @@ function showBookingConfirmation() {
   }
 
   const guestName = document.getElementById("bookGuestName")?.value || "Distinguished Guest";
+  const guestId = document.getElementById("bookGuestId")?.value || "";
   const guestEmail = document.getElementById("bookGuestEmail")?.value || "guest@ehelepola.com";
   const guestPhone = document.getElementById("bookGuestPhone")?.value || "+94 77 123 4567";
   const guestsVal = document.getElementById("bookGuests")?.value || "2";
@@ -928,6 +929,7 @@ function showBookingConfirmation() {
     checkin: checkinVal,
     checkout: checkoutVal,
     guestName: guestName,
+    guestId: guestId,
     guestEmail: guestEmail,
     guestPhone: guestPhone,
     guests: guestsVal,
